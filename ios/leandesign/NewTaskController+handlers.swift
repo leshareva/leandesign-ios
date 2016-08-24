@@ -66,7 +66,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
         let taskId = postRef.key
         let status = "На оценке"
-        let toId = "DesignStudio"
+        let toId = "dmq43RNjAfNSbw7J0zR6JEU2sSO2"
         let image = attachImageView.image
         let imageName = NSUUID().UUIDString
         let imageref = FIRStorage.storage().reference().child("task_image").child(imageName)
@@ -90,12 +90,12 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                         let taskId = postRef.key
                         userTaskRef.updateChildValues([taskId: 1])
                         
-                        let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-tasks").child(toId)
-                        recipientUserMessagesRef.updateChildValues([taskId: 1])
+//                        let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-tasks").child(toId)
+//                        recipientUserMessagesRef.updateChildValues([taskId: 1])
                     }
                     
                 }
-                let messageRef = FIRDatabase.database().reference().child("messages")
+                let messageRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
                 let messageРostRef = messageRef.childByAutoId()
                 let messageValues = ["text": taskText, "taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId]
                 messageРostRef.updateChildValues(messageValues) { (error, ref) in
@@ -104,9 +104,9 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                         return
                     }
                     
-                    let messageTaskref = FIRDatabase.database().reference().child("task-messages").child(taskId)
-                    let messageId = messageРostRef.key
-                    messageTaskref.updateChildValues([messageId: 1])
+//                    let messageTaskref = FIRDatabase.database().reference().child("task-messages").child(taskId)
+//                    let messageId = messageРostRef.key
+//                    messageTaskref.updateChildValues([messageId: 1])
                 }
                 
                 self.sendTaskImageToChat()

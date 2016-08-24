@@ -29,33 +29,30 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
     
     func observeMessages() {
-        guard let toId = self.task?.taskId else {
+        guard let taskId = self.task?.taskId else {
             return
         }
 
-        let taskMessagesRef = FIRDatabase.database().reference().child("task-messages").child(toId)
+        let taskMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
         taskMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            
-            let messagesRef = FIRDatabase.database().reference().child("messages").child(snapshot.key)
-            
-            messagesRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 
                 guard let dictionary = snapshot.value as? [String: AnyObject] else {
                     return
                 }
                 
                 self.messages.append(Message(dictionary: dictionary))
+                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.collectionView?.reloadData()
+                    
                     //scroll to the last index
-                  
                     let indexPath = NSIndexPath(forItem: self.messages.count-1, inSection: 0)
                     self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
                   
                 })
                 
                 }, withCancelBlock: nil)
-            }, withCancelBlock: nil)
+        
     }
     
     let taskDisctriptionView: UITextView = {
@@ -203,10 +200,10 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
     private func sendMessageWithProperties(properties: [String: AnyObject]) {
         let taskId = task?.taskId as String!
-        let ref = FIRDatabase.database().reference().child("messages")
+        let ref = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
         let fromId = Digits.sharedInstance().session()?.userID as String!
         let childRef = ref.childByAutoId()
-        let toId = "763647743587999744"
+        let toId = "dmq43RNjAfNSbw7J0zR6JEU2sSO2"
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
         var values: [String: AnyObject] = ["taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId]
         
