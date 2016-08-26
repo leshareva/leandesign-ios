@@ -48,6 +48,12 @@
   <!-- App Styling -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="styles/main.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  
+  
+  
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -58,6 +64,7 @@
       <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
         <h3><i class="material-icons">chat_bubble_outline</i> Friendly Chat</h3>
       </div>
+      
       <div id="user-container">
         <div hidden id="user-pic"></div>
         <div hidden id="user-name"></div>
@@ -69,35 +76,43 @@
         </button>
       </div>
     </div>
+    
   </header>
 
    	<style>
 			.tasksList {background-color: #ccc; margin: 10px;}
 			.tasksList div {margin: 10px; background-color: #fff0a6;}
 			.status-style {background-color: #ffa6a6; font-size: 9px;}
-			
-			
-			.taskContainer { background-color: #f6f6f6;  width: 260px; padding: 10px 20px 20px 20px; margin: 10px 10px;}
+			.taskContainer { background-color: #fff;  width:100%; padding: 10px 40px 20px 20px; margin: 2px 10px; position: relative;}
 			.taskContainer:hover { background-color: #f2f2f2;}
 			.statusLabel {font-size: 12px; color: #ccc;}
-			.btnTask { background-color: none; border: 0;}
-			.taskText {font-size: 14px; color: #000;}
+			.taskText {font-size: 14px; color: #000; user-select: none;}
+			.hyperspan { background: white; opacity: .1; position:absolute; width:100%; height:100%; left:0; top:0; z-index:1; cursor: pointer;}
+			.tasks-grid ul{margin: 0; padding: 0;}
+			.hidden {display: none;}
+			.stock-button {cursor: pointer;}
+			.get-task {width: 100px; height: 50px; background-color: blue; color: white; z-index: 2;}
+			.aboutTask__id {display: none;}
 		</style>
  
  
   <main class="mdl-layout__content mdl-color--grey-100">
 	 
-  	 <div class="mdl-cell mdl-cell--2-col mdl-grid" style="background-color: red; float: left;"> 
-
-	  	<div id="tasks"><span id="task-filler"></span></div>
-		
+  	 <div class="mdl-cell mdl-grid tasks-grid" style="float: left; width: 20%; "> 
+	  	 <div id="tasks"></div>
+	  	 <div id="stock" class="stock-button">Сток задач</div>
  	</div>	
-
-	  
-    <div id="messages-card-container" class="mdl-cell mdl-cell--6-col mdl-grid">
+ 	
+	<div id="stock-container" style="width: 50%; height: 100%; float: left; z-index: 1; display: none; background-color: red;"> 
+		<div id="all-tasks"></div>
+	</div>  
+	
+	<div id=""></div>
+	
+    <div id="messages-card-container" style="width: 50%; height: 100%; float: left;  ">
 
       <!-- Messages container -->
-      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell " style="width: 100%;   ">
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
           <div id="messages">
             <span id="message-filler"></span>
@@ -126,7 +141,16 @@
       </div>
 
     </div>
-	 
+	  <div class="mdl-cell mdl-grid" id="aboutTask" style="float: left; width: 20%; "> 
+	  	<h4 class="aboutTask__Title">Заполните опнимание задачи</h4>
+	  	<input id="" class="aboutTask__id">
+	  	<textarea id="awarnessField" rows="4" cols="50" class="aboutTask__input">
+	  		At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+	  	</textarea>
+	  	<input id="priceField" type="text" class="aboutTask__input">
+	  	<button id="btnSend" type="text" class="aboutTask__btn">Отправить</button>
+	  	
+ 	</div>	
   </main>
 </div>
 

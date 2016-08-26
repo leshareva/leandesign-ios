@@ -25,7 +25,7 @@ class TasksListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add task", style: .Plain, target: self, action: #selector(openNewTaskView))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "plus")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(openNewTaskView))
         
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Меню", style: .Plain, target: self, action: #selector(handleLogout))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "more")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(handleMore))
@@ -122,11 +122,7 @@ class TasksListController: UITableViewController {
     
 
     func fetchUserAndSetupNavBarTitle() {
-        let digits = Digits.sharedInstance()
-        guard let uid = digits.session()?.userID else {
-            //for some reasons uid = nil
-            return
-        }
+       
         
         tasks.removeAll()
         tableView.reloadData()
@@ -145,21 +141,13 @@ class TasksListController: UITableViewController {
         ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             let taskId = snapshot.key
-            let taskReference = FIRDatabase.database().reference().child("tasks").child(taskId)
+            let taskReference = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
             
-            taskReference.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            taskReference.observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
           
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     let task = Task()
                     task.setValuesForKeysWithDictionary(dictionary)
-                    
-                    
-                   
-//                        self.tasks.sortInPlace({ (task1, task2) -> Bool in
-//                            task1.timestamp?.intValue > task2.timestamp?.intValue })
-                    
-                        
-                   
                     
                     self.tasks.append(task)
                     

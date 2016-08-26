@@ -51,7 +51,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
     func addNewTask() {
         
         
-        guard let fromId = Digits.sharedInstance().session()?.userID, let task = taskTextField.text else {
+        guard let fromId = Digits.sharedInstance().session()?.userID else {
             return
         }
         
@@ -79,7 +79,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                 }
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString {
-                   let values = ["imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId]
+                    let values = ["imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": "0", "timeState": "0"]
                     postRef.setValue(values)
                     postRef.updateChildValues(values) { (error, ref) in
                         if error != nil {
