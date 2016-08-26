@@ -85,6 +85,7 @@ function FriendlyChat() {
 			this.loadMessages(taskId); 
 	}.bind(this));
 	
+	
 }
 
 
@@ -100,31 +101,33 @@ FriendlyChat.prototype.initFirebase = function() {
   this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
-// const taskStatusLabel = document.getElementById('taskStatus');
+
  
-/*
-FriendlyChat.prototype.showAwarenessSheet = function(taskId) {
-	this.taskIdLabel.setAttribute("id", ); 
-	this.sendAwarness(taskId)	
-};
-*/
  
-FriendlyChat.prototype.sendAwarness = function(id) {
-  var awarness = this.awarnessField.value;
-  var price  = this.priceField.value;
-  var designerId = this.auth.currentUser.uid;
-   	
-  this.btnSend.addEventListener('click', function() {
-	var postData = {
-	    awarness: awarness,
+ 
+//слушаем клик на кнопку отправить 
+this.btnSend.addEventListener('click', e => {
+
+var div = document.querySelector('.aboutTask__id').getAttribute("id");
+
+var awareness = awarnessField.value;
+var price = priceField.value;
+
+var postData = {
+	    awarness: awareness,
 	    price: price,
-	    toId: designerId
-	  }; 
-	//п
+	    // toId: designerId
+	  };    	
+   	
+return firebase.database().ref('tasks').child(div).update(postData);
+  
+ });
+ 
+ 
+FriendlyChat.prototype.sendAwarness  = function(id) {
+	var div = document.querySelector('.aboutTask__id');
+	div.setAttribute("id", id);
 	console.log(id);
-	  
-  });
- 	
 }; 
  
  
