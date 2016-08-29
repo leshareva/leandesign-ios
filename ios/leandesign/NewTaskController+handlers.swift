@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import DigitsKit
-import DKImagePickerController
+
 
 extension NewTaskController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -66,7 +66,11 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
         let taskId = postRef.key
         let status = "На оценке"
-        let toId = "dmq43RNjAfNSbw7J0zR6JEU2sSO2"
+        let toId = "designStudio"
+        let phone = Digits.sharedInstance().session()?.phoneNumber
+        let company = "Вот такие пироги"
+        let price = "0"
+        let timeState = "0"
         let image = attachImageView.image
         let imageName = NSUUID().UUIDString
         let imageref = FIRStorage.storage().reference().child("task_image").child(imageName)
@@ -79,7 +83,8 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                 }
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString {
-                    let values = ["imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": "0", "timeState": "0"]
+                    let values : [String : AnyObject] = ["imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": "0.5" ]
+                    
                     postRef.setValue(values)
                     postRef.updateChildValues(values) { (error, ref) in
                         if error != nil {

@@ -1,3 +1,17 @@
+html, body {margin: 0; padding: 0;}
+
+.header {background-color: #1364f0; color: #fff; display: flex; align-items: center;}
+.header__button {}
+.header__side {display: flex; align-items: center;}
+.header__side_align_right { margin-left: auto; }
+
+
+.main { display: flex; height: 100%;}
+.main__side_left {width: 20%; background-color: red;}
+.main__side_right {width: 50%; background-color: blue;}
+
+
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -26,7 +40,7 @@ main, #messages-card {
   padding-bottom: 0;
 }
 #messages-card {
-  margin-top: 15px;
+
 }
 .mdl-layout__header-row span {
   margin-left: 15px;
@@ -199,4 +213,3 @@ main, #messages-card {
   top: -1px;
   margin-right: 5px;
 }
-

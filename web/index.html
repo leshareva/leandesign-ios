@@ -47,24 +47,34 @@
 
   <!-- App Styling -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/main2.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-  
-  
-  
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="bower_components/polymerfire/polymerfire.html">
 </head>
 <body>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+<div id="signUp-container" class="signUp">
+	<div  class="signUp__form">	
+		<input id="txtEmail" type="text" placeholder="Email"><br />
+		<input id="txtPassword" type="password" placeholder="Password"><br />
+		<button id="btnLogin" class="btn btn-action">Войти</button>
+		 <button id="btnSignUp" class="btn btn-action">Регистрация</button>
+	</div>
+</div>	
+	
+<div id="chatRoom" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
   <!-- Header section containing logo -->
-  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <h3><i class="material-icons">chat_bubble_outline</i> Friendly Chat</h3>
+  <div class="header">
+   
+      <div class="logo">
+        <h3><i class="material-icons">chat_bubble_outline</i> Лин-дизайн</h3>
       </div>
       
+	  <div id="openStock" class="stock-button">Сток задач</div>
+	  
       <div id="user-container">
         <div hidden id="user-pic"></div>
         <div hidden id="user-name"></div>
@@ -75,44 +85,103 @@
           <i class="material-icons">account_circle</i>Sign-in with Google
         </button>
       </div>
-    </div>
+ 
     
-  </header>
+    
+  </div>
 
-   	<style>
+   	<style>	
+	   	
+	   	button {
+		   	border: none;
+	   	}
+	   		.btn {padding: 5px 10px; border-radius: 2px; background-color: #fff; color: #1c82ff; font-size: 15px; }
+	   		
+	   		.signUp__form {width: 300px; height: 200px; margin: auto; align-items: center; top: 40%; position: relative; }
+	   		.signUp {width: 100%; height: 100%; background-color: #1f8bff; margin: 0em; left: 0em; top: 0em; z-index: 2; position: absolute;}
+	   		ul {list-style: none;}
 			.tasksList {background-color: #ccc; margin: 10px;}
 			.tasksList div {margin: 10px; background-color: #fff0a6;}
 			.status-style {background-color: #ffa6a6; font-size: 9px;}
-			.taskContainer { background-color: #fff;  width:100%; padding: 10px 40px 20px 20px; margin: 2px 10px; position: relative;}
-			.taskContainer:hover { background-color: #f2f2f2;}
-			.statusLabel {font-size: 12px; color: #ccc;}
-			.taskText {font-size: 14px; color: #000; user-select: none;}
-			.hyperspan { background: white; opacity: .1; position:absolute; width:100%; height:100%; left:0; top:0; z-index:1; cursor: pointer;}
+			.taskContainer { background-color: #fff;  width:100%;  position: relative; }
+			.taskContainer:hover { background-color: #f6f6f6; }
+			.taskContainer_myTasks {padding: 0px 0px 20px 20px;  }
+			.taskContainer_stock {padding: 20px 20px 20px 20px; border-bottom: 1px #f7f7f7 solid; width: 40%; float: left; border-radius: 2px; margin: 10px 10px 10px 10px; 	}
+			.taskStatus {background-color: #fff9dc; width: 100%; padding: 2px 7px; line-height: 28px;}
+			.tasks__title {margin-left: 20px; margin-bottom: 0;}
+			.taskText {font-size: 14px; line-height: 21px; color: #000; user-select: none; overflow: hidden; text-overflow: ellipsis; display: -webkit-box;  -webkit-box-orient: vertical; -webkit-line-clamp: 4; max-height: 84; }
+			.hyperspan { background: white; opacity: 0; position:absolute; width:100%; height:100%; left:0; top:0; z-index:1; cursor: pointer; }
 			.tasks-grid ul{margin: 0; padding: 0;}
+			.tasks-grid ul li {margin: 0; padding: 20px 0 10px 20px; border-bottom: 1px #f7f7f7 solid;}
+			.stock-button {cursor: pointer; padding: 5px 10px; border-radius: 2px; background-color: #fff; color: #1364f0; z-index: 1;}
+			.selected-button { cursor: pointer; padding: 5px 10px; border-radius: 2px; background-color: rgba(255, 255, 255, 0.22); color: #1364f0; z-index: 1;
+				
+			}
+			.get-task { z-index: 2; 
+					    font-size: 16px;
+						line-height: 28px;
+						font-family: Arial,Helvetica,sans-serif;
+					    position: relative;
+					    display: inline-block;
+					    margin: 0;
+					    padding: 0 15px 0 15px;
+					    -webkit-user-select: none;
+					    -ms-user-select: none;
+					    user-select: none;
+					    color: #fff;
+					    border: 0;
+					    border-radius: 3px;
+					    outline: 0;
+					    background: rgba(13, 114, 255, 1);
+					    text-align: center;
+					    white-space: nowrap;
+					    -webkit-tap-highlight-color: rgba(0,0,0,0);
+					    
+					    }
+			.get-task:hover {
+				background: rgba(20, 106, 225, 1);
+			}
+			
+			.aboutTask__inArchive {display: none;}
 			.hidden {display: none;}
-			.stock-button {cursor: pointer;}
-			.get-task {width: 100px; height: 50px; background-color: blue; color: white; z-index: 2;}
-			.aboutTask__id {display: none;}
+			.taskStock {background-color: #fff; border: 1px #ccc solid: }
+			.taskStock__title {text-align: center;}
+			.aboutTask__id {padding: 20px 90px 20px 40px;}
+			
+			.logo {margin-right: 60px;}
+			.stock-button {}
+
+
+			.active {
+				border: 3px rgba(13, 114, 255, 1) solid;
+			}
+			
+			.aboutTask__error {background-color: #ff6e47; color: #fff;}
+		
+			
 		</style>
  
  
-  <main class="mdl-layout__content mdl-color--grey-100">
+  <main class="mdl-layout__content" style="display: flex;">
 	 
-  	 <div class="mdl-cell mdl-grid tasks-grid" style="float: left; width: 20%; "> 
-	  	 <div id="tasks"></div>
-	  	 <div id="stock" class="stock-button">Сток задач</div>
+  	 <div class="tasks-grid" style="float: left; width: 350px; "> 
+	  	 <h4 class="tasks__title">Мои задачи</h4>
+	  	 <ul id="tasks" class="myTasks"></ul>
+	  	 <button id="sumTasks">Посчитать</button>
  	</div>	
  	
-	<div id="stock-container" style="width: 50%; height: 100%; float: left; z-index: 1; display: none; background-color: red;"> 
+	
+    <div id="messages-card-container" style=" width: 60%; height: 100%; float: left; display: block; padding-left: 20px;">
+
+	<div id="stock-container" class="taskStock mdl-shadow--2dp mdl-cell" style="display: none; padding: 5px 0 0 20px; width: 100%; min-width: 400px; height: 100%; "> 
+		<h2 class="taskStock__title">Новые задачи</h2>
 		<div id="all-tasks"></div>
+		
 	</div>  
 	
-	<div id=""></div>
-	
-    <div id="messages-card-container" style="width: 50%; height: 100%; float: left;  ">
 
       <!-- Messages container -->
-      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell " style="width: 100%;   ">
+      <div id="messages-card" class="mdl-shadow--2dp mdl-card mdl-cell " style="width: 100%; min-width: 400px;">
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
           <div id="messages">
             <span id="message-filler"></span>
@@ -141,18 +210,45 @@
       </div>
 
     </div>
-	  <div class="mdl-cell mdl-grid" id="aboutTask" style="float: left; width: 20%; "> 
-	  	<h4 class="aboutTask__Title">Заполните опнимание задачи</h4>
-	  	<input id="" class="aboutTask__id">
-	  	<textarea id="awarnessField" rows="4" cols="50" class="aboutTask__input">
-	  		At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-	  	</textarea>
-	  	<input id="priceField" type="text" class="aboutTask__input">
-	  	<button id="btnSend" type="text" class="aboutTask__btn">Отправить</button>
-	  	
+    
+    
+    
+	  <div class="aboutTask__id" id="" style="float: left; width: 20%; display: none;"> 
+		 <div class="aboutTask__clienInformation">
+			 <h4 class="aboutTask__Title">Информация о заказчике</h4>
+			 <ul>
+				 <li id="companyName"></li>
+				 <li id="phoneNumber"></li>
+			 </ul>
+			 
+		 </div>
+		 
+		<div class="aboutTask__awarenessForm">
+		  	<h4 class="aboutTask__Title">Заполните понимание задачи</h4>
+		  	
+		  	<textarea id="awarnessField" rows="4" cols="50" class="aboutTask__input" placeholder="Опишите то, как вы поняли задачу "></textarea><br />
+		  	<label for="priceField">Оценка в часах</label><input id="priceField" type="text" class="aboutTask__input"><br /><br />
+		  	<button id="btnSend" type="text" class="btn aboutTask__btn">Отправить</button>
+		  	<div class="aboutTask__error"></div>
+		</div>
+		
+		<div class="aboutTask__awarenessInWork">
+			<h4 class="aboutTask__Title">Задача в работе</h4>
+			<div class="aboutTask__awarenessText"></div>
+			<button  id="editAwareness" class="">Редатировать</button>
+			<button  id="taskComplete" class="">Задача закрыта</button>
+		</div>
+		
+		<div class="aboutTask__inArchive">
+			<h4 class="aboutTask__inArchive__Title">Задача закрыта</h4>
+		</div>
+		
  	</div>	
   </main>
 </div>
+
+
+
 
 <!-- Firebase -->
 

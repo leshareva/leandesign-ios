@@ -22,6 +22,10 @@ class Task: NSObject {
     var imageUrl: String?
     var price: NSNumber?
     var timeState: NSNumber?
+    var phone: String?
+    var awareness: String?
+    var company: String?
+    var rate: String?
     
     func chatPartnerId() -> String? {
         return fromId == Digits.sharedInstance().session()?.userID ? toId : fromId

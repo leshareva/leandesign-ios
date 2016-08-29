@@ -33,10 +33,15 @@ function FriendlyChat() {
   this.signOutButton = document.getElementById('sign-out');
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
   this.taskList = document.getElementById('tasks');
-  this.taskStockList = document.getElementById('tasksStock');
   this.taskCont = document.querySelector('#tasks');
   this.messageListClear = document.querySelector('#messages');
- 
+  this.btnTaskComplete = document.getElementById('taskComplete');
+  this.awarenessTextField = document.querySelector('.aboutTask__awarenessForm');	
+  this.awarenessInWork = document.querySelector('.aboutTask__awarenessInWork');
+  this.awarenessTextLabel = document.querySelector('.aboutTask__awarenessText');
+  this.companyNameLabel = document.getElementById('companyName');
+  this.phoneLabel = document.getElementById('phoneNumber');
+  this.sumButton = document.getElementById('sumTasks');
  
   //awarness
   this.taskIdLabel = document.getElementsByClassName('aboutTask__id');
@@ -44,17 +49,17 @@ function FriendlyChat() {
   this.priceField = document.getElementById('priceField');
   this.btnSend = document.getElementById('btnSend');
  
-  this.chatContainer = document.getElementById('messages-card-container');
+  this.chatContainer = document.getElementById('messages-card');
   
   //sctoks controllers
-  this.stockButton = document.getElementById('stock');
+  this.stockButton = document.getElementById('openStock');
   this.allTasks = document.getElementById('all-tasks');
   this.stockContainer = document.getElementById('stock-container');
   
   // Saves message on form submit.
   this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-  this.signOutButton.addEventListener('click', this.signOut.bind(this));
-  this.signInButton.addEventListener('click', this.signIn.bind(this));
+ this.signOutButton.addEventListener('click', this.signOut.bind(this));
+ this.signInButton.addEventListener('click', this.signIn.bind(this));
 
   // Toggle for the button.
   var buttonTogglingHandler = this.toggleButton.bind(this);
@@ -64,88 +69,172 @@ function FriendlyChat() {
     this.openStock();
   }.bind(this));
 
-
-
+  //Gets signup controls
+  this.txtEmail = document.getElementById('txtEmail');
+  this.txtPassword = document.getElementById('txtPassword');
+  this.btnLogin = document.getElementById('btnLogin');
+  this.btnSignUp = document.getElementById('btnSignUp');
+  this.btnLogOut = document.getElementById('btnLogOut');
   
 
-  // Events for image upload.
-  this.submitImageButton.addEventListener('click', function() {
-    this.mediaCapture.click();
-  }.bind(this));
-  this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
+    //Login event
+   this.btnLogin.addEventListener('click', this.signIn.bind(this));
+   //SignUp event
+   this.btnSignUp.addEventListener('click', this.signUp.bind(this));   
+   this.initFirebase();
+   
+   
+	// Events for image upload.
+	this.submitImageButton.addEventListener('click', function() {
+	this.mediaCapture.click();
+	}.bind(this));
+	this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
 
-  this.initFirebase();
+	
   
-  this.taskCont.addEventListener("click", function(event) {
-	 		event.stopPropagation();
-			var taskId = event.target.id;
-			this.messageListClear.innerHTML = '';
-			this.closeStock();
-			this.sendAwarness(taskId);
-			this.loadMessages(taskId); 
+	//обработчик калика на задачу в чате
+	this.taskCont.addEventListener("click", function(event) {
+	//получаем id карточки задачи  
+	var taskId = event.target.id;
+	
+	//очищаем содержимое чата от предыдущей задачи
+	this.messageListClear.innerHTML = '';
+	
+	this.sendTaskIdToElementId(taskId);
+	this.loadMessages(taskId); 
+	this.closeStock();
+	this.showAwareness(taskId);
 	}.bind(this));
 	
+
+ 
+ 
+	//Отправляем понимание задачи клиенту и меняем стату задачи 
+	this.btnSend.addEventListener('click', e => {
+		//узнаем айди задачи
+		var taskId = document.querySelector('.aboutTask__id').getAttribute("id");
+		var userUid = this.auth.currentUser.uid;
+		var timing = this.priceField.value;
+		var awareness = this.awarnessField.value;
+		var container = document.querySelector('.aboutTask__error');
+		if (timing.length == "") {
+			container.textContent = 'Оцените задачу в часах';
+		} else {
+				var userRef = firebase.database().ref('users').child(userUid);
+				userRef.on('value', a =>  { 
+				
+				var userRate = a.val().rate;
+				var price = timing * userRate * 2000 * 0.5;
+				var messageToChat ='Cогласуйте, пожалуйста, задание на работу:\n' + awareness + '\n\nСтоимость работ: '  + price + ' рублей\n\nСрок: ' + timing + ' часа';
+				var currentUser = this.auth.currentUser;
+				console.log(messageToChat)
+				//упаковывем массив для передачи в БД
+				var postData = { awarness: awareness, price: price, status: "В работе"};    	  
+			  
+				//изменяем статус задачи и стоимость
+				this.database.ref('tasks').child(taskId).update(postData);
 	
-}
+	
+				
+				//Отправляем понимание в чат
+				this.database.ref('tasks').child(taskId).child('messages').push({ name: currentUser.displayName, text: messageToChat, photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'});
+			
+			}).bind(this);
+		   
+		   //скрываем форму понимания задачи
+			document.querySelector('.aboutTask__awarenessForm').style.display = 'none';
+		}
+			
+		
+	});
+	
+	
+	this.editAwareness = document.getElementById('editAwareness');	
+	this.editAwareness.addEventListener('click', e => {
+		console.log("редактировать понимание");
+		document.querySelector('.aboutTask__awarenessForm').style.display = 'block';
+		document.querySelector('.aboutTask__awarenessInWork').style.display = 'none';
+		document.querySelector('.aboutTask__inArchive').style.display = 'none';
+	});
+	
+	//закрываем задачу
+	this.btnTaskComplete.addEventListener('click', e => {
+	console.log("Задача закрыта");
+	//узнаем айди задачи
+	var taskId = document.querySelector('.aboutTask__id').getAttribute("id");
+	//упаковывем массив для передачи в БД
+	var postData = { status: "Сдано" }; 
+	//изменяем статус задачи и стоимость
+	this.database.ref('tasks').child(taskId).update(postData);
+	
+	document.querySelector('.aboutTask__inArchive').style.display = 'block';
+	document.querySelector('.aboutTask__awarenessForm').style.display = 'none';
+	document.querySelector('.aboutTask__awarenessInWork').style.display = 'none';
+	
+	document.getElementById(taskId).style.display = 'none';
+	});
+	
+};
 
 
 
-// Sets up shortcuts to Firebase features and initiate firebase auth.
+FriendlyChat.prototype.sendAwareness = function(userUid, taskId, userRate) {
+				var taskRef = firebase.database().ref('tasks').child(taskId);
+				taskRef.on('value', snap => { 
+					var taskRate = snap.val().rate; 
+
+				});						
+};
+
 // Sets up shortcuts to Firebase features and initiate firebase auth.
 FriendlyChat.prototype.initFirebase = function() {
   // Shortcuts to Firebase SDK features.
   this.auth = firebase.auth();
   this.database = firebase.database();
   this.storage = firebase.storage();
-  // Initiates Firebase auth and listen to auth state changes.
-  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+  this.email = this.txtEmail.value;
+  
+   this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
 
- 
- 
- 
-//слушаем клик на кнопку отправить 
-this.btnSend.addEventListener('click', e => {
 
-var div = document.querySelector('.aboutTask__id').getAttribute("id");
-
-var awareness = awarnessField.value;
-var price = priceField.value;
-
-var postData = {
-	    awarness: awareness,
-	    price: price,
-	    // toId: designerId
-	  };    	
-   	
-return firebase.database().ref('tasks').child(div).update(postData);
-  
- });
  
- 
-FriendlyChat.prototype.sendAwarness  = function(id) {
-	var div = document.querySelector('.aboutTask__id');
-	div.setAttribute("id", id);
-	console.log(id);
+FriendlyChat.prototype.sendTaskIdToElementId  = function(id) {
+		var div = document.querySelector('.aboutTask__id');
+		div.style.display = 'block';
+		div.setAttribute("id", id);	
 }; 
  
+		 
  
 //open stock-window
-FriendlyChat.prototype.openStock = function() {
-	
-	if(this.chatContainer.style.display == 'block') {
+FriendlyChat.prototype.openStock = function() {			
+	var div = document.querySelector('.aboutTask__id');
+
+	if(this.stockContainer.style.display == 'none') {
           this.chatContainer.style.display = 'none';
-          this.stockContainer.style.display = 'block';
+          this.stockContainer.style.display = 'block';  
+          div.style.display = 'none';   
        } else {
+	       this.stockButton.removeClass('stock-button'); 
+	      this.stockButton.addClass('selected-button');
+	       
           this.chatContainer.style.display = 'block';
-          this.stockContainer.style.display = 'none';      
+          this.stockContainer.style.display = 'none';          
+          div.style.display = 'block';
 	};
-// 	this.chatContainer = document.getElementById('messages-card-container');
 } 
+
+
+
+	
+
+
 
 //open stock-window
 FriendlyChat.prototype.closeStock = function() {
+
 	if(this.chatContainer.style.display == 'none') {
           this.chatContainer.style.display = 'block';
           this.stockContainer.style.display = 'none';
@@ -159,7 +248,8 @@ FriendlyChat.prototype.loadAllTasks = function() {
     var val = data.val();
     this.displayAllTasks(data.key, val.taskId, val.text, val.status, val.imageUrl, val.toId);
   }.bind(this);
-	this.tasksRef.on('child_added', setTask);
+	this.tasksRef.orderByChild("toId").equalTo('designStudio').on('child_added', setTask);
+	
 }
 
 
@@ -170,33 +260,31 @@ FriendlyChat.prototype.displayAllTasks = function(key, toId, text, status, image
 		div.querySelector('.get-task').setAttribute("id", key);
 	  	this.allTasks.appendChild(div);	 
 	  	div.querySelector('.taskText').textContent = text;
-	  	div.querySelector('.taskStatus').textContent = status;
 	  	
-	  		  	 
+	  	div.querySelector('.get-task').addEventListener('click', a => {
+	  	
+		var id = this.auth.currentUser.uid
+		
+		// this.taskId = event.target.id;
+		console.log(key);
+		var postData = {
+		    status: "На оценке",
+		    price: "0",
+		    toId: id
+		  };
+		    
+		this.database.ref('tasks').child(key).update(postData); 
+		div.style.display = 'none';
+	
+	});	
+	if(this.chatContainer.style.display == 'none') {
+	         this.chatContainer.style.display = 'block';
+	         this.stockContainer.style.display = 'none';
+	       }  	 
  };	
 
 
 
-
-//Меняем стутс задачи и назначаем ее не дизайнера
-function changeTaskStatus() {
-	var taskId = event.target.id;
-	var postData = {
-	    status: "На оценке",
-	    price: "2000",
-	  };
-	
-	//скрываем сток задач и открываем чат
-	var stockContainer = document.getElementById('stock-container');
-	var	chatContainer = document.getElementById('messages-card-container');
-	
-	if(chatContainer.style.display == 'none') {
-         chatContainer.style.display = 'block';
-         stockContainer.style.display = 'none';
-       }
-       
-	return firebase.database().ref().child('tasks').child(taskId).update(postData); 
-};
 
 // Loads chat messages history and listens for upcoming ones.
 FriendlyChat.prototype.loadTasks = function() {
@@ -209,28 +297,22 @@ FriendlyChat.prototype.loadTasks = function() {
   var setTask = function(data) {
     var val = data.val();
     this.displayTasks(data.key, val.taskId, val.text, val.status, val.imageUrl, val.toId);
-   
+ 
   }.bind(this);
   this.tasksRef.orderByChild("toId").equalTo(designerId).on('child_added', setTask);
-//  this.tasksRef.orderByChild("toId").equalTo(designerId).limitToLast(3).on('child_changed', setTask);
-//   this.tasksRef.limitToLast(12).on('child_changed', setTask); 
+  
 };
 
 
 // Template for stock-messages.
 FriendlyChat.STOCK_TASK_TEMPLATE =
-   '<div class="taskContainer">' +
-      '<div class="taskText"></div>' +
-      '<div class="taskStatus"></div>' +
-      '<div class="get-task" onclick="changeTaskStatus()">Взять задачу</div>'+	    
+   '<div class="taskContainer taskContainer_stock mdl-shadow--2dp">' +
+      '<div class="taskText" style="font-size: 14px; line-height: 22px; margin-bottom: 14px;"></div>' +
+      '<button class="get-task">Взять задачу</buttom>' +
     '</div>';
 
 
 
-
-
-
- 
 
 // Loads chat messages history and listens for upcoming ones.
 FriendlyChat.prototype.loadMessages = function(taskId) {
@@ -245,31 +327,32 @@ FriendlyChat.prototype.loadMessages = function(taskId) {
     var val = data.val();
     this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
   }.bind(this);
-  this.messagesRef.limitToLast(12).on('child_added', setMessage);
- //  this.messagesRef.limitToLast(12).on('child_changed', setMessage); 
- 	
 };
 
 
 
-FriendlyChat.prototype.displayTasks = function(key, toId, text, status, imageUrl)  {
-		var container = document.createElement("div");
+FriendlyChat.prototype.displayTasks = function(key, toId, text, status, imageUrl, company, phone)  {
+		var container = document.createElement("li");
+		if (status === "Сдано") {
+			container.style.display = "none";
+		} else {
 		container.innerHTML = FriendlyChat.TASK_TEMPLATE;
-		var div = container.firstChild;
-		div.querySelector('.hyperspan').setAttribute("id", key);
-	  	this.taskList.appendChild(div);	 
-	  	div.querySelector('.taskText').textContent = text;
-	  	div.querySelector('.taskStatus').textContent = status;
-	  		  	 
+		var li = container.firstChild;
+		li.querySelector('.hyperspan').setAttribute("id", key);
+	  	this.taskList.appendChild(li);	 
+	  	li.querySelector('.taskText').textContent = text;
+	  	li.querySelector('.taskStatus').textContent = status;
+
+	  	}	  	 
  };	
 
 // Template for tasks.
 FriendlyChat.TASK_TEMPLATE =
-    '<div class="taskContainer">' +
+    '<li class="taskContainer taskContainer__myTasks">' +
       '<div class="taskText"></div>' +
-      '<div class="taskStatus"></div>' +
-       '<span class="hyperspan"></span>' +
-    '</div>';
+      '<span class="taskStatus"></span>' +
+       '<span class="hyperspan" ></span>' +
+    '</li>';
 
 
 // Saves a new message on the Firebase DB.
@@ -350,50 +433,101 @@ FriendlyChat.prototype.saveImageMessage = function(event) {
   }
 };
 
+
 // Signs-in Friendly Chat.
 FriendlyChat.prototype.signIn = function() {
   // Sign in Firebase using popup auth and Google as the identity provider.
-  var provider = new firebase.auth.GoogleAuthProvider();
-  this.auth.signInWithPopup(provider);
+ 	var email = this.txtEmail.value;
+	   var pass = this.txtPassword.value;
+	  //Sign in 
+	  firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+	  // Handle Errors here.
+	  console.log(error.code);
+	  console.log(error.message);
+  // ...
+	});
+
 };
+
+
 
 // Signs-out of Friendly Chat.
 FriendlyChat.prototype.signOut = function() {
   // Sign out of Firebase.
   this.auth.signOut();
+  location.reload();
 };
+
+// Signs-out of Friendly Chat.
+FriendlyChat.prototype.signUp = function() {
+	var email = this.txtEmail.value;
+	var pass = this.txtPassword.value;
+
+	  firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  console.log(error.message);
+		  // ...
+		}); 
+	
+};
+
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 FriendlyChat.prototype.onAuthStateChanged = function(user) {
   if (user) { // User is signed in!
-    // Get profile pic and user's name from the Firebase user object.
-    var profilePicUrl = user.photoURL; // Only change these two lines!
-    var userName = user.displayName;   // Only change these two lines!
+		
+		var phone = "123456";
+		var rate = "0.25";
 
-    // Set the user's profile pic and name.
-    this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
-    this.userName.textContent = userName;
+		var upload = {
+		id: user.uid,
+		email: user.email,
+		phone: phone,
+		rate: rate
+		};
+		
+		firebase.database().ref('users').child(user.uid).set(upload);
 
-    // Show user's profile and sign-out button.
-    this.userName.removeAttribute('hidden');
-    this.userPic.removeAttribute('hidden');
-    this.signOutButton.removeAttribute('hidden');
+		document.getElementById('signUp-container').classList.add('hidden');
+		document.getElementById('chatRoom').classList.remove('hidden');
+		   // Get profile pic and user's name from the Firebase user object.
+	    var profilePicUrl = user.photoURL; // Only change these two lines!
+	    var userName = user.displayName;   // Only change these two lines!
+		
+		
+	    // Set the user's profile pic and name.
+	    this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
+	    this.userName.textContent = userName;
+	
+	    // Show user's profile and sign-out button.
+	    this.userName.removeAttribute('hidden');
+	    this.userPic.removeAttribute('hidden');
+	    this.signOutButton.removeAttribute('hidden');
+	
+	    // Hide sign-in button.
+	    this.signInButton.setAttribute('hidden', 'true');
+		
+	    // We load currently existing chant messages.
+	    this.loadTasks();
+	    this.loadAllTasks();
+		  
 
-    // Hide sign-in button.
-    this.signInButton.setAttribute('hidden', 'true');
-
-    // We load currently existing chant messages.
-    this.loadTasks();
-    this.loadAllTasks();
     
   } else { // User is signed out!
     // Hide user's profile and sign-out button.
+    document.getElementById('signUp-container').classList.remove('hidden');
+    console.log('not logged in');
+	document.getElementById('chatRoom').classList.add('hidden');
+    
     this.userName.setAttribute('hidden', 'true');
     this.userPic.setAttribute('hidden', 'true');
+
     this.signOutButton.setAttribute('hidden', 'true');
 
     // Show sign-in button.
-    this.signInButton.removeAttribute('hidden');
+//     this.signInButton.removeAttribute('hidden');
+
   }
 };
 
@@ -406,6 +540,8 @@ FriendlyChat.prototype.checkSignedInWithMessage = function() {
 
   // Display a message to the user using a Toast.
   var data = {
+    
+    
     message: 'You must sign-in first',
     timeout: 2000
   };
@@ -428,8 +564,32 @@ FriendlyChat.MESSAGE_TEMPLATE =
     '</div>';
     
 
+FriendlyChat.prototype.showAwareness = function(taskId) {
+		this.taskRef = this.database.ref('tasks').child(taskId);
 
+		// Loads the last 12 messages and listen for new ones.
+	  	var setTaskInfo = function(a) {
+	    var val = a.val();
+	    
+	    this.companyNameLabel.textContent = val.company;
+		this.phoneLabel.textContent = val.phone;
+	   
+	  	//проверяем статус задачи
+	    if(val.status === "В работе"){
+			console.log("Задача в работе");
+			this.awarenessTextField.style.display = 'none';	
+			this.awarenessInWork.style.display = 'block';
+			this.awarenessTextLabel.textContent = val.awarness;	
+		} else {
+			console.log("Иначе");
+			this.awarenessTextField.style.display = 'block';
+			this.awarenessInWork.style.display = 'none';
+		};
 
+	  }.bind(this);
+	  this.taskRef.on('value', setTaskInfo);
+	
+};
 
 // A loading image URL.
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
@@ -444,7 +604,6 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     div = container.firstChild;
     div.setAttribute('id', key);
     this.messageList.appendChild(div);
-	
   }
   if (picUrl) {
     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
@@ -464,6 +623,7 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     messageElement.innerHTML = '';
     messageElement.appendChild(image);
   }
+  
   // Show the card fading-in.
   setTimeout(function() {div.classList.add('visible')}, 1);
   this.messageList.scrollTop = this.messageList.scrollHeight;

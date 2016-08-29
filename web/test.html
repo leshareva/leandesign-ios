@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+	
+<div id="signUp-container" class="signUp">
+
+<input id="txtEmail" type="text" placeholder="Email">
+<input id="txtPassword" type="password" placeholder="Password">
+<button id="btnLogout" class="btn btn-action">Выйти</button>
+<button id="btnSignUp" class="btn btn-action">Регистрация</button>
+<button id="summa" class="btn btn-action">Cумма</button>
+
+</div>	
+
+
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCxwXDT6cB7W0Ci-P-OVJxahHvZ4Me__Wk",
+    authDomain: "leandesign-4e7ec.firebaseapp.com",
+    databaseURL: "https://leandesign-4e7ec.firebaseio.com",
+    storageBucket: "leandesign-4e7ec.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script>
+	
+	//Gets signup controls
+  var txtEmail = document.getElementById('txtEmail');
+  var txtPassword = document.getElementById('txtPassword');
+  var btnLogin = document.getElementById('btnLogin');
+  var btnSignUp = document.getElementById('btnSignUp');
+  var btnLogOut = document.getElementById('btnLogout');
+	var sumButton = document.getElementById('summa');	
+	
+	
+	
+	btnSignUp.addEventListener('click', e => {
+		const email = txtEmail.value;
+		const password = txtPassword.value;
+		const auth = firebase.auth();
+		const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+		promise.catch(e => console.log(e.message));
+	});	
+	
+	btnLogOut.addEventListener('click', e => {
+		// Sign out of Firebase.
+		firebase.auth().signOut();
+	});
+	
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if(firebaseUser) {
+	
+		} else {
+			console.log('No logged in');
+		}
+		
+		});
+		
+		
+	
+	sumButton.addEventListener('click', e => {
+		
+		
+				
+		
+		
+	/*
+	var votes = [];
+		ref.on('child_added', function(snapshot) {
+		        votes.push({ price: snapshot.val().price });
+		    console.log(votes);
+		    console.log('There are '+votes.length+' votes');
+		})
+*/
+
+
+	/*
+	var regularArray = [];
+		ref.on('child_added', function(snapshot) {
+			var firebaseArray = snapshot.val();
+			for (var i = 0; i < firebaseArray.length; i++) {
+		  regularArray.push(firebaseArray[i]);
+		}
+		});
+		console.log(regularArray);
+*/
+		
+		
+				// initial data: [ {name: 'foo', counter: 1}, {name: 'bar', counter: 1}, {name: 'baz', counter: 1} ];
+			 
+			var ref = firebase.database().ref('tasks').;
+			 // sync down from server
+			 var list = [];
+			 ref.on('value', function(snap) { list = snap.val(); });
+			 console.log(list);
+			 // time to remove 'bar'!
+			 // this is the correct way to change an array
+			 list.splice(1, 1);
+			 ref.set(list);
+			 console.log(list);
+		
+		
+		
+	});
+	
+		
+	
+</script>
+
+</body>
