@@ -142,8 +142,8 @@ class TasksListController: UITableViewController {
         if digitsUID == nil {
             performSelector(#selector(handleLogout), withObject: nil, afterDelay: 0)
         } else {
-           
-          fetchUserAndSetupNavBarTitle()
+           checkUserInBase()
+          
         }
     }
     
@@ -337,6 +337,45 @@ class TasksListController: UITableViewController {
         let navController = UINavigationController(rootViewController: newTaskController)
         presentViewController(navController, animated: true, completion: nil)
 
+    }
+    
+    func checkUserInBase() {
+        guard let userId = Digits.sharedInstance().session()?.userID else {
+            return
+        }
+        
+        let phone = Digits.sharedInstance().session()?.phoneNumber
+        let email = Digits.sharedInstance().session()?.emailAddress
+        
+        let ref = FIRDatabase.database().reference()
+        let clientsReference = ref.child("clients")
+        
+        clientsReference.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            if snapshot.hasChild(userId) {
+                print("Есть такой юзер")
+                self.fetchUserAndSetupNavBarTitle()
+            } else {
+                print("Таких не знаем")
+                
+                let usersReference = ref.child("requests").child("clients").child(userId)
+                let values: [String : String] = ["id": userId, "email": email!, "phone": phone!]
+                
+                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    if err != nil {
+                        print(err)
+                        return
+                    }
+                    
+                })
+                
+                let newClientViewController = NewClientViewController()
+                let navController = UINavigationController(rootViewController: newClientViewController)
+                self.presentViewController(navController, animated: true, completion: nil)
+                
+            }
+            
+            }, withCancelBlock: nil)
     }
    
   
