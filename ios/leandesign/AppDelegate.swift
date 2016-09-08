@@ -10,7 +10,6 @@ import UIKit
 import Fabric
 import DigitsKit
 import Firebase
-import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,9 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         FIRApp.configure()
-        Fabric.with([Digits.self, Crashlytics.self])
-        // TODO: Move this to where you establish a user session
-        self.logUser()
+        Fabric.with([Digits.self])
+      
 
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -56,13 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return appearance
     }
     
-    func logUser() {
-        // TODO: Use the current user's information
-        // You can call any combination of these three methods
-        Crashlytics.sharedInstance().setUserEmail("reva@mysmaxom.com")
-        Crashlytics.sharedInstance().setUserIdentifier("12345")
-        Crashlytics.sharedInstance().setUserName("leshareva")
-    }
+   
 
 
     func applicationWillResignActive(application: UIApplication) {

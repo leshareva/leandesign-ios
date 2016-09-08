@@ -74,7 +74,7 @@ class LoginController: UIViewController {
                             return
                         }
                         let ref = FIRDatabase.database().reference()
-                        let usersReference = ref.child("users").child(session.userID)
+                        let usersReference = ref.child("clients").child(session.userID)
                         let values = ["id": session.userID, "email": session.emailAddress, "phone": session.phoneNumber, "rate": "0.5"]
                         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                             if err != nil {

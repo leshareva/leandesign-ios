@@ -9,9 +9,13 @@
 import UIKit
 import Firebase
 import DigitsKit
+import DKImagePickerController
 
-class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     let cashe = NSCache()
+    
+
+    
     
     var task: Task? {
         didSet {
@@ -139,33 +143,49 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
 
     }()
     
+    var assets: [DKAsset]?
     
     func handleUploadTap() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.allowsEditing = true
-        imagePickerController.delegate = self
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        let pickerController = DKImagePickerController()
+        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+            print("didSelectAssets")
+            print(assets[0])
+            
+            for each in assets {
+                each.fetchOriginalImage(false) {
+                    (image: UIImage?, info: [NSObject : AnyObject]?) in
+                    let imageData: NSData = UIImagePNGRepresentation(image!)!
+                    self.uploadToFirebaseStorageUsingImage(image!)
+            }
+            }
+           
+        }
+
+        self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        var selectedImageFromPicker: UIImage?
-        
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            selectedImageFromPicker = editedImage
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            
-            selectedImageFromPicker = originalImage
-        }
-        
-        if let selectedImage = selectedImageFromPicker {
-            uploadToFirebaseStorageUsingImage(selectedImage)
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+    
+    
+//    func imagePickersController(picker: ImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        var selectedImageFromPicker: UIImage?
+//        
+//        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+//            selectedImageFromPicker = editedImage
+//        } else if let originalImage =  as? UIImage {
+//            
+//            selectedImageFromPicker = originalImage
+//       
+//        
+//        if let selectedImage = selectedImageFromPicker {
+//            uploadToFirebaseStorageUsingImage(selectedImage)
+//        }
+//        
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
     
     private func uploadToFirebaseStorageUsingImage(image: UIImage) {
         let imageName = NSUUID().UUIDString
+        print(imageName)
         let ref = FIRStorage.storage().reference().child("message_image").child(imageName)
         
         if let uploadData = UIImageJPEGRepresentation(image, 0.2) {
@@ -217,7 +237,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             
             self.messageField.text = nil
             
-            let userMessagesRef = FIRDatabase.database().reference().child("task-messages").child(taskId)
+            let userMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
             let messageID = childRef.key
             userMessagesRef.updateChildValues([messageID: 1])
             

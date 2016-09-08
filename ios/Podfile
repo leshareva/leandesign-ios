@@ -4,6 +4,7 @@
 target 'leandesign' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+inhibit_all_warnings!
 
   # Pods for leandesign
 pod 'Fabric'
@@ -11,7 +12,8 @@ pod 'Digits'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
-pod 'mopub-ios-sdk'
+pod 'ImagePicker'
 pod 'DKImagePickerController'
-pod 'Crashlytics'
+pod 'PullToRefresher', '~> 1.4.0'
+
 end

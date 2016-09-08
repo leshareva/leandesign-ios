@@ -3,7 +3,6 @@ import MediaPlayer
 import Photos
 
 public protocol ImagePickerDelegate: class {
-
   func wrapperDidPress(imagePicker: ImagePickerController, images: [UIImage])
   func doneButtonDidPress(imagePicker: ImagePickerController, images: [UIImage])
   func cancelButtonDidPress(imagePicker: ImagePickerController)
@@ -331,6 +330,7 @@ extension ImagePickerController: BottomContainerViewDelegate {
   }
 
   func doneButtonDidPress() {
+    
     let images = AssetManager.resolveAssets(stack.assets)
     delegate?.doneButtonDidPress(self, images: images)
   }

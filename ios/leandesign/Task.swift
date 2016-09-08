@@ -10,22 +10,19 @@ import UIKit
 import DigitsKit
 
 class Task: NSObject {
-    
-    var fromId: String?
-//    var taskImageURL: String?
-    var text: String?
-//    var timestamp: NSNumber?
-    var toId: String?
-    var timestamp: NSNumber?
-    var status: String?
-    var taskId: String?
-    var imageUrl: String?
-    var price: NSNumber?
-    var timeState: NSNumber?
-    var phone: String?
     var awareness: String?
     var company: String?
-    var rate: String?
+    var fromId: String?
+    var imageUrl: String?
+    var phone: String?
+    var price: NSNumber?
+    var rate: NSNumber?
+    var status: String?
+    var text: String?
+    var taskId: String?
+    var timestamp: NSNumber?
+    var toId: String?
+    var timeState: NSNumber?
     
     func chatPartnerId() -> String? {
         return fromId == Digits.sharedInstance().session()?.userID ? toId : fromId

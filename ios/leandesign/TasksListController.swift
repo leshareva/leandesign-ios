@@ -9,7 +9,7 @@
 import UIKit
 import DigitsKit
 import Firebase
-
+import PullToRefresh
 
 
 
@@ -42,8 +42,35 @@ class TasksListController: UITableViewController {
         tableView.allowsMultipleSelectionDuringEditing = true
         
         checkIfUserIsLoggedIn()
-
+        setupPullToRefresh()
     }
+    
+    deinit {
+        tableView.removePullToRefresh(tableView.bottomPullToRefresh!)
+        tableView.removePullToRefresh(tableView.topPullToRefresh!)
+    }
+    
+    private func startRefreshing() {
+        tableView.startRefreshing(at: .Top)
+    }
+    
+    func setupPullToRefresh () {
+        tableView.addPullToRefresh(PullToRefresh()) { [weak self] in
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self?.tableView.endRefreshing(at: .Top)
+            }
+        }
+        
+        tableView.addPullToRefresh(PullToRefresh(position: .Bottom)) { [weak self] in
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self?.tableView.reloadData()
+                self?.tableView.endRefreshing(at: .Bottom)
+            }
+        }
+    }
+    
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -204,6 +231,8 @@ class TasksListController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
         return tasks.count
     }
     
@@ -219,6 +248,7 @@ class TasksListController: UITableViewController {
        let task = tasks[indexPath.row]
         cell.textLabel?.text = task.text
         cell.detailTextLabel?.text = task.status
+        
         
        if let taskImageUrl = task.imageUrl {
          cell.taskImageView.loadImageUsingCashWithUrlString(taskImageUrl)
