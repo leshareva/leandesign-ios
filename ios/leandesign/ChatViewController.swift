@@ -166,23 +166,6 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
     
     
-//    func imagePickersController(picker: ImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        var selectedImageFromPicker: UIImage?
-//        
-//        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-//            selectedImageFromPicker = editedImage
-//        } else if let originalImage =  as? UIImage {
-//            
-//            selectedImageFromPicker = originalImage
-//       
-//        
-//        if let selectedImage = selectedImageFromPicker {
-//            uploadToFirebaseStorageUsingImage(selectedImage)
-//        }
-//        
-//        dismissViewControllerAnimated(true, completion: nil)
-//    }
-    
     private func uploadToFirebaseStorageUsingImage(image: UIImage) {
         let imageName = NSUUID().UUIDString
         print(imageName)
@@ -237,9 +220,9 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             
             self.messageField.text = nil
             
-            let userMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
-            let messageID = childRef.key
-            userMessagesRef.updateChildValues([messageID: 1])
+//            let userMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
+//            let messageID = childRef.key
+//            userMessagesRef.updateChildValues([messageID: 1])
             
 //            let recipientUserMessagesRef = FIRDatabase.database().reference().child("task-messages").child(taskId)
 //           recipientUserMessagesRef.updateChildValues([messageID: 1])

@@ -16,6 +16,7 @@ class Task: NSObject {
     var imageUrl: String?
     var phone: String?
     var price: NSNumber?
+    var messages: AnyObject?
     var rate: NSNumber?
     var status: String?
     var text: String?

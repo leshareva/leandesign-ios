@@ -83,7 +83,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                 }
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString {
-                    let values : [String : AnyObject] = ["imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": "0.5" ]
+                    let values : [String : AnyObject] = ["awareness": "","imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": "0.5" ]
                     
                     postRef.setValue(values)
                     postRef.updateChildValues(values) { (error, ref) in
@@ -108,10 +108,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                         print(error)
                         return
                     }
-                    
-//                    let messageTaskref = FIRDatabase.database().reference().child("task-messages").child(taskId)
-//                    let messageId = messageРostRef.key
-//                    messageTaskref.updateChildValues([messageId: 1])
+                
                 }
                 
                 self.sendTaskImageToChat()

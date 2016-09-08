@@ -149,11 +149,8 @@ class TasksListController: UITableViewController {
     
 
     func fetchUserAndSetupNavBarTitle() {
-       
-        
         tasks.removeAll()
         tableView.reloadData()
-    
         observeUserMessages()
         
     }
@@ -168,15 +165,19 @@ class TasksListController: UITableViewController {
         ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             let taskId = snapshot.key
-            let taskReference = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
+           
+            let taskReference = FIRDatabase.database().reference().child("tasks").child(taskId)
             
-            taskReference.observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
-          
+            taskReference.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    print(snapshot.value)
                     let task = Task()
                     task.setValuesForKeysWithDictionary(dictionary)
                     
                     self.tasks.append(task)
+                   
+                    
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         self.tableView.reloadData()
@@ -216,8 +217,6 @@ class TasksListController: UITableViewController {
                     })
                     
                 }
-                
-                
                 
                     dispatch_async(dispatch_get_main_queue(), {
                      self.tableView.reloadData()
