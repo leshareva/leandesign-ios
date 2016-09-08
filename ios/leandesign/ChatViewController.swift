@@ -208,7 +208,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let childRef = ref.childByAutoId()
         let toId = "dmq43RNjAfNSbw7J0zR6JEU2sSO2"
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
-        var values: [String: AnyObject] = ["taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId]
+        var values: [String: AnyObject] = ["taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId, "status": "toDesigner"]
         
         properties.forEach({values[$0] = $1})
         

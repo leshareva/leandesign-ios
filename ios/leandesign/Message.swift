@@ -11,7 +11,9 @@ import Firebase
 import DigitsKit
 
 class Message: NSObject {
-    
+    var status: String?
+    var name: String?
+    var photoUrl: String?
     var taskId: String?
     var fromId: String?
     var text: String?
@@ -26,6 +28,9 @@ class Message: NSObject {
    
     init(dictionary: [String: AnyObject]) {
         super.init()
+        status = dictionary["status"] as? String
+        name = dictionary["name"] as? String
+        photoUrl = dictionary["photoUrl"] as? String
         taskId = dictionary["taskId"] as? String
         fromId = dictionary["fromId"] as? String
         text = dictionary["text"] as? String

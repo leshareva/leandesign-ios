@@ -69,8 +69,8 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         let toId = "designStudio"
         let phone = Digits.sharedInstance().session()?.phoneNumber
         let company = "Вот такие пироги"
-        let price = "0"
-        let timeState = "0"
+        let price = 0
+        let timeState = 0
         let image = attachImageView.image
         let imageName = NSUUID().UUIDString
         let imageref = FIRStorage.storage().reference().child("task_image").child(imageName)
@@ -83,7 +83,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                 }
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString {
-                    let values : [String : AnyObject] = ["awareness": "","imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": "0.5" ]
+                    let values : [String : AnyObject] = ["awareness": "","imageUrl": imageUrl, "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": 0.5]
                     
                     postRef.setValue(values)
                     postRef.updateChildValues(values) { (error, ref) in

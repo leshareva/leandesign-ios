@@ -75,13 +75,10 @@ class UserCell: UITableViewCell {
         
         addSubview(timeLabel)
         timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor).active = true
-        timeLabel.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-        timeLabel.widthAnchor.constraintEqualToConstant(80).active = true
-        timeLabel.heightAnchor.constraintEqualToConstant(40).active = true
-        
-//        taskTextView.leftAnchor.constraintEqualToAnchor(taskImageView.rightAnchor).active = true
-//        taskTextView.rightAnchor.constraintEqualToAnchor(self.rightAnchor).active = true
-//        taskTextView.heightAnchor.constraintEqualToConstant(100).active = true
+        timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 6).active = true
+        timeLabel.widthAnchor.constraintEqualToConstant(20).active = true
+        timeLabel.heightAnchor.constraintEqualToConstant(20).active = true
+
         
     }
     

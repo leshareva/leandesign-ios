@@ -171,17 +171,25 @@ class TasksListController: UITableViewController {
             taskReference.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
-                    print(snapshot.value)
+                    
+                    
                     let task = Task()
                     task.setValuesForKeysWithDictionary(dictionary)
                     
-                    self.tasks.append(task)
+                    let status = snapshot.value!["status"] as? String
+                    if status == "Сдано" {
+                        print("Задача сдана")
+                    } else {
+                         self.tasks.append(task)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.reloadData()
+                        })
+                    }
+                   
                    
                     
                     
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
+                   
                 }
                 
                 }, withCancelBlock: nil)
@@ -247,7 +255,7 @@ class TasksListController: UITableViewController {
        let task = tasks[indexPath.row]
         cell.textLabel?.text = task.text
         cell.detailTextLabel?.text = task.status
-        
+        cell.timeLabel.text = String(task.price!)
         
        if let taskImageUrl = task.imageUrl {
          cell.taskImageView.loadImageUsingCashWithUrlString(taskImageUrl)
