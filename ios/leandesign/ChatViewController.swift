@@ -147,9 +147,11 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
     func handleUploadTap() {
         let pickerController = DKImagePickerController()
+        
+        
         pickerController.didSelectAssets = { (assets: [DKAsset]) in
             print("didSelectAssets")
-            print(assets[0])
+            print(assets)
             
             for each in assets {
                 each.fetchOriginalImage(false) {

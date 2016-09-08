@@ -27,7 +27,6 @@ class TasksListController: UITableViewController {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "plus")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(openNewTaskView))
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Меню", style: .Plain, target: self, action: #selector(handleLogout))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "more")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(handleMore))
         
         tableView.registerClass(UserCell.self, forCellReuseIdentifier: cellId)
@@ -58,6 +57,7 @@ class TasksListController: UITableViewController {
         tableView.addPullToRefresh(PullToRefresh()) { [weak self] in
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self!.fetchUserAndSetupNavBarTitle()
                 self?.tableView.endRefreshing(at: .Top)
             }
         }

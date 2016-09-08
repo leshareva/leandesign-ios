@@ -51,6 +51,7 @@ class UserCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFontOfSize(12)
         label.textColor = UIColor.lightGrayColor()
+        label.textAlignment = .Right
         return label
     }()
     
@@ -74,9 +75,9 @@ class UserCell: UITableViewCell {
         
         
         addSubview(timeLabel)
-        timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor).active = true
-        timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 6).active = true
-        timeLabel.widthAnchor.constraintEqualToConstant(20).active = true
+        timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
+        timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 12).active = true
+        timeLabel.widthAnchor.constraintEqualToConstant(60).active = true
         timeLabel.heightAnchor.constraintEqualToConstant(20).active = true
 
         
