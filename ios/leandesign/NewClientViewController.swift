@@ -1,9 +1,10 @@
 import UIKit
 import Firebase
 import DigitsKit
+import Swiftstraints
 
 class NewClientViewController: UIViewController {
-
+    
     let discriptionLabel: UILabel = {
        let tv = UILabel()
         tv.text = "Расскажите о своей компании"
@@ -28,10 +29,70 @@ class NewClientViewController: UIViewController {
         return view
     }()
     
+    let nameTextLabel: UITextView = {
+        let tf = UITextView()
+        tf.selectable = false
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.text = "Имя"
+        tf.font = UIFont.systemFontOfSize(16)
+        return tf
+    }()
+    
     let nameTextField: UITextView = {
         let tf = UITextView()
         tf.selectable = true
-        tf.text = "Имя"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.font = UIFont.systemFontOfSize(16)
+        return tf
+    }()
+    
+    let firstSeparator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGrayColor()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
+    
+    let secondLabel: UITextView = {
+        let tf = UITextView()
+        tf.selectable = false
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.text = "Компания"
+        tf.font = UIFont.systemFontOfSize(16)
+        return tf
+    }()
+    
+    let secondTextField: UITextView = {
+        let tf = UITextView()
+        tf.selectable = true
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.font = UIFont.systemFontOfSize(16)
+        return tf
+    }()
+    
+    let secondSeparator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGrayColor()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
+  
+    let thirdLabel: UITextView = {
+        let tf = UITextView()
+        tf.selectable = false
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.text = "Город"
+        tf.font = UIFont.systemFontOfSize(16)
+        return tf
+    }()
+    
+    let thirdTextField: UITextView = {
+        let tf = UITextView()
+        tf.selectable = true
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.font = UIFont.systemFontOfSize(16)
         return tf
     }()
 
@@ -44,9 +105,7 @@ class NewClientViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .Plain, target: self, action: #selector(handleLogout))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .Plain, target: self, action: #selector(handleNewUser));
         
-        view.addSubview(discriptionLabel)
-        
-      
+
         
         setupInputsForLogin()
     }
@@ -71,32 +130,68 @@ class NewClientViewController: UIViewController {
         
     }
     
+    
+//    var secondLabelHeightAnchor: NSLayoutConstraint?
+//    var secondTextFieldHeightAnchor: NSLayoutConstraint?
+    
     func setupInputsForLogin() {
         
-        discriptionLabel.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 60).active = true
-        discriptionLabel.leftAnchor.constraintEqualToAnchor(view.leftAnchor, constant: 8).active = true
-        discriptionLabel.rightAnchor.constraintEqualToAnchor(view.rightAnchor, constant: -8).active = true
-        discriptionLabel.heightAnchor.constraintEqualToConstant(60).active = true
-        
+        view.addSubview(discriptionLabel)
         view.addSubview(profilePic)
-        profilePic.topAnchor.constraintEqualToAnchor(discriptionLabel.bottomAnchor, constant: 40).active = true
-        profilePic.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        profilePic.widthAnchor.constraintEqualToConstant(60).active = true
-        profilePic.heightAnchor.constraintEqualToConstant(60).active = true
-        
         view.addSubview(inputForName)
-        inputForName.topAnchor.constraintEqualToAnchor(profilePic.bottomAnchor, constant: 40).active = true
-        inputForName.leftAnchor.constraintEqualToAnchor(view.leftAnchor, constant: 8).active = true
-        inputForName.rightAnchor.constraintEqualToAnchor(view.rightAnchor, constant: -8).active = true
-        inputForName.heightAnchor.constraintEqualToConstant(40).active = true
         
+        profilePic.addConstraints(profilePic.centerXAnchor == view.centerXAnchor, profilePic.heightAnchor == 60, profilePic.widthAnchor == 60, profilePic.topAnchor == discriptionLabel.bottomAnchor)
+    
+
+        view.addConstraints("V:|-60-[\(discriptionLabel)]-20-[\(profilePic)]-20-[\(inputForName)]")
+        view.addConstraints("H:|-8-[\(inputForName)]-8-|")
+        view.addConstraints(discriptionLabel.widthAnchor == view.widthAnchor, discriptionLabel.heightAnchor == 40,
+            inputForName.heightAnchor == 140)
+        
+        inputForName.addSubview(nameTextLabel)
         inputForName.addSubview(nameTextField)
-        nameTextField.centerYAnchor.constraintEqualToAnchor(inputForName.centerYAnchor).active = true
-        nameTextField.leftAnchor.constraintEqualToAnchor(inputForName.leftAnchor, constant: 8).active = true
-        nameTextField.widthAnchor.constraintEqualToAnchor(view.rightAnchor, constant: -8).active = true
-        nameTextField.heightAnchor.constraintEqualToConstant(40).active = true
+        inputForName.addSubview(firstSeparator)
         
         
+        inputForName.addConstraints("H:|-6-[\(nameTextLabel)]-6-[\(nameTextField)]|")
+        inputForName.addConstraints("V:|[\(nameTextLabel)]|","V:|[\(nameTextField)]|")
+        inputForName.addConstraints(nameTextLabel.widthAnchor == 100, nameTextLabel.heightAnchor == inputForName.heightAnchor / 3, nameTextField.heightAnchor == inputForName.heightAnchor / 3)
+        
+        firstSeparator.topAnchor.constraintEqualToAnchor(nameTextLabel.bottomAnchor).active = true
+        firstSeparator.leftAnchor.constraintEqualToAnchor(inputForName.leftAnchor).active = true
+        firstSeparator.rightAnchor.constraintEqualToAnchor(inputForName.rightAnchor).active = true
+        firstSeparator.heightAnchor.constraintEqualToConstant(1).active = true
+        
+        
+        inputForName.addSubview(secondLabel)
+        inputForName.addSubview(secondTextField)
+        inputForName.addSubview(secondSeparator)
+        
+        
+        inputForName.addConstraints("H:|-6-[\(secondLabel)]-6-[\(secondTextField)]|")
+        secondLabel.topAnchor.constraintEqualToAnchor(firstSeparator.bottomAnchor).active = true
+        secondTextField.topAnchor.constraintEqualToAnchor(firstSeparator.bottomAnchor).active = true
+        inputForName.addConstraints(secondLabel.heightAnchor == inputForName.heightAnchor / 3, secondLabel.widthAnchor == 100, secondTextField.heightAnchor == inputForName.heightAnchor / 3)
+        
+        secondSeparator.topAnchor.constraintEqualToAnchor(secondLabel.bottomAnchor).active = true
+        secondSeparator.leftAnchor.constraintEqualToAnchor(inputForName.leftAnchor).active = true
+        secondSeparator.rightAnchor.constraintEqualToAnchor(inputForName.rightAnchor).active = true
+        secondSeparator.heightAnchor.constraintEqualToConstant(1).active = true
+        
+        inputForName.addSubview(thirdLabel)
+        inputForName.addSubview(thirdTextField)
+        
+        inputForName.addConstraints("H:|-6-[\(thirdLabel)]-6-[\(thirdTextField)]|")
+        thirdLabel.topAnchor.constraintEqualToAnchor(secondSeparator.bottomAnchor).active = true
+        thirdTextField.topAnchor.constraintEqualToAnchor(secondSeparator.bottomAnchor).active = true
+        inputForName.addConstraints(thirdLabel.heightAnchor == inputForName.heightAnchor / 3, thirdLabel.widthAnchor == 100, thirdTextField.heightAnchor == inputForName.heightAnchor / 3)
+        
+//        
+//        secondTextFieldHeightAnchor = secondTextField.heightAnchor == inputForName.heightAnchor / 3
+//        secondTextFieldHeightAnchor?.active = true
+//        secondTextField.widthAnchor.constraintEqualToConstant(100).active = true
+        
+  
     }
 
 }
