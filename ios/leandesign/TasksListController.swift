@@ -150,7 +150,9 @@ class TasksListController: UITableViewController {
 
     func fetchUserAndSetupNavBarTitle() {
         tasks.removeAll()
-        tableView.reloadData()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
         observeUserMessages()
         
     }
