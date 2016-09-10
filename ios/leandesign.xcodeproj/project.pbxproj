@@ -17,7 +17,7 @@
 		CB21C3E91D5A376B006EE0DF /* TasksListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21C3E81D5A376B006EE0DF /* TasksListController.swift */; };
 		CB21C3F11D5A3AF6006EE0DF /* NewTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21C3F01D5A3AF6006EE0DF /* NewTaskController.swift */; };
 		CB2883031D81E82F00708F11 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2883021D81E82F00708F11 /* NewClientViewController.swift */; };
-		CB29A96F1D82D4FF0044C87A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29A96E1D82D4FF0044C87A /* profileViewController.swift */; };
+		CB29A96F1D82D4FF0044C87A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29A96E1D82D4FF0044C87A /* ProfileViewController.swift */; };
 		CB40A8751D62DF9100AFF90F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40A8741D62DF9100AFF90F /* User.swift */; };
 		CB6EB6EF1D5C567100FCC905 /* NewTaskController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EB6EE1D5C567100FCC905 /* NewTaskController+handlers.swift */; };
 		CB76A6B31D5C8D82007DAFD8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB76A6B21D5C8D82007DAFD8 /* Task.swift */; };
@@ -44,7 +44,7 @@
 		CB21C3E81D5A376B006EE0DF /* TasksListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksListController.swift; sourceTree = "<group>"; };
 		CB21C3F01D5A3AF6006EE0DF /* NewTaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskController.swift; sourceTree = "<group>"; };
 		CB2883021D81E82F00708F11 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
-		CB29A96E1D82D4FF0044C87A /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		CB29A96E1D82D4FF0044C87A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB40A8741D62DF9100AFF90F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB6EB6EE1D5C567100FCC905 /* NewTaskController+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewTaskController+handlers.swift"; sourceTree = "<group>"; };
 		CB76A6B21D5C8D82007DAFD8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				CBD33B511D6406140091A391 /* ChatViewController.swift */,
 				CBDCC7061D6949820020181F /* SettingsLauncher.swift */,
 				CB2883021D81E82F00708F11 /* NewClientViewController.swift */,
-				CB29A96E1D82D4FF0044C87A /* profileViewController.swift */,
+				CB29A96E1D82D4FF0044C87A /* ProfileViewController.swift */,
 				CB1E58BC1D69AE820037FD6B /* Helpers */,
 			);
 			name = Controllers;
@@ -318,7 +318,7 @@
 				CBDCC7071D6949820020181F /* SettingsLauncher.swift in Sources */,
 				CBDCC7091D6952E10020181F /* SettingCell.swift in Sources */,
 				CB21C3D61D5A36A7006EE0DF /* AppDelegate.swift in Sources */,
-				CB29A96F1D82D4FF0044C87A /* profileViewController.swift in Sources */,
+				CB29A96F1D82D4FF0044C87A /* ProfileViewController.swift in Sources */,
 				CB21C3E91D5A376B006EE0DF /* TasksListController.swift in Sources */,
 				CBBABC2D1D61C2070032CA90 /* UserCell.swift in Sources */,
 				CB76A6B31D5C8D82007DAFD8 /* Task.swift in Sources */,
