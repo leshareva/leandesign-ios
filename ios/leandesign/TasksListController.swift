@@ -86,6 +86,13 @@ class TasksListController: UITableViewController {
       
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
+    
+    
     func showControllerForSetting(setting: Setting) {
         
         if setting.name == .Exit {

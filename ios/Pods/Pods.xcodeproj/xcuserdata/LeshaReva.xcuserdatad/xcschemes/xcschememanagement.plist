@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HanekeSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-leandesign.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3B00E171FB1FC6CDE8152D86EB5AB026</key>
+		<key>07816E07CD306E7B76A6ECFC24705E41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51AB9382ABEB7FC577E8353B5EB5BA8C</key>
+		<key>2C2B1953A91633859BF7AD238FF567A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82272E9D97FD813DA4DDC8498D517732</key>
+		<key>7793EE9BA576E5481A07B8649B91A4C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BE9E0D23E168A974A9FA6392350E3E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

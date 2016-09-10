@@ -7,166 +7,215 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00462C6955F9DBCCC0D4CDB420BBE54F /* DKCameraResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13C31450DD758DFE5A16A1962FA5D2D9 /* DKCameraResource.bundle */; };
-		010722E6B3B5BDE8F616C54DE26C4982 /* VisualFormatLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA3601AC7F7375849AB1BFD7605120 /* VisualFormatLanguage.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		01447210E8B8FBCD207A3B8D735DAB1B /* PullToRefresher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C642F84966965E69355C1142EC733FF /* PullToRefresher-dummy.m */; };
-		02A76E53464F947BE115560BCE51CF77 /* DefaultViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0022E3C248A9921FD6F0CD433AB031 /* DefaultViewAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		076CF3A56F3C1B7BE8918AB49FF76DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
-		08730FDE9DB46578B826CBB4A83E5F56 /* UIScrollView+PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C20575E0D3A02C9A501067CB72BE9B /* UIScrollView+PullToRefresh.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0B09300A25F278E08318A07DF8A23CD7 /* AxisAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E30B7DA608D1AFEE8F38F314DDC0C /* AxisAnchor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0D3986C5CC5F0571859187130EBCDE70 /* DKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EF4B85E8E49F19B71EB5A4145E1D5 /* DKAsset.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		153272309BD5BB40A7E559D508A58214 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9A2FCFB2ECE700DBF3A5C887C8A94 /* UIView+Additions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		181A5C8709318BCFF43C612526C1E098 /* DKAssetGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC18E8BEFB2F89321E02C14773A86B6 /* DKAssetGroupListVC.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1919B737373A03C87E6541A0F82EA91E /* DKImagePickerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6595949467AD0C7B88D02C65DCF919 /* DKImagePickerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E0F438C65C6CFBB40C50D8948531922 /* Pods-leandesign-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA814C35E545E933D7F3C2ACF11FC95 /* Pods-leandesign-dummy.m */; };
-		2064A7F847D1F776F1D564D1F10D5E5D /* DKAssetGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB733C89F8DC518E0742AB65CE88B5 /* DKAssetGroup.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		00462C6955F9DBCCC0D4CDB420BBE54F /* DKCameraResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26F0AD1DB91152D9FD665EB2F080DD86 /* DKCameraResource.bundle */; };
+		0D3986C5CC5F0571859187130EBCDE70 /* DKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204490B117A6CC0DD61CA5EFC96B3029 /* DKAsset.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0EE5EEFF1ADAA5D7407B89F64044BF16 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8674388382D16F1AFF7FFD633E915557 /* Format.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		112190A3152E1D0E63DE7FD2BD806F01 /* VisualFormatLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ED2305EC3CAE51730834FB5F0945D /* VisualFormatLanguage.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		181A5C8709318BCFF43C612526C1E098 /* DKAssetGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC42BEDD01350D3DFD42F025D70DD54 /* DKAssetGroupListVC.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1919B737373A03C87E6541A0F82EA91E /* DKImagePickerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1A300208C6B391B47E58DB689B330BC /* DKImagePickerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19C2562B5EFB7F2032A97E2D609F9EF6 /* Swiftstraints-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7ACC5A286B4D9BF89FF1BE13E99F6E /* Swiftstraints-dummy.m */; };
+		1DB51689978C0710EAAB9EDCBC2D59F0 /* AxisAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7068DC968293F41A3F194C235704F97A /* AxisAnchor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1DF16E1AD3ABFEC87B2B7F489E8C0631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
+		2064A7F847D1F776F1D564D1F10D5E5D /* DKAssetGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF836F3231EEA6C344939F9DEA87B10D /* DKAssetGroup.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2405B559246ED8EF872A08DA0FBA9173 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6B203C9BF3AAE728878299B5BFD3D4 /* Photos.framework */; };
-		2417E92A1DEC3C492931D742C96FB3BD /* DKImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C54F1D786FAB05ED1D30ABB3EBD6F /* DKImageResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2C91891FC7C43DC84ADA3B3A1512E7E2 /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8543DA7513544E3F95D1AA029CE474 /* NSLayoutConstraint+Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		31B300079FB91B68113B06E735E03A20 /* Swiftstraints-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90BD43CE351AB04EF59F774533556FF8 /* Swiftstraints-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3285D480F249CD1F6D105CB1E6328353 /* Swiftstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC863A3C872C3242C6C2138E9BE4B78 /* Swiftstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4298C699FE86C8F05399DE0B25C014C7 /* DefaultRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F3AD688338D1723D0576D7D5C4F91 /* DefaultRefreshView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		431A24E7375FD46084A227339A1F7D3C /* RefreshViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F01502C48980D77AEB6A4A1E3C3F2 /* RefreshViewAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4411E01D47BF393DE9EC76D1F969AC1A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA195BE335F94AC9F366C61B26E2AE63 /* State.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5D1CEC62A09C5E9E016567AA2DF17B9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
-		5E5078A5979EA3093B5FE7FF976C2171 /* Swiftstraints-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FBD10A4B82EF3E34AB732A085B292 /* Swiftstraints-dummy.m */; };
-		638F5EE2276D49C2540B62689110D5CD /* LayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFEC0F94F5C11911B8D8879A38337D /* LayoutPriority.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		658871D5A832D90EB7BF539153535E49 /* DKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A7455ED246DEAA160C798FCAE039D /* DKPopoverViewController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		74DBF54159B266697DD36CBFB1050EE0 /* DKImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F24269CFB5D6A24D579EE815D1D09 /* DKImageManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		78FAFB98511637F7574C2DE8F1C940B1 /* DKImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E8C79744C6798B29BD5734E972B5BF03 /* DKImagePickerController.bundle */; };
-		7D888BCB8E60FD93AE4B5B630BAF12CB /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0DA6BCFCFD97888DCC6875BE400 /* PullToRefresh.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		879F4B80A636DE28030BCAE464065CF2 /* Pods-leandesign-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AFD7ED6C140C6F4B4041C14DA3903A /* Pods-leandesign-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D30C0E2C17E867507ED610313E48E8C /* DKImagePickerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9C724516688325E5D0398BF663535 /* DKImagePickerController-dummy.m */; };
-		9EE271E94406796E95B14EDD98C2C3AD /* PullToRefresher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD06BFC077B00C20483CA9024100108F /* PullToRefresher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B22EAF1E5DE10581AC6AE052378E84BC /* DKImagePickerControllerDefaultCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EA37EE2F904C6606B4B2DCD82C0BA5 /* DKImagePickerControllerDefaultCamera.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2417E92A1DEC3C492931D742C96FB3BD /* DKImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D427080789D115F7B5B4DC0057CEA0D /* DKImageResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2CB734328DFDC820B1C8333A86C11672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
+		2CDC977902ABAFAC50F36A88914415BE /* UIImageView+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39484479D33B02CCC7BF18E572F3B04A /* UIImageView+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2D782AA18F8828AB57A4E871E8D3FD5B /* NSHTTPURLResponse+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9F6A6A727351EFF325B3AB42457C4 /* NSHTTPURLResponse+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2F67C9C795D43164008350926CE7C9AF /* RefreshViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2438002ADFB429D7CA23169D0B35AC /* RefreshViewAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		32855D0A1E2A5883634D6A98F96F3B29 /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48C056254F1CE8DE9CDF6950724C1A /* NetworkFetcher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		36AF4F877F0F54A3801AA1FC8DD635FC /* NSFileManager+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D7B8FAB98FF3BAC68FCDEAF600CA6 /* NSFileManager+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		40AAB876E770D3DFB8D870618EBDF2AD /* Pods-leandesign-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA814C35E545E933D7F3C2ACF11FC95 /* Pods-leandesign-dummy.m */; };
+		410D0641B813947CA53F07D75F4624CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
+		424EC958EBC2157B366BF68BC0C47103 /* NSURLResponse+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176883670AD2682CCA62D122F1017390 /* NSURLResponse+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4D006B2FDABF8DCB10EAB7AFDFE0F28F /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75910B324C82A9D34FBC6325342B3460 /* Fetcher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		57FFF6E23FD9C7DA90DF7F8DE96467D6 /* DefaultRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA95F6F2AC420C62668EDBF4ADD00D /* DefaultRefreshView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5C9D6E7B2BE28AE16215173A4534197B /* UIScrollView+PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8907FD5732C05F58A0F44C655B920 /* UIScrollView+PullToRefresh.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6366DDFE4C903F2EC6801CAC120F6CFE /* DiskFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9EBCC2A910E7F3690241EB805BC05 /* DiskFetcher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		658871D5A832D90EB7BF539153535E49 /* DKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45E66736B61E1701F05DADCAA78D83 /* DKPopoverViewController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		680048811774388FDD258595C44FB693 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F12D905946F79C1B83FC430225A8EA0 /* Fetch.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6A8478B56A2621E73794FCCD6DC32B53 /* Swiftstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BC5CF5642FEA7A677F3185DFAEF1221 /* Swiftstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C594622D83382066534B7397BC577D6 /* CryptoSwiftMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164C592697BF69ED32F5E71DE6EB89 /* CryptoSwiftMD5.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6C80AC3A6CC7091FBEAD4BDF5D7747AB /* PullToRefresher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BCDACFCB048651884B14D82D492352 /* PullToRefresher-dummy.m */; };
+		6F7562BFC51E2A8351DF0FBBFD9D8B67 /* HanekeSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4858A744701CC251E81D9ED8948FEED8 /* HanekeSwift-dummy.m */; };
+		719A404405C9EF1F616F2FF68EEF9861 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF0129B337A52D45698B80EFF590A2 /* Data.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		722C7097A4AC7A0A01C33419EE4C884C /* String+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB760EF24EE920F912C0160C7F984034 /* String+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		73EBFEA308663D6BFAA2C2012C50EFE2 /* UIButton+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5943A7028D35C5ED344D00165C4495D2 /* UIButton+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		74DBF54159B266697DD36CBFB1050EE0 /* DKImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64C42139F0E32A722E0E9C8FA7354D /* DKImageManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		76254890D3275E2F1E73E86094ADADDE /* Swiftstraints-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C87C03211B6D26D36F67AAF678C0FE3 /* Swiftstraints-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78FAFB98511637F7574C2DE8F1C940B1 /* DKImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B559D2B67026A628D44C01E3CE32035 /* DKImagePickerController.bundle */; };
+		7CEACB916CD24FE3D304DC98AD195257 /* UIView+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38641021724558CB5BC4F5B40A7D227 /* UIView+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8CB0A76BD872AE6A40B1EBF28F9543D0 /* LayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BAA80249DF733346CF668EA84E50D0 /* LayoutPriority.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8D30C0E2C17E867507ED610313E48E8C /* DKImagePickerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BEB6CF75A7817D26345D3E5967B7D9 /* DKImagePickerController-dummy.m */; };
+		967999FC0A0EB0FB869C70284E69F54F /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687A44FA1620A93C87CD3A3D2083E5F2 /* DiskCache.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97DFF4A5126452253E4F8DC07F9A905A /* UIImage+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6F88407226AEE4E7F47971F3178DF /* UIImage+Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A036456169DEB2AE4C6C85CE1F7C4B18 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304E949B2C3FD6D9F154FF2DD571E02 /* Cache.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A1F473341989817A9B5D6536AE36B231 /* PullToRefresher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A273ED6C8D8853F6D581182AFAE75E62 /* PullToRefresher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB02DD775A289B55B03F87A73525B611 /* HanekeSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AED3B2F43AA988193C65B44539D8FF /* HanekeSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE384231D86D3353CF6CC292924F98E /* DimensionAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B775AE64B8180EEDDA68976DFA5D41D /* DimensionAnchor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B11A6E44F71E94D2ED5D1A61026A6C3C /* CGSize+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEE0799A96E58BC79685D1123903E4 /* CGSize+Swift.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B22EAF1E5DE10581AC6AE052378E84BC /* DKImagePickerControllerDefaultCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92CD74D7426B5F620A39760BA03D80 /* DKImagePickerControllerDefaultCamera.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B4EA4774BC7BACD7F22147790D3D98EB /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE1FCFA0EC431A844008ECE10240A2 /* NSLayoutConstraint+Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B8684D247B77CFE596B5ECBFA6EBF2FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D933923B4BA32D1356F9C83C3EC5CDEF /* UIKit.framework */; };
+		BC4DE892B6032733EC8D40418B426181 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982B240EA2C62ECF46982B149688102 /* UIView+Additions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BC7B5AEE1D76FA0E004152BDAD2323C6 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388674C3AFC2849AACAF02F4020602C7 /* Log.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BE1DC791900DD8C70F523BC031CECA07 /* DefaultViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC426EC4E3397C9981F7BEBB1AC68C /* DefaultViewAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C58FB98F414526A05C678F56E52AC74F /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF717CD3DC86CDF85BC68C00DD2A0EC3 /* PullToRefresh.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C6B1F57671E448BA399067CEB7B4A5A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
-		C940A2304FE5A97182FDC2D2763595A8 /* DKImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F99BA1EC27DD349EB86C293E44CB9B /* DKImagePickerController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D3388DA86A0771C0B8C68F8BAF9D0D81 /* DKAssetGroupGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ACD419A40DECC325C174222B5E2691 /* DKAssetGroupGridLayout.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D5393F08AC792E355E3A0C1C15DD27A0 /* DKCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ADAB18F51568F4E9E73C488A1C7EF /* DKCamera.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DAD103238C0EDE66756052C7589C2180 /* DimensionAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78604AF59BA0903AA3DF3A812662F58 /* DimensionAnchor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E9EDF7AAE360D2A8FB034D699A6B9936 /* DKPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AB4F06AD7731C073B4A60B008A68A /* DKPermissionView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F7498311833CF849E39150C24831FE55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
-		F883162DB14DC48228FEBD366F654BDE /* DKGroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7903A119C60870BBCA605E4FE415F233 /* DKGroupDataManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FF9CE7F25B07D1398D6F2FDE06EB9C92 /* DKAssetGroupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00798BA41AC9185314B41716CB15D7 /* DKAssetGroupDetailVC.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C940A2304FE5A97182FDC2D2763595A8 /* DKImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D08168967CA704D7510ED976BDDAC30 /* DKImagePickerController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D3388DA86A0771C0B8C68F8BAF9D0D81 /* DKAssetGroupGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B755BDFBB495B42DFF1387EA287CAA /* DKAssetGroupGridLayout.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D5393F08AC792E355E3A0C1C15DD27A0 /* DKCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676BC89F44E2B4C0372565FA9DBA9C9 /* DKCamera.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E7EB6F52FF0F5563B13F3422A3177A8C /* Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A76DDA07113451E953FF7EE6F21504 /* Haneke.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E9EDF7AAE360D2A8FB034D699A6B9936 /* DKPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2893CC286C719C4C75927B05F7B2D99C /* DKPermissionView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ECC759D38E4F44B7B96B03AACE3AF75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */; };
+		EFC9F3D542E0294FBA1C0DF858074DE8 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6237E32053309E010B2650A65F1393 /* State.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F1CD18A3211EBB4099C9F600E0513862 /* Pods-leandesign-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AFD7ED6C140C6F4B4041C14DA3903A /* Pods-leandesign-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F883162DB14DC48228FEBD366F654BDE /* DKGroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5A98C62680C3F0D48B80EFA5A8EB2 /* DKGroupDataManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FF9CE7F25B07D1398D6F2FDE06EB9C92 /* DKAssetGroupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70D98D39A442FDE05333DCACEDE6A4 /* DKAssetGroupDetailVC.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1BC788520F9FFB3E9517AB0E3C7B5520 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 51AB9382ABEB7FC577E8353B5EB5BA8C;
-			remoteInfo = Swiftstraints;
-		};
-		2AD6C0721D5E131B50F77C3F61B361DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E171FB1FC6CDE8152D86EB5AB026;
-			remoteInfo = PullToRefresher;
-		};
-		655ED8752FBD6753AAF67E0D9E4AAF0B /* PBXContainerItemProxy */ = {
+		4EA8C90FAC48270BB857FAE388631003 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7116AA14740A17264FF47B18C2B67020;
 			remoteInfo = DKImagePickerController;
 		};
+		BB35B42B9A38E5AADFADD4A847813764 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C2B1953A91633859BF7AD238FF567A0;
+			remoteInfo = HanekeSwift;
+		};
+		D4B46280E31BCABE0B1DEB9C4E37F91F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7793EE9BA576E5481A07B8649B91A4C0;
+			remoteInfo = PullToRefresher;
+		};
+		E08064E16C06D6F5E994B3F3A3080B28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07816E07CD306E7B76A6ECFC24705E41;
+			remoteInfo = Swiftstraints;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A2C54F1D786FAB05ED1D30ABB3EBD6F /* DKImageResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImageResource.swift; path = DKImagePickerController/DKImageResource.swift; sourceTree = "<group>"; };
-		13C31450DD758DFE5A16A1962FA5D2D9 /* DKCameraResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DKCameraResource.bundle; path = DKCamera/DKCameraResource.bundle; sourceTree = "<group>"; };
-		183A7455ED246DEAA160C798FCAE039D /* DKPopoverViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKPopoverViewController.swift; path = DKImagePickerController/DKPopoverViewController.swift; sourceTree = "<group>"; };
-		187ADAB18F51568F4E9E73C488A1C7EF /* DKCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKCamera.swift; path = DKCamera/DKCamera.swift; sourceTree = "<group>"; };
-		1A00798BA41AC9185314B41716CB15D7 /* DKAssetGroupDetailVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupDetailVC.swift; path = DKImagePickerController/View/DKAssetGroupDetailVC.swift; sourceTree = "<group>"; };
-		1B5F5EA77C058A5E76D7D8018DAC05C5 /* Swiftstraints-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swiftstraints-prefix.pch"; sourceTree = "<group>"; };
-		1B7E30B7DA608D1AFEE8F38F314DDC0C /* AxisAnchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AxisAnchor.swift; path = Swiftstraints/AxisAnchor.swift; sourceTree = "<group>"; };
-		1BFB733C89F8DC518E0742AB65CE88B5 /* DKAssetGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroup.swift; path = DKImageManager/Data/Model/DKAssetGroup.swift; sourceTree = "<group>"; };
-		1C642F84966965E69355C1142EC733FF /* PullToRefresher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PullToRefresher-dummy.m"; sourceTree = "<group>"; };
-		1C8543DA7513544E3F95D1AA029CE474 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+Extensions.swift"; path = "Swiftstraints/NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
-		20ACD419A40DECC325C174222B5E2691 /* DKAssetGroupGridLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupGridLayout.swift; path = DKImagePickerController/View/DKAssetGroupGridLayout.swift; sourceTree = "<group>"; };
-		267274AF3F1EEEB95D4658DA287A9CBB /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
-		2C8F01502C48980D77AEB6A4A1E3C3F2 /* RefreshViewAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RefreshViewAnimator.swift; path = PullToRefresh/RefreshViewAnimator.swift; sourceTree = "<group>"; };
-		2E9FBD10A4B82EF3E34AB732A085B292 /* Swiftstraints-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swiftstraints-dummy.m"; sourceTree = "<group>"; };
-		3312E3EE297BE039DCA5B450409B596F /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DigitsKit.framework; path = iOS/DigitsKit.framework; sourceTree = "<group>"; };
+		08B6F88407226AEE4E7F47971F3178DF /* UIImage+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Haneke.swift"; path = "Haneke/UIImage+Haneke.swift"; sourceTree = "<group>"; };
+		0AC42BEDD01350D3DFD42F025D70DD54 /* DKAssetGroupListVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupListVC.swift; path = DKImagePickerController/View/DKAssetGroupListVC.swift; sourceTree = "<group>"; };
+		0AEE1FCFA0EC431A844008ECE10240A2 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+Extensions.swift"; path = "Swiftstraints/NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
+		0BC5CF5642FEA7A677F3185DFAEF1221 /* Swiftstraints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Swiftstraints.h; path = Swiftstraints/Swiftstraints.h; sourceTree = "<group>"; };
+		0CFA11BC828DC9C529F77EB50285197D /* DKImagePickerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKImagePickerController-prefix.pch"; sourceTree = "<group>"; };
+		1304E949B2C3FD6D9F154FF2DD571E02 /* Cache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Haneke/Cache.swift; sourceTree = "<group>"; };
+		14536103491C3445CD73D7916266BEC5 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		14F9F6A6A727351EFF325B3AB42457C4 /* NSHTTPURLResponse+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSHTTPURLResponse+Haneke.swift"; path = "Haneke/NSHTTPURLResponse+Haneke.swift"; sourceTree = "<group>"; };
+		176883670AD2682CCA62D122F1017390 /* NSURLResponse+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSURLResponse+Haneke.swift"; path = "Haneke/NSURLResponse+Haneke.swift"; sourceTree = "<group>"; };
+		1A45E66736B61E1701F05DADCAA78D83 /* DKPopoverViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKPopoverViewController.swift; path = DKImagePickerController/DKPopoverViewController.swift; sourceTree = "<group>"; };
+		1D8A7DE9F49EF2A88CAD0BB371CBBDC3 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DigitsKit.framework; path = iOS/DigitsKit.framework; sourceTree = "<group>"; };
+		1E29C01AE1254FE3D407C17A5FBAB3DB /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
+		204490B117A6CC0DD61CA5EFC96B3029 /* DKAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAsset.swift; path = DKImageManager/Data/Model/DKAsset.swift; sourceTree = "<group>"; };
+		26F0AD1DB91152D9FD665EB2F080DD86 /* DKCameraResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DKCameraResource.bundle; path = DKCamera/DKCameraResource.bundle; sourceTree = "<group>"; };
+		2893CC286C719C4C75927B05F7B2D99C /* DKPermissionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKPermissionView.swift; path = DKImagePickerController/View/DKPermissionView.swift; sourceTree = "<group>"; };
+		2B659C77E8C8CDEDBB9F4284EB1B83B5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E92CD74D7426B5F620A39760BA03D80 /* DKImagePickerControllerDefaultCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImagePickerControllerDefaultCamera.swift; path = DKImagePickerController/DKImagePickerControllerDefaultCamera.swift; sourceTree = "<group>"; };
+		3207AA377E0F5DD1532DCC94F618CD9C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		3597E8D52AE6F8DC324ED8AEB4A756B8 /* Pods-leandesign-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-leandesign-acknowledgements.plist"; sourceTree = "<group>"; };
-		3B25A965CDEA7AAFF11F9C68F2C5BB39 /* Swiftstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E22D42AA0058EB6FD2BB15CF628B155 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		494C73D3A43D6440DD381D3AA32591B2 /* Swiftstraints.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Swiftstraints.xcconfig; sourceTree = "<group>"; };
-		4E3EF4B85E8E49F19B71EB5A4145E1D5 /* DKAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAsset.swift; path = DKImageManager/Data/Model/DKAsset.swift; sourceTree = "<group>"; };
-		4FB70EEE73A84ADC6F66FDF857A5A13A /* DigitsKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
+		376ED2305EC3CAE51730834FB5F0945D /* VisualFormatLanguage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisualFormatLanguage.swift; path = Swiftstraints/VisualFormatLanguage.swift; sourceTree = "<group>"; };
+		381C57F401EACF80DED8BEC03D03FE47 /* DKImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		388674C3AFC2849AACAF02F4020602C7 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Haneke/Log.swift; sourceTree = "<group>"; };
+		388EB1185E5FA5C2667C6666F9FECCF5 /* HanekeSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HanekeSwift.xcconfig; sourceTree = "<group>"; };
+		39484479D33B02CCC7BF18E572F3B04A /* UIImageView+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Haneke.swift"; path = "Haneke/UIImageView+Haneke.swift"; sourceTree = "<group>"; };
+		39DD2F6F79803991AC8557F181044A14 /* DKImagePickerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DKImagePickerController.xcconfig; sourceTree = "<group>"; };
+		3CD8DC823EDCAB914C43180584337311 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		3D08168967CA704D7510ED976BDDAC30 /* DKImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImagePickerController.swift; path = DKImagePickerController/DKImagePickerController.swift; sourceTree = "<group>"; };
+		43B0C988A3EEAD419459688F734ED0EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4858A744701CC251E81D9ED8948FEED8 /* HanekeSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HanekeSwift-dummy.m"; sourceTree = "<group>"; };
+		49602B8D5B70AE70D660535C85F3A3CE /* HanekeSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HanekeSwift-prefix.pch"; sourceTree = "<group>"; };
+		4CFEE0799A96E58BC79685D1123903E4 /* CGSize+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGSize+Swift.swift"; path = "Haneke/CGSize+Swift.swift"; sourceTree = "<group>"; };
+		4F8E5A01374DDF8D9DD3ADCC2174465D /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
 		5297B527BD184C1ED2B586198941B071 /* Pods-leandesign.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-leandesign.modulemap"; sourceTree = "<group>"; };
-		57EE1406210FB1AF9EBFB310E8F7C4E0 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		5DC18E8BEFB2F89321E02C14773A86B6 /* DKAssetGroupListVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupListVC.swift; path = DKImagePickerController/View/DKAssetGroupListVC.swift; sourceTree = "<group>"; };
-		71A9310E08C1E92B49BFEC7D1E0F69A4 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		7903A119C60870BBCA605E4FE415F233 /* DKGroupDataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKGroupDataManager.swift; path = DKImageManager/Data/DKGroupDataManager.swift; sourceTree = "<group>"; };
+		58474640D23D368C0C74FC8EC24241B8 /* Swiftstraints.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Swiftstraints.modulemap; sourceTree = "<group>"; };
+		5943A7028D35C5ED344D00165C4495D2 /* UIButton+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Haneke.swift"; path = "Haneke/UIButton+Haneke.swift"; sourceTree = "<group>"; };
+		5A207B9F88A2484EBF40F5A1B2B3A18A /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		618FC6819A65A36F5CA31087E0161372 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687A44FA1620A93C87CD3A3D2083E5F2 /* DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskCache.swift; path = Haneke/DiskCache.swift; sourceTree = "<group>"; };
+		68BA4FC2059A2B3D1A59E6811B9B2EF6 /* Swiftstraints.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Swiftstraints.xcconfig; sourceTree = "<group>"; };
+		6B8E077762D13D2506F37C17C1B0DE2B /* Swiftstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F12D905946F79C1B83FC430225A8EA0 /* Fetch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fetch.swift; path = Haneke/Fetch.swift; sourceTree = "<group>"; };
+		7068DC968293F41A3F194C235704F97A /* AxisAnchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AxisAnchor.swift; path = Swiftstraints/AxisAnchor.swift; sourceTree = "<group>"; };
+		71D8D903CF5AB9A6286A1EC8D3177A01 /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
+		72DC426EC4E3397C9981F7BEBB1AC68C /* DefaultViewAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultViewAnimator.swift; path = PullToRefresh/DefaultViewAnimator.swift; sourceTree = "<group>"; };
+		7302F04D9C69D0D0DE82B62669740A3C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		75910B324C82A9D34FBC6325342B3460 /* Fetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fetcher.swift; path = Haneke/Fetcher.swift; sourceTree = "<group>"; };
+		763C7E8482461F4C4EF2C7F905B22B37 /* Haneke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Haneke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7676BC89F44E2B4C0372565FA9DBA9C9 /* DKCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKCamera.swift; path = DKCamera/DKCamera.swift; sourceTree = "<group>"; };
+		77AED3B2F43AA988193C65B44539D8FF /* HanekeSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HanekeSwift-umbrella.h"; sourceTree = "<group>"; };
+		7B775AE64B8180EEDDA68976DFA5D41D /* DimensionAnchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DimensionAnchor.swift; path = Swiftstraints/DimensionAnchor.swift; sourceTree = "<group>"; };
+		7B7FA281B526A83767B037B28FE34815 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
 		7BA814C35E545E933D7F3C2ACF11FC95 /* Pods-leandesign-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-leandesign-dummy.m"; sourceTree = "<group>"; };
-		7D471C11085DA60C12C42A75673CCB6A /* Swiftstraints.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Swiftstraints.modulemap; sourceTree = "<group>"; };
-		7F0CC78F0784A15C3AD777113D22DFAA /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		7FC3D22EB271817BDF78A8E4954268FB /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
-		80FA3601AC7F7375849AB1BFD7605120 /* VisualFormatLanguage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisualFormatLanguage.swift; path = Swiftstraints/VisualFormatLanguage.swift; sourceTree = "<group>"; };
-		8B0022E3C248A9921FD6F0CD433AB031 /* DefaultViewAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultViewAnimator.swift; path = PullToRefresh/DefaultViewAnimator.swift; sourceTree = "<group>"; };
-		90BD43CE351AB04EF59F774533556FF8 /* Swiftstraints-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swiftstraints-umbrella.h"; sourceTree = "<group>"; };
-		90F99BA1EC27DD349EB86C293E44CB9B /* DKImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImagePickerController.swift; path = DKImagePickerController/DKImagePickerController.swift; sourceTree = "<group>"; };
+		7C87C03211B6D26D36F67AAF678C0FE3 /* Swiftstraints-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swiftstraints-umbrella.h"; sourceTree = "<group>"; };
+		7FC9D3BF0C87DB5858E4C00097444F2A /* DigitsKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
+		7FFD0A97985C25B9BCD32B0EE3CA6224 /* HanekeSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HanekeSwift.modulemap; sourceTree = "<group>"; };
+		80A8907FD5732C05F58A0F44C655B920 /* UIScrollView+PullToRefresh.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+PullToRefresh.swift"; path = "PullToRefresh/UIScrollView+PullToRefresh.swift"; sourceTree = "<group>"; };
+		825B4AFFBDE0FDF64F22B66AECE413B9 /* DKImagePickerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DKImagePickerController.modulemap; sourceTree = "<group>"; };
+		82B755BDFBB495B42DFF1387EA287CAA /* DKAssetGroupGridLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupGridLayout.swift; path = DKImagePickerController/View/DKAssetGroupGridLayout.swift; sourceTree = "<group>"; };
+		8674388382D16F1AFF7FFD633E915557 /* Format.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Format.swift; path = Haneke/Format.swift; sourceTree = "<group>"; };
+		8C7ACC5A286B4D9BF89FF1BE13E99F6E /* Swiftstraints-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swiftstraints-dummy.m"; sourceTree = "<group>"; };
+		924055736F0C91BF97226958027C8792 /* PullToRefresher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PullToRefresher.modulemap; sourceTree = "<group>"; };
+		92BCDACFCB048651884B14D82D492352 /* PullToRefresher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PullToRefresher-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		953BA3E05CAA42DA80714964E291424D /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
 		95EB4BD8C2FCF4283CDA62AC65A1D3FD /* Pods-leandesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-leandesign.release.xcconfig"; sourceTree = "<group>"; };
-		9840651F49F871045B97C4544A090673 /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
-		9BC74785EDFF2DE46292BB88AAA6C0B8 /* Pods_leandesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leandesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C9E34ECEA4D965A4F53B08F566774D5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DC863A3C872C3242C6C2138E9BE4B78 /* Swiftstraints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Swiftstraints.h; path = Swiftstraints/Swiftstraints.h; sourceTree = "<group>"; };
-		9F6595949467AD0C7B88D02C65DCF919 /* DKImagePickerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKImagePickerController-umbrella.h"; sourceTree = "<group>"; };
-		A0F46B6E0195017493AA52F52A921FA1 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		A3D2D0DA6BCFCFD97888DCC6875BE400 /* PullToRefresh.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PullToRefresh.swift; path = PullToRefresh/PullToRefresh.swift; sourceTree = "<group>"; };
-		A43DFD4BC9C7C127E1E5022514FDE929 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A944C28443FD423455D94F9E395E8B8D /* DKImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9C20575E0D3A02C9A501067CB72BE9B /* UIScrollView+PullToRefresh.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+PullToRefresh.swift"; path = "PullToRefresh/UIScrollView+PullToRefresh.swift"; sourceTree = "<group>"; };
-		AABFEC0F94F5C11911B8D8879A38337D /* LayoutPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutPriority.swift; path = Swiftstraints/LayoutPriority.swift; sourceTree = "<group>"; };
-		B09AB4F06AD7731C073B4A60B008A68A /* DKPermissionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKPermissionView.swift; path = DKImagePickerController/View/DKPermissionView.swift; sourceTree = "<group>"; };
-		B52F24269CFB5D6A24D579EE815D1D09 /* DKImageManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImageManager.swift; path = DKImageManager/DKImageManager.swift; sourceTree = "<group>"; };
-		BD06BFC077B00C20483CA9024100108F /* PullToRefresher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PullToRefresher-umbrella.h"; sourceTree = "<group>"; };
+		9982B240EA2C62ECF46982B149688102 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "Swiftstraints/UIView+Additions.swift"; sourceTree = "<group>"; };
+		9B559D2B67026A628D44C01E3CE32035 /* DKImagePickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DKImagePickerController.bundle; path = DKImagePickerController/DKImagePickerController.bundle; sourceTree = "<group>"; };
+		9D427080789D115F7B5B4DC0057CEA0D /* DKImageResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImageResource.swift; path = DKImagePickerController/DKImageResource.swift; sourceTree = "<group>"; };
+		9DBA95F6F2AC420C62668EDBF4ADD00D /* DefaultRefreshView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultRefreshView.swift; path = PullToRefresh/DefaultRefreshView.swift; sourceTree = "<group>"; };
+		A1E9EBCC2A910E7F3690241EB805BC05 /* DiskFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskFetcher.swift; path = Haneke/DiskFetcher.swift; sourceTree = "<group>"; };
+		A23DC8BECF5D2A194C7DD594A5D23E8B /* PullToRefresher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PullToRefresher-prefix.pch"; sourceTree = "<group>"; };
+		A273ED6C8D8853F6D581182AFAE75E62 /* PullToRefresher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PullToRefresher-umbrella.h"; sourceTree = "<group>"; };
+		A8A8F0E21CE7701C532B7257CF7BD9DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA2438002ADFB429D7CA23169D0B35AC /* RefreshViewAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RefreshViewAnimator.swift; path = PullToRefresh/RefreshViewAnimator.swift; sourceTree = "<group>"; };
+		AD43804CD386E20C07F1ADADBC05B6C8 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		B1A300208C6B391B47E58DB689B330BC /* DKImagePickerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKImagePickerController-umbrella.h"; sourceTree = "<group>"; };
+		BB8EAB8300BCA6FB2F7198611E6DE1C6 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		BC803E2D4D86EE5ADDEC8705C7A55414 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		C1164C592697BF69ED32F5E71DE6EB89 /* CryptoSwiftMD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CryptoSwiftMD5.swift; path = Haneke/CryptoSwiftMD5.swift; sourceTree = "<group>"; };
+		C90CBA24FC4F436F452DE56982CC98C7 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		CAA835F83004310C65706544FFA7EFDE /* Swiftstraints-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swiftstraints-prefix.pch"; sourceTree = "<group>"; };
 		CB73F7D388D8ADF3CFEB4E5C52BA4EC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA18879D7E1FCDDC1360EF74002DDF5 /* DKImagePickerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DKImagePickerController.xcconfig; sourceTree = "<group>"; };
+		CC64C42139F0E32A722E0E9C8FA7354D /* DKImageManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImageManager.swift; path = DKImageManager/DKImageManager.swift; sourceTree = "<group>"; };
+		CD48C056254F1CE8DE9CDF6950724C1A /* NetworkFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkFetcher.swift; path = Haneke/NetworkFetcher.swift; sourceTree = "<group>"; };
 		CEC51191B7C2BB504FEA5D33539CA2FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CEE5074594A8CF675B2432145533A4D0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6237E32053309E010B2650A65F1393 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = PullToRefresh/State.swift; sourceTree = "<group>"; };
+		CF836F3231EEA6C344939F9DEA87B10D /* DKAssetGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroup.swift; path = DKImageManager/Data/Model/DKAssetGroup.swift; sourceTree = "<group>"; };
 		D2AFD7ED6C140C6F4B4041C14DA3903A /* Pods-leandesign-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-leandesign-umbrella.h"; sourceTree = "<group>"; };
-		D2E4E8AB0EC461973A38C6A0DDAE8DDB /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
 		D4C67648D9FCE691B4F44C98A3640071 /* Pods-leandesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-leandesign.debug.xcconfig"; sourceTree = "<group>"; };
-		D59F3AD688338D1723D0576D7D5C4F91 /* DefaultRefreshView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultRefreshView.swift; path = PullToRefresh/DefaultRefreshView.swift; sourceTree = "<group>"; };
+		D4E5A98C62680C3F0D48B80EFA5A8EB2 /* DKGroupDataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKGroupDataManager.swift; path = DKImageManager/Data/DKGroupDataManager.swift; sourceTree = "<group>"; };
 		D933923B4BA32D1356F9C83C3EC5CDEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		DAB611BC8CD66DEBA7CFECA07F5AECEB /* PullToRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PullToRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB1F77A0A0E4AE13610CCC3C640FC95A /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
-		DC80B3A875AE71166FD1EFCE2FC81134 /* PullToRefresher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PullToRefresher-prefix.pch"; sourceTree = "<group>"; };
+		DBDC29C0D34F0E8BAF8B47979D38F574 /* PullToRefresher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PullToRefresher.xcconfig; sourceTree = "<group>"; };
 		DC89C91DFCF6D34C2D906ECA5C02A837 /* Pods-leandesign-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-leandesign-frameworks.sh"; sourceTree = "<group>"; };
-		DDF12FE2D88EF055CCA47B9180A8C5BC /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
 		DF6B203C9BF3AAE728878299B5BFD3D4 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
-		E7F9A2FCFB2ECE700DBF3A5C887C8A94 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "Swiftstraints/UIView+Additions.swift"; sourceTree = "<group>"; };
-		E8C79744C6798B29BD5734E972B5BF03 /* DKImagePickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DKImagePickerController.bundle; path = DKImagePickerController/DKImagePickerController.bundle; sourceTree = "<group>"; };
-		EA928ADB6CE791ABA198161BB30CC664 /* PullToRefresher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PullToRefresher.xcconfig; sourceTree = "<group>"; };
-		EAC9C724516688325E5D0398BF663535 /* DKImagePickerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DKImagePickerController-dummy.m"; sourceTree = "<group>"; };
-		EC33E85E29672A57BC13764DC33CFE9B /* DKImagePickerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKImagePickerController-prefix.pch"; sourceTree = "<group>"; };
-		EC35B8BF1EA260F40B2CFF18BCD0FBC8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		E0DF0129B337A52D45698B80EFF590A2 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Haneke/Data.swift; sourceTree = "<group>"; };
+		EA70D98D39A442FDE05333DCACEDE6A4 /* DKAssetGroupDetailVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKAssetGroupDetailVC.swift; path = DKImagePickerController/View/DKAssetGroupDetailVC.swift; sourceTree = "<group>"; };
+		EDBCB595FC075EF0136C5BCB5E9F1876 /* PullToRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PullToRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF717CD3DC86CDF85BC68C00DD2A0EC3 /* PullToRefresh.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PullToRefresh.swift; path = PullToRefresh/PullToRefresh.swift; sourceTree = "<group>"; };
 		F141ADBD81A2C180A33DBEE4054424A3 /* Pods-leandesign-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-leandesign-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F78604AF59BA0903AA3DF3A812662F58 /* DimensionAnchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DimensionAnchor.swift; path = Swiftstraints/DimensionAnchor.swift; sourceTree = "<group>"; };
-		F84912720A93531A36AF816C96535C2A /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
-		F8EA37EE2F904C6606B4B2DCD82C0BA5 /* DKImagePickerControllerDefaultCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKImagePickerControllerDefaultCamera.swift; path = DKImagePickerController/DKImagePickerControllerDefaultCamera.swift; sourceTree = "<group>"; };
-		FA195BE335F94AC9F366C61B26E2AE63 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = PullToRefresh/State.swift; sourceTree = "<group>"; };
+		F26D7B8FAB98FF3BAC68FCDEAF600CA6 /* NSFileManager+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSFileManager+Haneke.swift"; path = "Haneke/NSFileManager+Haneke.swift"; sourceTree = "<group>"; };
+		F38641021724558CB5BC4F5B40A7D227 /* UIView+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Haneke.swift"; path = "Haneke/UIView+Haneke.swift"; sourceTree = "<group>"; };
+		F4BEB6CF75A7817D26345D3E5967B7D9 /* DKImagePickerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DKImagePickerController-dummy.m"; sourceTree = "<group>"; };
+		F5BAA80249DF733346CF668EA84E50D0 /* LayoutPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutPriority.swift; path = Swiftstraints/LayoutPriority.swift; sourceTree = "<group>"; };
+		F8C1503795B0B67ADCCCDC8BAA73588F /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		F9A76DDA07113451E953FF7EE6F21504 /* Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Haneke.swift; path = Haneke/Haneke.swift; sourceTree = "<group>"; };
+		FB760EF24EE920F912C0160C7F984034 /* String+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Haneke.swift"; path = "Haneke/String+Haneke.swift"; sourceTree = "<group>"; };
 		FD6E01F7A5C4E94C4B11CF080ACFDAFC /* Pods-leandesign-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-leandesign-resources.sh"; sourceTree = "<group>"; };
-		FE692FCA6A01CE181EB866C21CB768C9 /* PullToRefresher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PullToRefresher.modulemap; sourceTree = "<group>"; };
-		FF45DC0FD5A065D8583010E5D12F5CEB /* DKImagePickerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DKImagePickerController.modulemap; sourceTree = "<group>"; };
+		FFBB3843FCDBED5A1527D789EE0339E0 /* Pods_leandesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leandesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1EF786AF76132945964693D0675C9F1D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F7498311833CF849E39150C24831FE55 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		27CD45498A93CC429173CF23C8106C54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,73 +226,100 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5391CE7E5EEB1B5FD00CCEBFD1FCBA9E /* Frameworks */ = {
+		51CE4A0B66C17CEF3FF31C60DE4A6086 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D1CEC62A09C5E9E016567AA2DF17B9F /* Foundation.framework in Frameworks */,
+				1DF16E1AD3ABFEC87B2B7F489E8C0631 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C024C4738CAF13A8761AF5DE40C9B90E /* Frameworks */ = {
+		5DE099913EF7A6E11B6ABDA3E2B01545 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				076CF3A56F3C1B7BE8918AB49FF76DB8 /* Foundation.framework in Frameworks */,
+				2CB734328DFDC820B1C8333A86C11672 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F0E55176A5AF13111D389E09381931E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				410D0641B813947CA53F07D75F4624CE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C72F2BC1AE1051942A329FF33EB0803F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECC759D38E4F44B7B96B03AACE3AF75E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02035F12C870FA30A2D9EE6B298EFF1C /* ImageManager */ = {
+		00B2234AB0BB21AF861A7521A9EE340D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4E3EF4B85E8E49F19B71EB5A4145E1D5 /* DKAsset.swift */,
-				1BFB733C89F8DC518E0742AB65CE88B5 /* DKAssetGroup.swift */,
-				7903A119C60870BBCA605E4FE415F233 /* DKGroupDataManager.swift */,
-				B52F24269CFB5D6A24D579EE815D1D09 /* DKImageManager.swift */,
+				7FC9D3BF0C87DB5858E4C00097444F2A /* DigitsKitResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		01CAE5ABF7994BD0953955B883A1C28F /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				863139EC5E3723EF8E7DA998E4326284 /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		023C39F73D6FF96B5E95F2A364548C20 /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				204490B117A6CC0DD61CA5EFC96B3029 /* DKAsset.swift */,
+				CF836F3231EEA6C344939F9DEA87B10D /* DKAssetGroup.swift */,
+				D4E5A98C62680C3F0D48B80EFA5A8EB2 /* DKGroupDataManager.swift */,
+				CC64C42139F0E32A722E0E9C8FA7354D /* DKImageManager.swift */,
 			);
 			name = ImageManager;
 			sourceTree = "<group>";
 		};
-		0C4D2283924D692B484FDAF7C983C263 /* TwitterCore */ = {
+		067A5A503ED0495512E9F4AE0DDD5961 /* HanekeSwift */ = {
 			isa = PBXGroup;
 			children = (
-				5BFC29C8056D525D5C3B9108228ADA1B /* Frameworks */,
+				1304E949B2C3FD6D9F154FF2DD571E02 /* Cache.swift */,
+				4CFEE0799A96E58BC79685D1123903E4 /* CGSize+Swift.swift */,
+				C1164C592697BF69ED32F5E71DE6EB89 /* CryptoSwiftMD5.swift */,
+				E0DF0129B337A52D45698B80EFF590A2 /* Data.swift */,
+				687A44FA1620A93C87CD3A3D2083E5F2 /* DiskCache.swift */,
+				A1E9EBCC2A910E7F3690241EB805BC05 /* DiskFetcher.swift */,
+				6F12D905946F79C1B83FC430225A8EA0 /* Fetch.swift */,
+				75910B324C82A9D34FBC6325342B3460 /* Fetcher.swift */,
+				8674388382D16F1AFF7FFD633E915557 /* Format.swift */,
+				F9A76DDA07113451E953FF7EE6F21504 /* Haneke.swift */,
+				388674C3AFC2849AACAF02F4020602C7 /* Log.swift */,
+				CD48C056254F1CE8DE9CDF6950724C1A /* NetworkFetcher.swift */,
+				F26D7B8FAB98FF3BAC68FCDEAF600CA6 /* NSFileManager+Haneke.swift */,
+				14F9F6A6A727351EFF325B3AB42457C4 /* NSHTTPURLResponse+Haneke.swift */,
+				176883670AD2682CCA62D122F1017390 /* NSURLResponse+Haneke.swift */,
+				FB760EF24EE920F912C0160C7F984034 /* String+Haneke.swift */,
+				5943A7028D35C5ED344D00165C4495D2 /* UIButton+Haneke.swift */,
+				08B6F88407226AEE4E7F47971F3178DF /* UIImage+Haneke.swift */,
+				39484479D33B02CCC7BF18E572F3B04A /* UIImageView+Haneke.swift */,
+				F38641021724558CB5BC4F5B40A7D227 /* UIView+Haneke.swift */,
+				F7B231C89B737D587ED579A10C5DEBC1 /* Support Files */,
 			);
-			path = TwitterCore;
+			path = HanekeSwift;
 			sourceTree = "<group>";
 		};
-		0D21FB8E5D4155C08D045A084325503E /* Frameworks */ = {
+		0F2F42D144DA4A88ABDF1EC0D64FBAFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71A9310E08C1E92B49BFEC7D1E0F69A4 /* FirebaseAnalytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		102D0EDE2673BEDA7013270382A36EA7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3E22D42AA0058EB6FD2BB15CF628B155 /* FirebaseDatabase.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		116B5926887E528D5961F131EAA497DD /* Digits */ = {
-			isa = PBXGroup;
-			children = (
-				5E71ED27CA8EFFBD5A94B365B41A1DBA /* Frameworks */,
-				A0965FD4D0744AE2FE43C213FD447E55 /* Resources */,
-			);
-			path = Digits;
-			sourceTree = "<group>";
-		};
-		11F49ABD6F4736F2A3A8B2B3237B2278 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				267274AF3F1EEEB95D4658DA287A9CBB /* FirebaseAuth.framework */,
+				BB8EAB8300BCA6FB2F7198611E6DE1C6 /* GoogleUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,12 +332,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		145C688F9E1098B12DEB0B58BA534660 /* FirebaseAuth */ = {
+		188B931F799BAEA74A9B385EF362A2AC /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				11F49ABD6F4736F2A3A8B2B3237B2278 /* Frameworks */,
+				7676BC89F44E2B4C0372565FA9DBA9C9 /* DKCamera.swift */,
+				93578E9F3726BEABD3D25EDD1E8A32AB /* Resources */,
 			);
-			path = FirebaseAuth;
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		1B5D3CFE9CAD11DEE7FD9DF1161F3431 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A207B9F88A2484EBF40F5A1B2B3A18A /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FB6827886E7F4C8EE505717B956E5A6 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				AA5D3E235C93E09F65617B209B27C20F /* Analytics */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		211A2810BC64380517F8A852DD03E02D /* Pods-leandesign */ = {
@@ -282,34 +375,54 @@
 			path = "Target Support Files/Pods-leandesign";
 			sourceTree = "<group>";
 		};
-		36ACAA5594B2305156BD087A6B7BDA1E /* GoogleParsingUtilities */ = {
+		27179F1E668C56CF78CDE5D055288762 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5CE83A29E26C8FB37C128CB781877B6D /* Frameworks */,
-			);
-			path = GoogleParsingUtilities;
-			sourceTree = "<group>";
-		};
-		3F416A597849BA4FD6A36A40417D23D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EC35B8BF1EA260F40B2CFF18BCD0FBC8 /* Fabric.framework */,
+				BC803E2D4D86EE5ADDEC8705C7A55414 /* GoogleInterchangeUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4682494FAAA60B331608DDC9F8F67A73 /* Support Files */ = {
+		3043D8D646AF48FB748A244B0BD54D09 /* Digits */ = {
 			isa = PBXGroup;
 			children = (
-				FF45DC0FD5A065D8583010E5D12F5CEB /* DKImagePickerController.modulemap */,
-				CEA18879D7E1FCDDC1360EF74002DDF5 /* DKImagePickerController.xcconfig */,
-				EAC9C724516688325E5D0398BF663535 /* DKImagePickerController-dummy.m */,
-				EC33E85E29672A57BC13764DC33CFE9B /* DKImagePickerController-prefix.pch */,
-				9F6595949467AD0C7B88D02C65DCF919 /* DKImagePickerController-umbrella.h */,
-				9C9E34ECEA4D965A4F53B08F566774D5 /* Info.plist */,
+				849D75135905ECCE64E5098032773E81 /* Frameworks */,
+				00B2234AB0BB21AF861A7521A9EE340D /* Resources */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/DKImagePickerController";
+			path = Digits;
+			sourceTree = "<group>";
+		};
+		3D267FB32C4B8777028C00FA569DD4C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3043D8D646AF48FB748A244B0BD54D09 /* Digits */,
+				F5FC28287195C3DA1AFDA6B53A751573 /* DKImagePickerController */,
+				01CAE5ABF7994BD0953955B883A1C28F /* Fabric */,
+				1FB6827886E7F4C8EE505717B956E5A6 /* Firebase */,
+				B7A1522770E0A425AB6BDEE97838D1AF /* FirebaseAnalytics */,
+				DB07CD369FA82BD7FB3946E1D9404EBA /* FirebaseAuth */,
+				C493A5E879A6D394BA62AB287B44A044 /* FirebaseDatabase */,
+				5E898772E442BEF6C40803C8F45D1154 /* FirebaseInstanceID */,
+				D878C13191A5646F871623E60958E98F /* FirebaseStorage */,
+				F40D3383F8B22F5509D43D4606F26865 /* GoogleInterchangeUtilities */,
+				8DE593AD26040DA906D713BDF91B0CC4 /* GoogleNetworkingUtilities */,
+				959871F347EFDB087C32DBA3A5AB8AEF /* GoogleParsingUtilities */,
+				F83522E22921B0ED041E62F6D54B229C /* GoogleSymbolUtilities */,
+				5DECCC82157795D9489CE5D7D422EF41 /* GoogleUtilities */,
+				067A5A503ED0495512E9F4AE0DDD5961 /* HanekeSwift */,
+				FF74FA966A6DF5BE13F08365FC2EC49C /* PullToRefresher */,
+				B34977A29ED2436D3D6A339F3E842A38 /* Swiftstraints */,
+				B33366BDB98C4CB9EA0A7D3E7304E1F3 /* TwitterCore */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		40B405638338E09B9ECA7DAB7761D39C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8C1503795B0B67ADCCCDC8BAA73588F /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4A0F1FD57A19B13AC06DDE1F4EFA465D /* iOS */ = {
@@ -322,101 +435,35 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		4ADBEF6FF26A564E27F54C89D1A42A1C /* Resources */ = {
+		509D37D7E3FAEF1A9B823839059DA42E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E8C79744C6798B29BD5734E972B5BF03 /* DKImagePickerController.bundle */,
+				A8A8F0E21CE7701C532B7257CF7BD9DA /* Info.plist */,
+				924055736F0C91BF97226958027C8792 /* PullToRefresher.modulemap */,
+				DBDC29C0D34F0E8BAF8B47979D38F574 /* PullToRefresher.xcconfig */,
+				92BCDACFCB048651884B14D82D492352 /* PullToRefresher-dummy.m */,
+				A23DC8BECF5D2A194C7DD594A5D23E8B /* PullToRefresher-prefix.pch */,
+				A273ED6C8D8853F6D581182AFAE75E62 /* PullToRefresher-umbrella.h */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/PullToRefresher";
 			sourceTree = "<group>";
 		};
-		4D217B952F400FA7FC056DA17605AC36 /* Frameworks */ = {
+		5DECCC82157795D9489CE5D7D422EF41 /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				DB1F77A0A0E4AE13610CCC3C640FC95A /* GoogleNetworkingUtilities.framework */,
+				0F2F42D144DA4A88ABDF1EC0D64FBAFB /* Frameworks */,
 			);
-			name = Frameworks;
+			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
-		4D4CD745DEAB154D0D68B989E193158C /* Frameworks */ = {
+		5E898772E442BEF6C40803C8F45D1154 /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
-				F84912720A93531A36AF816C96535C2A /* GoogleUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		517501515D57D92C879CAAFAEE81163D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7F0CC78F0784A15C3AD777113D22DFAA /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5BFC29C8056D525D5C3B9108228ADA1B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7FC3D22EB271817BDF78A8E4954268FB /* TwitterCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5CE83A29E26C8FB37C128CB781877B6D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9840651F49F871045B97C4544A090673 /* GoogleParsingUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5E71ED27CA8EFFBD5A94B365B41A1DBA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3312E3EE297BE039DCA5B450409B596F /* DigitsKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		631A8C7438A1D4FC119F1B3AD09681F1 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				953BA3E05CAA42DA80714964E291424D /* Firebase.h */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
-		};
-		636C16702C81A4BF34BA521F4C106108 /* FirebaseStorage */ = {
-			isa = PBXGroup;
-			children = (
-				DF995942842831FD6D6FE8CAC85C5BCB /* Frameworks */,
-			);
-			path = FirebaseStorage;
-			sourceTree = "<group>";
-		};
-		68870277AF81BD1D81F46E1123E37CA8 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				D2E4E8AB0EC461973A38C6A0DDAE8DDB /* FIRInstanceID.h */,
-				517501515D57D92C879CAAFAEE81163D /* Frameworks */,
+				4F8E5A01374DDF8D9DD3ADCC2174465D /* FIRInstanceID.h */,
+				DEF6F03CE06DB058F9584C97540B3031 /* Frameworks */,
 			);
 			path = FirebaseInstanceID;
-			sourceTree = "<group>";
-		};
-		68A8B71A375B26F32076A23B40DAABE4 /* FirebaseDatabase */ = {
-			isa = PBXGroup;
-			children = (
-				102D0EDE2673BEDA7013270382A36EA7 /* Frameworks */,
-			);
-			path = FirebaseDatabase;
-			sourceTree = "<group>";
-		};
-		68C1F1F779A884E890B79E18D23FE0F0 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				631A8C7438A1D4FC119F1B3AD09681F1 /* Analytics */,
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		6B045FECF4B500BAE57C67FBB0C37FB3 /* Targets Support Files */ = {
@@ -427,39 +474,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6F6CF92EA98FB8288642B6722AEA2785 /* DKImagePickerController */ = {
+		6C34C3A9CDDF4D1B93C6C33C16D73BA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1A00798BA41AC9185314B41716CB15D7 /* DKAssetGroupDetailVC.swift */,
-				20ACD419A40DECC325C174222B5E2691 /* DKAssetGroupGridLayout.swift */,
-				5DC18E8BEFB2F89321E02C14773A86B6 /* DKAssetGroupListVC.swift */,
-				90F99BA1EC27DD349EB86C293E44CB9B /* DKImagePickerController.swift */,
-				F8EA37EE2F904C6606B4B2DCD82C0BA5 /* DKImagePickerControllerDefaultCamera.swift */,
-				0A2C54F1D786FAB05ED1D30ABB3EBD6F /* DKImageResource.swift */,
-				B09AB4F06AD7731C073B4A60B008A68A /* DKPermissionView.swift */,
-				183A7455ED246DEAA160C798FCAE039D /* DKPopoverViewController.swift */,
-				AEFA5495394FDD34AC5ACC5E69AD7DB0 /* Camera */,
-				02035F12C870FA30A2D9EE6B298EFF1C /* ImageManager */,
-				4ADBEF6FF26A564E27F54C89D1A42A1C /* Resources */,
-				4682494FAAA60B331608DDC9F8F67A73 /* Support Files */,
+				7B7FA281B526A83767B037B28FE34815 /* TwitterCore.framework */,
 			);
-			path = DKImagePickerController;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7455A3825AE21ECF04E79A54D3DC0697 /* GoogleNetworkingUtilities */ = {
+		726A789F1DB37A34B023D66D33B2EDD0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D217B952F400FA7FC056DA17605AC36 /* Frameworks */,
+				2B659C77E8C8CDEDBB9F4284EB1B83B5 /* Info.plist */,
+				58474640D23D368C0C74FC8EC24241B8 /* Swiftstraints.modulemap */,
+				68BA4FC2059A2B3D1A59E6811B9B2EF6 /* Swiftstraints.xcconfig */,
+				8C7ACC5A286B4D9BF89FF1BE13E99F6E /* Swiftstraints-dummy.m */,
+				CAA835F83004310C65706544FFA7EFDE /* Swiftstraints-prefix.pch */,
+				7C87C03211B6D26D36F67AAF678C0FE3 /* Swiftstraints-umbrella.h */,
 			);
-			path = GoogleNetworkingUtilities;
-			sourceTree = "<group>";
-		};
-		7AA1F459DE65F865F98D16A7F983C7D3 /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				3F416A597849BA4FD6A36A40417D23D4 /* Frameworks */,
-			);
-			path = Fabric;
+			name = "Support Files";
+			path = "../Target Support Files/Swiftstraints";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -467,202 +501,293 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				C5ECD172335A8281D790018BF4301080 /* Pods */,
-				9067544FC0AD5A8FBE71422DB09BEF3C /* Products */,
+				3D267FB32C4B8777028C00FA569DD4C1 /* Pods */,
+				FB6B707DD2491D017EB73725B3FDB4C8 /* Products */,
 				6B045FECF4B500BAE57C67FBB0C37FB3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		80BE590F0E6DCA419FBE80466B3C461A /* Frameworks */ = {
+		849D75135905ECCE64E5098032773E81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57EE1406210FB1AF9EBFB310E8F7C4E0 /* GoogleSymbolUtilities.framework */,
+				1D8A7DE9F49EF2A88CAD0BB371CBBDC3 /* DigitsKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8DA8F69BCB86AF149C9D224DBF6832A1 /* Frameworks */ = {
+		863139EC5E3723EF8E7DA998E4326284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A0F46B6E0195017493AA52F52A921FA1 /* GoogleInterchangeUtilities.framework */,
+				7302F04D9C69D0D0DE82B62669740A3C /* Fabric.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8E76EFF388C12E8F935D06715131A00E /* GoogleInterchangeUtilities */ = {
+		8DE593AD26040DA906D713BDF91B0CC4 /* GoogleNetworkingUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				8DA8F69BCB86AF149C9D224DBF6832A1 /* Frameworks */,
+				40B405638338E09B9ECA7DAB7761D39C /* Frameworks */,
 			);
-			path = GoogleInterchangeUtilities;
+			path = GoogleNetworkingUtilities;
 			sourceTree = "<group>";
 		};
-		9067544FC0AD5A8FBE71422DB09BEF3C /* Products */ = {
+		93578E9F3726BEABD3D25EDD1E8A32AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A944C28443FD423455D94F9E395E8B8D /* DKImagePickerController.framework */,
-				9BC74785EDFF2DE46292BB88AAA6C0B8 /* Pods_leandesign.framework */,
-				DAB611BC8CD66DEBA7CFECA07F5AECEB /* PullToRefresh.framework */,
-				3B25A965CDEA7AAFF11F9C68F2C5BB39 /* Swiftstraints.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A0965FD4D0744AE2FE43C213FD447E55 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4FB70EEE73A84ADC6F66FDF857A5A13A /* DigitsKitResources.bundle */,
+				26F0AD1DB91152D9FD665EB2F080DD86 /* DKCameraResource.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		AEFA5495394FDD34AC5ACC5E69AD7DB0 /* Camera */ = {
+		959871F347EFDB087C32DBA3A5AB8AEF /* GoogleParsingUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				187ADAB18F51568F4E9E73C488A1C7EF /* DKCamera.swift */,
-				E9B606B364FF4D466AF0329D30194649 /* Resources */,
+				A2343E767F3CBEF798C1B2F68FE18756 /* Frameworks */,
 			);
-			name = Camera;
+			path = GoogleParsingUtilities;
 			sourceTree = "<group>";
 		};
-		C2F11E26EFCB83A3D66F43A45DC8F637 /* Support Files */ = {
+		9D08BD3642A3C7CF823A7E0A27F41FAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A43DFD4BC9C7C127E1E5022514FDE929 /* Info.plist */,
-				FE692FCA6A01CE181EB866C21CB768C9 /* PullToRefresher.modulemap */,
-				EA928ADB6CE791ABA198161BB30CC664 /* PullToRefresher.xcconfig */,
-				1C642F84966965E69355C1142EC733FF /* PullToRefresher-dummy.m */,
-				DC80B3A875AE71166FD1EFCE2FC81134 /* PullToRefresher-prefix.pch */,
-				BD06BFC077B00C20483CA9024100108F /* PullToRefresher-umbrella.h */,
+				3CD8DC823EDCAB914C43180584337311 /* GoogleSymbolUtilities.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/PullToRefresher";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C5ECD172335A8281D790018BF4301080 /* Pods */ = {
+		A2343E767F3CBEF798C1B2F68FE18756 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				116B5926887E528D5961F131EAA497DD /* Digits */,
-				6F6CF92EA98FB8288642B6722AEA2785 /* DKImagePickerController */,
-				7AA1F459DE65F865F98D16A7F983C7D3 /* Fabric */,
-				68C1F1F779A884E890B79E18D23FE0F0 /* Firebase */,
-				C85282E8E451DDC13130B5844B7816FC /* FirebaseAnalytics */,
-				145C688F9E1098B12DEB0B58BA534660 /* FirebaseAuth */,
-				68A8B71A375B26F32076A23B40DAABE4 /* FirebaseDatabase */,
-				68870277AF81BD1D81F46E1123E37CA8 /* FirebaseInstanceID */,
-				636C16702C81A4BF34BA521F4C106108 /* FirebaseStorage */,
-				8E76EFF388C12E8F935D06715131A00E /* GoogleInterchangeUtilities */,
-				7455A3825AE21ECF04E79A54D3DC0697 /* GoogleNetworkingUtilities */,
-				36ACAA5594B2305156BD087A6B7BDA1E /* GoogleParsingUtilities */,
-				CA6AEFA60B53FE7AA5348EC82400309E /* GoogleSymbolUtilities */,
-				F6CAAD25317717B53BAF44BA50B62B13 /* GoogleUtilities */,
-				CE6E40E007C04C980699367E80C479DF /* PullToRefresher */,
-				CEDCCDF2CEF081F67AA536DAACCB0D37 /* Swiftstraints */,
-				0C4D2283924D692B484FDAF7C983C263 /* TwitterCore */,
+				71D8D903CF5AB9A6286A1EC8D3177A01 /* GoogleParsingUtilities.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C85282E8E451DDC13130B5844B7816FC /* FirebaseAnalytics */ = {
+		A41739D7E29583CB3BC8E1252563088A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D21FB8E5D4155C08D045A084325503E /* Frameworks */,
+				3207AA377E0F5DD1532DCC94F618CD9C /* FirebaseAnalytics.framework */,
 			);
-			path = FirebaseAnalytics;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CA6AEFA60B53FE7AA5348EC82400309E /* GoogleSymbolUtilities */ = {
+		AA5D3E235C93E09F65617B209B27C20F /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				80BE590F0E6DCA419FBE80466B3C461A /* Frameworks */,
+				1E29C01AE1254FE3D407C17A5FBAB3DB /* Firebase.h */,
 			);
-			path = GoogleSymbolUtilities;
+			name = Analytics;
 			sourceTree = "<group>";
 		};
-		CE6E40E007C04C980699367E80C479DF /* PullToRefresher */ = {
+		B0B4065384663AADFE54E60E9F0145CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D59F3AD688338D1723D0576D7D5C4F91 /* DefaultRefreshView.swift */,
-				8B0022E3C248A9921FD6F0CD433AB031 /* DefaultViewAnimator.swift */,
-				A3D2D0DA6BCFCFD97888DCC6875BE400 /* PullToRefresh.swift */,
-				2C8F01502C48980D77AEB6A4A1E3C3F2 /* RefreshViewAnimator.swift */,
-				FA195BE335F94AC9F366C61B26E2AE63 /* State.swift */,
-				A9C20575E0D3A02C9A501067CB72BE9B /* UIScrollView+PullToRefresh.swift */,
-				C2F11E26EFCB83A3D66F43A45DC8F637 /* Support Files */,
+				9B559D2B67026A628D44C01E3CE32035 /* DKImagePickerController.bundle */,
 			);
-			path = PullToRefresher;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		CEDCCDF2CEF081F67AA536DAACCB0D37 /* Swiftstraints */ = {
+		B33366BDB98C4CB9EA0A7D3E7304E1F3 /* TwitterCore */ = {
 			isa = PBXGroup;
 			children = (
-				1B7E30B7DA608D1AFEE8F38F314DDC0C /* AxisAnchor.swift */,
-				F78604AF59BA0903AA3DF3A812662F58 /* DimensionAnchor.swift */,
-				AABFEC0F94F5C11911B8D8879A38337D /* LayoutPriority.swift */,
-				1C8543DA7513544E3F95D1AA029CE474 /* NSLayoutConstraint+Extensions.swift */,
-				9DC863A3C872C3242C6C2138E9BE4B78 /* Swiftstraints.h */,
-				E7F9A2FCFB2ECE700DBF3A5C887C8A94 /* UIView+Additions.swift */,
-				80FA3601AC7F7375849AB1BFD7605120 /* VisualFormatLanguage.swift */,
-				E1942323B3E19CB0A44871F177A5BA7B /* Support Files */,
+				6C34C3A9CDDF4D1B93C6C33C16D73BA1 /* Frameworks */,
+			);
+			path = TwitterCore;
+			sourceTree = "<group>";
+		};
+		B34977A29ED2436D3D6A339F3E842A38 /* Swiftstraints */ = {
+			isa = PBXGroup;
+			children = (
+				7068DC968293F41A3F194C235704F97A /* AxisAnchor.swift */,
+				7B775AE64B8180EEDDA68976DFA5D41D /* DimensionAnchor.swift */,
+				F5BAA80249DF733346CF668EA84E50D0 /* LayoutPriority.swift */,
+				0AEE1FCFA0EC431A844008ECE10240A2 /* NSLayoutConstraint+Extensions.swift */,
+				0BC5CF5642FEA7A677F3185DFAEF1221 /* Swiftstraints.h */,
+				9982B240EA2C62ECF46982B149688102 /* UIView+Additions.swift */,
+				376ED2305EC3CAE51730834FB5F0945D /* VisualFormatLanguage.swift */,
+				726A789F1DB37A34B023D66D33B2EDD0 /* Support Files */,
 			);
 			path = Swiftstraints;
 			sourceTree = "<group>";
 		};
-		DF995942842831FD6D6FE8CAC85C5BCB /* Frameworks */ = {
+		B7A1522770E0A425AB6BDEE97838D1AF /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				DDF12FE2D88EF055CCA47B9180A8C5BC /* FirebaseStorage.framework */,
+				A41739D7E29583CB3BC8E1252563088A /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		C493A5E879A6D394BA62AB287B44A044 /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				C6933170E8C4FBE9846B6CEA64059952 /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		C6933170E8C4FBE9846B6CEA64059952 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C90CBA24FC4F436F452DE56982CC98C7 /* FirebaseDatabase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E1942323B3E19CB0A44871F177A5BA7B /* Support Files */ = {
+		CBDE92902926BFD3462EF74A48273E1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEE5074594A8CF675B2432145533A4D0 /* Info.plist */,
-				7D471C11085DA60C12C42A75673CCB6A /* Swiftstraints.modulemap */,
-				494C73D3A43D6440DD381D3AA32591B2 /* Swiftstraints.xcconfig */,
-				2E9FBD10A4B82EF3E34AB732A085B292 /* Swiftstraints-dummy.m */,
-				1B5F5EA77C058A5E76D7D8018DAC05C5 /* Swiftstraints-prefix.pch */,
-				90BD43CE351AB04EF59F774533556FF8 /* Swiftstraints-umbrella.h */,
+				14536103491C3445CD73D7916266BEC5 /* FirebaseStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7701536BC3E9385AE1379335858FF37 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				825B4AFFBDE0FDF64F22B66AECE413B9 /* DKImagePickerController.modulemap */,
+				39DD2F6F79803991AC8557F181044A14 /* DKImagePickerController.xcconfig */,
+				F4BEB6CF75A7817D26345D3E5967B7D9 /* DKImagePickerController-dummy.m */,
+				0CFA11BC828DC9C529F77EB50285197D /* DKImagePickerController-prefix.pch */,
+				B1A300208C6B391B47E58DB689B330BC /* DKImagePickerController-umbrella.h */,
+				43B0C988A3EEAD419459688F734ED0EF /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Swiftstraints";
+			path = "../Target Support Files/DKImagePickerController";
 			sourceTree = "<group>";
 		};
-		E9B606B364FF4D466AF0329D30194649 /* Resources */ = {
+		D878C13191A5646F871623E60958E98F /* FirebaseStorage */ = {
 			isa = PBXGroup;
 			children = (
-				13C31450DD758DFE5A16A1962FA5D2D9 /* DKCameraResource.bundle */,
+				CBDE92902926BFD3462EF74A48273E1C /* Frameworks */,
 			);
-			name = Resources;
+			path = FirebaseStorage;
 			sourceTree = "<group>";
 		};
-		F6CAAD25317717B53BAF44BA50B62B13 /* GoogleUtilities */ = {
+		DB07CD369FA82BD7FB3946E1D9404EBA /* FirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
-				4D4CD745DEAB154D0D68B989E193158C /* Frameworks */,
+				1B5D3CFE9CAD11DEE7FD9DF1161F3431 /* Frameworks */,
 			);
-			path = GoogleUtilities;
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		DEF6F03CE06DB058F9584C97540B3031 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD43804CD386E20C07F1ADADBC05B6C8 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F40D3383F8B22F5509D43D4606F26865 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				27179F1E668C56CF78CDE5D055288762 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		F5FC28287195C3DA1AFDA6B53A751573 /* DKImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				EA70D98D39A442FDE05333DCACEDE6A4 /* DKAssetGroupDetailVC.swift */,
+				82B755BDFBB495B42DFF1387EA287CAA /* DKAssetGroupGridLayout.swift */,
+				0AC42BEDD01350D3DFD42F025D70DD54 /* DKAssetGroupListVC.swift */,
+				3D08168967CA704D7510ED976BDDAC30 /* DKImagePickerController.swift */,
+				2E92CD74D7426B5F620A39760BA03D80 /* DKImagePickerControllerDefaultCamera.swift */,
+				9D427080789D115F7B5B4DC0057CEA0D /* DKImageResource.swift */,
+				2893CC286C719C4C75927B05F7B2D99C /* DKPermissionView.swift */,
+				1A45E66736B61E1701F05DADCAA78D83 /* DKPopoverViewController.swift */,
+				188B931F799BAEA74A9B385EF362A2AC /* Camera */,
+				023C39F73D6FF96B5E95F2A364548C20 /* ImageManager */,
+				B0B4065384663AADFE54E60E9F0145CA /* Resources */,
+				D7701536BC3E9385AE1379335858FF37 /* Support Files */,
+			);
+			path = DKImagePickerController;
+			sourceTree = "<group>";
+		};
+		F7B231C89B737D587ED579A10C5DEBC1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FFD0A97985C25B9BCD32B0EE3CA6224 /* HanekeSwift.modulemap */,
+				388EB1185E5FA5C2667C6666F9FECCF5 /* HanekeSwift.xcconfig */,
+				4858A744701CC251E81D9ED8948FEED8 /* HanekeSwift-dummy.m */,
+				49602B8D5B70AE70D660535C85F3A3CE /* HanekeSwift-prefix.pch */,
+				77AED3B2F43AA988193C65B44539D8FF /* HanekeSwift-umbrella.h */,
+				618FC6819A65A36F5CA31087E0161372 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HanekeSwift";
+			sourceTree = "<group>";
+		};
+		F83522E22921B0ED041E62F6D54B229C /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				9D08BD3642A3C7CF823A7E0A27F41FAA /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		FB6B707DD2491D017EB73725B3FDB4C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				381C57F401EACF80DED8BEC03D03FE47 /* DKImagePickerController.framework */,
+				763C7E8482461F4C4EF2C7F905B22B37 /* Haneke.framework */,
+				FFBB3843FCDBED5A1527D789EE0339E0 /* Pods_leandesign.framework */,
+				EDBCB595FC075EF0136C5BCB5E9F1876 /* PullToRefresh.framework */,
+				6B8E077762D13D2506F37C17C1B0DE2B /* Swiftstraints.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF74FA966A6DF5BE13F08365FC2EC49C /* PullToRefresher */ = {
+			isa = PBXGroup;
+			children = (
+				9DBA95F6F2AC420C62668EDBF4ADD00D /* DefaultRefreshView.swift */,
+				72DC426EC4E3397C9981F7BEBB1AC68C /* DefaultViewAnimator.swift */,
+				EF717CD3DC86CDF85BC68C00DD2A0EC3 /* PullToRefresh.swift */,
+				AA2438002ADFB429D7CA23169D0B35AC /* RefreshViewAnimator.swift */,
+				CF6237E32053309E010B2650A65F1393 /* State.swift */,
+				80A8907FD5732C05F58A0F44C655B920 /* UIScrollView+PullToRefresh.swift */,
+				509D37D7E3FAEF1A9B823839059DA42E /* Support Files */,
+			);
+			path = PullToRefresher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0CD500840814E829A0510AABC24691DC /* Headers */ = {
+		0C64655B97B501711541511851F1C8EB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE271E94406796E95B14EDD98C2C3AD /* PullToRefresher-umbrella.h in Headers */,
+				AB02DD775A289B55B03F87A73525B611 /* HanekeSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A43CEB271340F0BF483B027CA108A27 /* Headers */ = {
+		7A0AC653AFF038C9AA74E9A347720A87 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31B300079FB91B68113B06E735E03A20 /* Swiftstraints-umbrella.h in Headers */,
-				3285D480F249CD1F6D105CB1E6328353 /* Swiftstraints.h in Headers */,
+				F1CD18A3211EBB4099C9F600E0513862 /* Pods-leandesign-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9338ED69C33E1CE203BD115DBFCCCA99 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F473341989817A9B5D6536AE36B231 /* PullToRefresher-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BFF0D6600DE22D051794BDDF03866AD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76254890D3275E2F1E73E86094ADADDE /* Swiftstraints-umbrella.h in Headers */,
+				6A8478B56A2621E73794FCCD6DC32B53 /* Swiftstraints.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,41 +799,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C766682C4C42CF84D600245528F182B6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				879F4B80A636DE28030BCAE464065CF2 /* Pods-leandesign-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3B00E171FB1FC6CDE8152D86EB5AB026 /* PullToRefresher */ = {
+		07816E07CD306E7B76A6ECFC24705E41 /* Swiftstraints */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76EA388B2935BF38882370E009D091F2 /* Build configuration list for PBXNativeTarget "PullToRefresher" */;
+			buildConfigurationList = 3013B2D6BA184A1960CB3CA2AFA729E3 /* Build configuration list for PBXNativeTarget "Swiftstraints" */;
 			buildPhases = (
-				9BE2949CD9BEE9B635F08FD43448C30F /* Sources */,
-				5391CE7E5EEB1B5FD00CCEBFD1FCBA9E /* Frameworks */,
-				0CD500840814E829A0510AABC24691DC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PullToRefresher;
-			productName = PullToRefresher;
-			productReference = DAB611BC8CD66DEBA7CFECA07F5AECEB /* PullToRefresh.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		51AB9382ABEB7FC577E8353B5EB5BA8C /* Swiftstraints */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 59C80A4ACBA2FE2DE295E12C18C04029 /* Build configuration list for PBXNativeTarget "Swiftstraints" */;
-			buildPhases = (
-				EBDECCBEB7E70D1555107B7D72A036C9 /* Sources */,
-				1EF786AF76132945964693D0675C9F1D /* Frameworks */,
-				9A43CEB271340F0BF483B027CA108A27 /* Headers */,
+				8C608378E6108F239F62760C9E255B5C /* Sources */,
+				5DE099913EF7A6E11B6ABDA3E2B01545 /* Frameworks */,
+				9BFF0D6600DE22D051794BDDF03866AD /* Headers */,
 			);
 			buildRules = (
 			);
@@ -716,7 +816,24 @@
 			);
 			name = Swiftstraints;
 			productName = Swiftstraints;
-			productReference = 3B25A965CDEA7AAFF11F9C68F2C5BB39 /* Swiftstraints.framework */;
+			productReference = 6B8E077762D13D2506F37C17C1B0DE2B /* Swiftstraints.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2C2B1953A91633859BF7AD238FF567A0 /* HanekeSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72681BE87943D4976033F6522AE72050 /* Build configuration list for PBXNativeTarget "HanekeSwift" */;
+			buildPhases = (
+				287E9EEE5B76F9B33BFCA7131334519B /* Sources */,
+				8F0E55176A5AF13111D389E09381931E /* Frameworks */,
+				0C64655B97B501711541511851F1C8EB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HanekeSwift;
+			productName = HanekeSwift;
+			productReference = 763C7E8482461F4C4EF2C7F905B22B37 /* Haneke.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7116AA14740A17264FF47B18C2B67020 /* DKImagePickerController */ = {
@@ -734,27 +851,45 @@
 			);
 			name = DKImagePickerController;
 			productName = DKImagePickerController;
-			productReference = A944C28443FD423455D94F9E395E8B8D /* DKImagePickerController.framework */;
+			productReference = 381C57F401EACF80DED8BEC03D03FE47 /* DKImagePickerController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		82272E9D97FD813DA4DDC8498D517732 /* Pods-leandesign */ = {
+		7793EE9BA576E5481A07B8649B91A4C0 /* PullToRefresher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFBE85BB5F071473B1E7F6255F951096 /* Build configuration list for PBXNativeTarget "Pods-leandesign" */;
+			buildConfigurationList = 5BF15F5BA473FF7AF7BE7BE7FCB13B2D /* Build configuration list for PBXNativeTarget "PullToRefresher" */;
 			buildPhases = (
-				976050A670E1E235B5D49AFD3A86E78E /* Sources */,
-				C024C4738CAF13A8761AF5DE40C9B90E /* Frameworks */,
-				C766682C4C42CF84D600245528F182B6 /* Headers */,
+				21BF36A47648AF0E13429689A5395B29 /* Sources */,
+				C72F2BC1AE1051942A329FF33EB0803F /* Frameworks */,
+				9338ED69C33E1CE203BD115DBFCCCA99 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EDCBBC794AD64D8B7B0EF97C2B3444C2 /* PBXTargetDependency */,
-				6F2B42AD322787904D478B4006050B3F /* PBXTargetDependency */,
-				7CDBA3AD4AB5CF52772909AC70AFDD0E /* PBXTargetDependency */,
+			);
+			name = PullToRefresher;
+			productName = PullToRefresher;
+			productReference = EDBCB595FC075EF0136C5BCB5E9F1876 /* PullToRefresh.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9BE9E0D23E168A974A9FA6392350E3E4 /* Pods-leandesign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C88399EF65DEB056571CEA03AB87E000 /* Build configuration list for PBXNativeTarget "Pods-leandesign" */;
+			buildPhases = (
+				6B59C50DE4A817506AE080439B2D0642 /* Sources */,
+				51CE4A0B66C17CEF3FF31C60DE4A6086 /* Frameworks */,
+				7A0AC653AFF038C9AA74E9A347720A87 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5669E22C8D050EDF7238481CC122A039 /* PBXTargetDependency */,
+				ED800054AEDEF898EB25F0AC1F0D5C0A /* PBXTargetDependency */,
+				5E5C93B3AE71EB3EBAD9E45DE55ADE02 /* PBXTargetDependency */,
+				CF72967A5E65F5C5F41465E1CF68E5A5 /* PBXTargetDependency */,
 			);
 			name = "Pods-leandesign";
 			productName = "Pods-leandesign";
-			productReference = 9BC74785EDFF2DE46292BB88AAA6C0B8 /* Pods_leandesign.framework */;
+			productReference = FFBB3843FCDBED5A1527D789EE0339E0 /* Pods_leandesign.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -774,14 +909,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 9067544FC0AD5A8FBE71422DB09BEF3C /* Products */;
+			productRefGroup = FB6B707DD2491D017EB73725B3FDB4C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7116AA14740A17264FF47B18C2B67020 /* DKImagePickerController */,
-				82272E9D97FD813DA4DDC8498D517732 /* Pods-leandesign */,
-				3B00E171FB1FC6CDE8152D86EB5AB026 /* PullToRefresher */,
-				51AB9382ABEB7FC577E8353B5EB5BA8C /* Swiftstraints */,
+				2C2B1953A91633859BF7AD238FF567A0 /* HanekeSwift */,
+				9BE9E0D23E168A974A9FA6392350E3E4 /* Pods-leandesign */,
+				7793EE9BA576E5481A07B8649B91A4C0 /* PullToRefresher */,
+				07816E07CD306E7B76A6ECFC24705E41 /* Swiftstraints */,
 			);
 		};
 /* End PBXProject section */
@@ -799,6 +935,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		21BF36A47648AF0E13429689A5395B29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57FFF6E23FD9C7DA90DF7F8DE96467D6 /* DefaultRefreshView.swift in Sources */,
+				BE1DC791900DD8C70F523BC031CECA07 /* DefaultViewAnimator.swift in Sources */,
+				C58FB98F414526A05C678F56E52AC74F /* PullToRefresh.swift in Sources */,
+				6C80AC3A6CC7091FBEAD4BDF5D7747AB /* PullToRefresher-dummy.m in Sources */,
+				2F67C9C795D43164008350926CE7C9AF /* RefreshViewAnimator.swift in Sources */,
+				EFC9F3D542E0294FBA1C0DF858074DE8 /* State.swift in Sources */,
+				5C9D6E7B2BE28AE16215173A4534197B /* UIScrollView+PullToRefresh.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		287E9EEE5B76F9B33BFCA7131334519B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A036456169DEB2AE4C6C85CE1F7C4B18 /* Cache.swift in Sources */,
+				B11A6E44F71E94D2ED5D1A61026A6C3C /* CGSize+Swift.swift in Sources */,
+				6C594622D83382066534B7397BC577D6 /* CryptoSwiftMD5.swift in Sources */,
+				719A404405C9EF1F616F2FF68EEF9861 /* Data.swift in Sources */,
+				967999FC0A0EB0FB869C70284E69F54F /* DiskCache.swift in Sources */,
+				6366DDFE4C903F2EC6801CAC120F6CFE /* DiskFetcher.swift in Sources */,
+				680048811774388FDD258595C44FB693 /* Fetch.swift in Sources */,
+				4D006B2FDABF8DCB10EAB7AFDFE0F28F /* Fetcher.swift in Sources */,
+				0EE5EEFF1ADAA5D7407B89F64044BF16 /* Format.swift in Sources */,
+				E7EB6F52FF0F5563B13F3422A3177A8C /* Haneke.swift in Sources */,
+				6F7562BFC51E2A8351DF0FBBFD9D8B67 /* HanekeSwift-dummy.m in Sources */,
+				BC7B5AEE1D76FA0E004152BDAD2323C6 /* Log.swift in Sources */,
+				32855D0A1E2A5883634D6A98F96F3B29 /* NetworkFetcher.swift in Sources */,
+				36AF4F877F0F54A3801AA1FC8DD635FC /* NSFileManager+Haneke.swift in Sources */,
+				2D782AA18F8828AB57A4E871E8D3FD5B /* NSHTTPURLResponse+Haneke.swift in Sources */,
+				424EC958EBC2157B366BF68BC0C47103 /* NSURLResponse+Haneke.swift in Sources */,
+				722C7097A4AC7A0A01C33419EE4C884C /* String+Haneke.swift in Sources */,
+				73EBFEA308663D6BFAA2C2012C50EFE2 /* UIButton+Haneke.swift in Sources */,
+				97DFF4A5126452253E4F8DC07F9A905A /* UIImage+Haneke.swift in Sources */,
+				2CDC977902ABAFAC50F36A88914415BE /* UIImageView+Haneke.swift in Sources */,
+				7CEACB916CD24FE3D304DC98AD195257 /* UIView+Haneke.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C084E04FB8AC809F0846D479ABE85DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -820,98 +998,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		976050A670E1E235B5D49AFD3A86E78E /* Sources */ = {
+		6B59C50DE4A817506AE080439B2D0642 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E0F438C65C6CFBB40C50D8948531922 /* Pods-leandesign-dummy.m in Sources */,
+				40AAB876E770D3DFB8D870618EBDF2AD /* Pods-leandesign-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BE2949CD9BEE9B635F08FD43448C30F /* Sources */ = {
+		8C608378E6108F239F62760C9E255B5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4298C699FE86C8F05399DE0B25C014C7 /* DefaultRefreshView.swift in Sources */,
-				02A76E53464F947BE115560BCE51CF77 /* DefaultViewAnimator.swift in Sources */,
-				7D888BCB8E60FD93AE4B5B630BAF12CB /* PullToRefresh.swift in Sources */,
-				01447210E8B8FBCD207A3B8D735DAB1B /* PullToRefresher-dummy.m in Sources */,
-				431A24E7375FD46084A227339A1F7D3C /* RefreshViewAnimator.swift in Sources */,
-				4411E01D47BF393DE9EC76D1F969AC1A /* State.swift in Sources */,
-				08730FDE9DB46578B826CBB4A83E5F56 /* UIScrollView+PullToRefresh.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBDECCBEB7E70D1555107B7D72A036C9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0B09300A25F278E08318A07DF8A23CD7 /* AxisAnchor.swift in Sources */,
-				DAD103238C0EDE66756052C7589C2180 /* DimensionAnchor.swift in Sources */,
-				638F5EE2276D49C2540B62689110D5CD /* LayoutPriority.swift in Sources */,
-				2C91891FC7C43DC84ADA3B3A1512E7E2 /* NSLayoutConstraint+Extensions.swift in Sources */,
-				5E5078A5979EA3093B5FE7FF976C2171 /* Swiftstraints-dummy.m in Sources */,
-				153272309BD5BB40A7E559D508A58214 /* UIView+Additions.swift in Sources */,
-				010722E6B3B5BDE8F616C54DE26C4982 /* VisualFormatLanguage.swift in Sources */,
+				1DB51689978C0710EAAB9EDCBC2D59F0 /* AxisAnchor.swift in Sources */,
+				ABE384231D86D3353CF6CC292924F98E /* DimensionAnchor.swift in Sources */,
+				8CB0A76BD872AE6A40B1EBF28F9543D0 /* LayoutPriority.swift in Sources */,
+				B4EA4774BC7BACD7F22147790D3D98EB /* NSLayoutConstraint+Extensions.swift in Sources */,
+				19C2562B5EFB7F2032A97E2D609F9EF6 /* Swiftstraints-dummy.m in Sources */,
+				BC4DE892B6032733EC8D40418B426181 /* UIView+Additions.swift in Sources */,
+				112190A3152E1D0E63DE7FD2BD806F01 /* VisualFormatLanguage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6F2B42AD322787904D478B4006050B3F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PullToRefresher;
-			target = 3B00E171FB1FC6CDE8152D86EB5AB026 /* PullToRefresher */;
-			targetProxy = 2AD6C0721D5E131B50F77C3F61B361DC /* PBXContainerItemProxy */;
-		};
-		7CDBA3AD4AB5CF52772909AC70AFDD0E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Swiftstraints;
-			target = 51AB9382ABEB7FC577E8353B5EB5BA8C /* Swiftstraints */;
-			targetProxy = 1BC788520F9FFB3E9517AB0E3C7B5520 /* PBXContainerItemProxy */;
-		};
-		EDCBBC794AD64D8B7B0EF97C2B3444C2 /* PBXTargetDependency */ = {
+		5669E22C8D050EDF7238481CC122A039 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DKImagePickerController;
 			target = 7116AA14740A17264FF47B18C2B67020 /* DKImagePickerController */;
-			targetProxy = 655ED8752FBD6753AAF67E0D9E4AAF0B /* PBXContainerItemProxy */;
+			targetProxy = 4EA8C90FAC48270BB857FAE388631003 /* PBXContainerItemProxy */;
+		};
+		5E5C93B3AE71EB3EBAD9E45DE55ADE02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PullToRefresher;
+			target = 7793EE9BA576E5481A07B8649B91A4C0 /* PullToRefresher */;
+			targetProxy = D4B46280E31BCABE0B1DEB9C4E37F91F /* PBXContainerItemProxy */;
+		};
+		CF72967A5E65F5C5F41465E1CF68E5A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Swiftstraints;
+			target = 07816E07CD306E7B76A6ECFC24705E41 /* Swiftstraints */;
+			targetProxy = E08064E16C06D6F5E994B3F3A3080B28 /* PBXContainerItemProxy */;
+		};
+		ED800054AEDEF898EB25F0AC1F0D5C0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HanekeSwift;
+			target = 2C2B1953A91633859BF7AD238FF567A0 /* HanekeSwift */;
+			targetProxy = BB35B42B9A38E5AADFADD4A847813764 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04B66D421681BE0E80E9E3106C91BEFF /* Release */ = {
+		2B60865483EB94CBA3704EFD23807292 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA928ADB6CE791ABA198161BB30CC664 /* PullToRefresher.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PullToRefresher/PullToRefresher-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PullToRefresher/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PullToRefresher/PullToRefresher.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PullToRefresh;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		12CFE5BF5E7DB66BC508BAA4629DCFAF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 494C73D3A43D6440DD381D3AA32591B2 /* Swiftstraints.xcconfig */;
+			baseConfigurationReference = 68BA4FC2059A2B3D1A59E6811B9B2EF6 /* Swiftstraints.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -940,7 +1081,7 @@
 		};
 		33A7552B61809762D4E0CF591DBD2BC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEA18879D7E1FCDDC1360EF74002DDF5 /* DKImagePickerController.xcconfig */;
+			baseConfigurationReference = 39DD2F6F79803991AC8557F181044A14 /* DKImagePickerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -968,9 +1109,9 @@
 			};
 			name = Debug;
 		};
-		6075DC25D6149612889E1FF476B05339 /* Debug */ = {
+		6396977BD54CF323E225E3BA478F0B6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 494C73D3A43D6440DD381D3AA32591B2 /* Swiftstraints.xcconfig */;
+			baseConfigurationReference = 388EB1185E5FA5C2667C6666F9FECCF5 /* HanekeSwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -981,14 +1122,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Swiftstraints/Swiftstraints-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swiftstraints/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HanekeSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Swiftstraints/Swiftstraints.modulemap";
+				MODULEMAP_FILE = "Target Support Files/HanekeSwift/HanekeSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Swiftstraints;
+				PRODUCT_NAME = Haneke;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1040,7 +1181,159 @@
 			};
 			name = Debug;
 		};
-		D1BBAF618C268AF19B4F5B5F003CA483 /* Release */ = {
+		A789AD15C7069B9487F6E2A93DE8D319 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 388EB1185E5FA5C2667C6666F9FECCF5 /* HanekeSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HanekeSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HanekeSwift/HanekeSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Haneke;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BA0B68EA12597556F17F3D7E94F1D0DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4C67648D9FCE691B4F44C98A3640071 /* Pods-leandesign.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-leandesign/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-leandesign/Pods-leandesign.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_leandesign;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C2543C438E0669B5FC7CE19DC60E82F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68BA4FC2059A2B3D1A59E6811B9B2EF6 /* Swiftstraints.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Swiftstraints/Swiftstraints-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swiftstraints/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Swiftstraints/Swiftstraints.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Swiftstraints;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C74A92484D4AE24EE864159336DF2B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBDC29C0D34F0E8BAF8B47979D38F574 /* PullToRefresher.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PullToRefresher/PullToRefresher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PullToRefresher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PullToRefresher/PullToRefresher.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PullToRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7DA76EE43C45F087A0EC52FDB04B7F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBDC29C0D34F0E8BAF8B47979D38F574 /* PullToRefresher.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PullToRefresher/PullToRefresher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PullToRefresher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PullToRefresher/PullToRefresher.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PullToRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E59442E869C8941FC18F6ED5E5EE5627 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95EB4BD8C2FCF4283CDA62AC65A1D3FD /* Pods-leandesign.release.xcconfig */;
 			buildSettings = {
@@ -1073,39 +1366,9 @@
 			};
 			name = Release;
 		};
-		E76605809FCBC1E988FA9CD90F6A3C7D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA928ADB6CE791ABA198161BB30CC664 /* PullToRefresher.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PullToRefresher/PullToRefresher-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PullToRefresher/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PullToRefresher/PullToRefresher.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PullToRefresh;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		F26E0276B55F1256F1A6E6B3E2DB3812 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEA18879D7E1FCDDC1360EF74002DDF5 /* DKImagePickerController.xcconfig */;
+			baseConfigurationReference = 39DD2F6F79803991AC8557F181044A14 /* DKImagePickerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1170,40 +1433,6 @@
 			};
 			name = Release;
 		};
-		F7F33F1630D5B6D6DFC46E4DC4386107 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4C67648D9FCE691B4F44C98A3640071 /* Pods-leandesign.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-leandesign/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-leandesign/Pods-leandesign.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_leandesign;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1212,6 +1441,15 @@
 			buildConfigurations = (
 				84FD87D359382A37B07149A12641B965 /* Debug */,
 				F594C655D48020EC34B00AA63E001773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3013B2D6BA184A1960CB3CA2AFA729E3 /* Build configuration list for PBXNativeTarget "Swiftstraints" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2543C438E0669B5FC7CE19DC60E82F1 /* Debug */,
+				2B60865483EB94CBA3704EFD23807292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1225,29 +1463,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59C80A4ACBA2FE2DE295E12C18C04029 /* Build configuration list for PBXNativeTarget "Swiftstraints" */ = {
+		5BF15F5BA473FF7AF7BE7BE7FCB13B2D /* Build configuration list for PBXNativeTarget "PullToRefresher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6075DC25D6149612889E1FF476B05339 /* Debug */,
-				12CFE5BF5E7DB66BC508BAA4629DCFAF /* Release */,
+				C74A92484D4AE24EE864159336DF2B05 /* Debug */,
+				D7DA76EE43C45F087A0EC52FDB04B7F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76EA388B2935BF38882370E009D091F2 /* Build configuration list for PBXNativeTarget "PullToRefresher" */ = {
+		72681BE87943D4976033F6522AE72050 /* Build configuration list for PBXNativeTarget "HanekeSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E76605809FCBC1E988FA9CD90F6A3C7D /* Debug */,
-				04B66D421681BE0E80E9E3106C91BEFF /* Release */,
+				6396977BD54CF323E225E3BA478F0B6B /* Debug */,
+				A789AD15C7069B9487F6E2A93DE8D319 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFBE85BB5F071473B1E7F6255F951096 /* Build configuration list for PBXNativeTarget "Pods-leandesign" */ = {
+		C88399EF65DEB056571CEA03AB87E000 /* Build configuration list for PBXNativeTarget "Pods-leandesign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F7F33F1630D5B6D6DFC46E4DC4386107 /* Debug */,
-				D1BBAF618C268AF19B4F5B5F003CA483 /* Release */,
+				BA0B68EA12597556F17F3D7E94F1D0DD /* Debug */,
+				E59442E869C8941FC18F6ED5E5EE5627 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
