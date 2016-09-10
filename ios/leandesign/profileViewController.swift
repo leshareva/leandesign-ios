@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import DigitsKit
 import Swiftstraints
+import Haneke
 import DKImagePickerController
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -97,8 +98,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.discriptionLabel.text = snapshot.value!["name"] as? String
             self.firstField.text = snapshot.value!["company"] as? String
             let profileImageUrl = snapshot.value!["imageUrl"] as? String
-               self.profilePic.loadImageUsingCashWithUrlString(profileImageUrl!)
-       
+            
+            self.profilePic.hnk_setImageFromURL(profileImageUrl!)
+            
             }, withCancelBlock: nil)
     }
     
