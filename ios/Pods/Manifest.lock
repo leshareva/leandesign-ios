@@ -46,6 +46,11 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - HanekeSwift (0.10.1)
   - PullToRefresher (1.4.0)
+  - Realm (1.0.2):
+    - Realm/Headers (= 1.0.2)
+  - Realm/Headers (1.0.2)
+  - RealmSwift (1.0.2):
+    - Realm (= 1.0.2)
   - Swiftstraints (2.2.2)
   - TwitterCore (2.3.0):
     - Fabric
@@ -59,6 +64,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - HanekeSwift
   - PullToRefresher (~> 1.4.0)
+  - RealmSwift
   - Swiftstraints
 
 SPEC CHECKSUMS:
@@ -78,9 +84,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   PullToRefresher: c4629a459f305c14a66d35f52c2feeaccf85c49e
+  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
+  RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
   Swiftstraints: 7474fa4f87a3d89d99a2e52032578f0292ae48de
   TwitterCore: 817eae3e291fa4125b47789e26a4f6f024115c1f
 
-PODFILE CHECKSUM: a54988b46edc67e65d2b02f8c965ca34255b1f98
+PODFILE CHECKSUM: 647bc293babe17a8c330aaa94e4974b9e40e8a94
 
 COCOAPODS: 1.0.0

@@ -25,6 +25,7 @@
 		CBD33B521D6406140091A391 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD33B511D6406140091A391 /* ChatViewController.swift */; };
 		CBD33B541D6407EE0091A391 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD33B531D6407EE0091A391 /* ChatMessageCell.swift */; };
 		CBD33B581D6411400091A391 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD33B571D6411400091A391 /* Message.swift */; };
+		CBD5DFF11D84337A009F678D /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD5DFF01D84337A009F678D /* UserItem.swift */; };
 		CBDCC7071D6949820020181F /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDCC7061D6949820020181F /* SettingsLauncher.swift */; };
 		CBDCC7091D6952E10020181F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDCC7081D6952E10020181F /* SettingCell.swift */; };
 		CBF0643D1D5A710C00AA7D9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF0643C1D5A710C00AA7D9C /* Extensions.swift */; };
@@ -52,6 +53,7 @@
 		CBD33B511D6406140091A391 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		CBD33B531D6407EE0091A391 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		CBD33B571D6411400091A391 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CBD5DFF01D84337A009F678D /* UserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		CBDCC7061D6949820020181F /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		CBDCC7081D6952E10020181F /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		CBF0643C1D5A710C00AA7D9C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		CB21C3D41D5A36A7006EE0DF /* leandesign */ = {
 			isa = PBXGroup;
 			children = (
+				CBD5DFEF1D843347009F678D /* RealmModel */,
 				CBBE5CAF1D6048760093F874 /* View */,
 				CB76A6B11D5C8D5C007DAFD8 /* Model */,
 				CBF0643B1D5A70F200AA7D9C /* Extensions */,
@@ -163,6 +166,14 @@
 				CBDCC7081D6952E10020181F /* SettingCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		CBD5DFEF1D843347009F678D /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBD5DFF01D84337A009F678D /* UserItem.swift */,
+			);
+			name = RealmModel;
 			sourceTree = "<group>";
 		};
 		CBF0643B1D5A70F200AA7D9C /* Extensions */ = {
@@ -317,6 +328,7 @@
 				CB21C3F11D5A3AF6006EE0DF /* NewTaskController.swift in Sources */,
 				CBDCC7071D6949820020181F /* SettingsLauncher.swift in Sources */,
 				CBDCC7091D6952E10020181F /* SettingCell.swift in Sources */,
+				CBD5DFF11D84337A009F678D /* UserItem.swift in Sources */,
 				CB21C3D61D5A36A7006EE0DF /* AppDelegate.swift in Sources */,
 				CB29A96F1D82D4FF0044C87A /* ProfileViewController.swift in Sources */,
 				CB21C3E91D5A376B006EE0DF /* TasksListController.swift in Sources */,

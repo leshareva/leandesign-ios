@@ -16,5 +16,6 @@ pod 'DKImagePickerController'
 pod 'PullToRefresher', '~> 1.4.0'
 pod 'Swiftstraints'
 pod 'HanekeSwift'
+pod 'RealmSwift'
 
 end
