@@ -40,6 +40,9 @@ class TasksListController: UITableViewController {
         
         tableView.allowsMultipleSelectionDuringEditing = true
         
+       
+            self.tableView.reloadData()
+        
         checkIfUserIsLoggedIn()
         setupPullToRefresh()
     }
@@ -87,6 +90,11 @@ class TasksListController: UITableViewController {
         
         if setting.name == .Exit {
             handleLogout()
+        } else if setting.name == .Settings {
+            let profileViewController = ProfileViewController()
+            profileViewController.view.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+            profileViewController.navigationItem.title = setting.name.rawValue
+            presentViewController(profileViewController, animated: true, completion: nil)
         } else {
             let dummySettingsViewController = UIViewController()
             dummySettingsViewController.view.backgroundColor = UIColor.whiteColor()
@@ -128,11 +136,6 @@ class TasksListController: UITableViewController {
     }
     
     
-    func refresh() {
-      
-//         tableView.reloadData()
-        
-    }
 
     
     func checkIfUserIsLoggedIn() {
@@ -258,6 +261,16 @@ class TasksListController: UITableViewController {
         cell.textLabel?.text = task.text
         cell.detailTextLabel?.text = task.status
         cell.timeLabel.text = String(task.price!)
+        cell.notificationsLabel.hidden = true
+        
+        let ref = FIRDatabase.database().reference().child("tasks").child(task.taskId!).child("messages")
+        ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            let status = snapshot.value!["status"] as? String
+            if status == "toClient" {
+                cell.notificationsLabel.hidden = false
+                print("Есть новые сообщения")
+            }
+            }, withCancelBlock: nil)
         
        if let taskImageUrl = task.imageUrl {
          cell.taskImageView.loadImageUsingCashWithUrlString(taskImageUrl)
@@ -284,7 +297,7 @@ class TasksListController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let task = tasks[indexPath.row]
-    
+      
 //        guard let fromId = task.fromId else {
 //            return
 //        }

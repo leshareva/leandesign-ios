@@ -91,11 +91,6 @@ class NewTaskController: UIViewController {
     }
     
     func setupInputForOrder() {
-        
-        
-        
-        
-        
         textDescription.leftAnchor.constraintEqualToAnchor(view.leftAnchor, constant: 8).active = true
         textDescription.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 76).active = true
         textDescription.rightAnchor.constraintEqualToAnchor(view.rightAnchor, constant: 16).active = true

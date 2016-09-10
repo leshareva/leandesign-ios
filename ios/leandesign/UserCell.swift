@@ -55,6 +55,15 @@ class UserCell: UITableViewCell {
         return label
     }()
     
+    let notificationsLabel: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 48, g: 140, b: 229)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
     let taskTextView: UITextView = {
        let tv = UITextView()
         tv.text = "Очень много текста должно быть в одном поле. И желательно бы все это видеть"
@@ -79,7 +88,12 @@ class UserCell: UITableViewCell {
         timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 12).active = true
         timeLabel.widthAnchor.constraintEqualToConstant(60).active = true
         timeLabel.heightAnchor.constraintEqualToConstant(20).active = true
-
+        
+        addSubview(notificationsLabel)
+        notificationsLabel.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -16).active = true
+        notificationsLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
+        notificationsLabel.widthAnchor.constraintEqualToConstant(10).active = true
+        notificationsLabel.heightAnchor.constraintEqualToConstant(10).active = true
         
     }
     

@@ -39,7 +39,19 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
 
         let taskMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
         taskMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-                
+            let status = snapshot.value!["status"] as? String
+                if status == "toClient" {
+                    let key = snapshot.key
+                    let values : [String: AnyObject] = ["status": "read"]
+                    taskMessagesRef.child(key).updateChildValues(values) { (error, ref) in
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                    }
+                }
+            
+            
                 guard let dictionary = snapshot.value as? [String: AnyObject] else {
                     return
                 }
@@ -54,8 +66,13 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
                     self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
                   
                 })
-                
+            
+            
+            
                 }, withCancelBlock: nil)
+        
+        
+        
         
     }
     
