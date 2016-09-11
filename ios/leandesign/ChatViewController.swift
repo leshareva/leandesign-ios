@@ -14,9 +14,6 @@ import DKImagePickerController
 class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     let cashe = NSCache()
     
-
-    
-    
     var task: Task? {
         didSet {
             observeMessages()

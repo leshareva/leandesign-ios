@@ -68,19 +68,20 @@ class UserCell: UITableViewCell {
        let tv = UITextView()
         tv.text = "Очень много текста должно быть в одном поле. И желательно бы все это видеть"
         tv.translatesAutoresizingMaskIntoConstraints = false
+        
         return tv
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
         
-//        addSubview(taskImageView)
+        addSubview(taskImageView)
        
         
-//        taskImageView.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8).active = true
-//        taskImageView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-//        taskImageView.widthAnchor.constraintEqualToConstant(40).active = true
-//        taskImageView.heightAnchor.constraintEqualToConstant(40).active = true
+        taskImageView.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8).active = true
+        taskImageView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
+        taskImageView.widthAnchor.constraintEqualToConstant(40).active = true
+        taskImageView.heightAnchor.constraintEqualToConstant(40).active = true
         
         
         addSubview(timeLabel)
@@ -99,8 +100,8 @@ class UserCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textLabel?.frame = CGRect(x: 16, y: textLabel!.frame.origin.y - 2, width: self.frame.width - 44, height: textLabel!.frame.height)
-        detailTextLabel?.frame = CGRect(x: 16, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
+        textLabel?.frame = CGRect(x: 56, y: textLabel!.frame.origin.y - 2, width: self.frame.width - 84, height: textLabel!.frame.height)
+        detailTextLabel?.frame = CGRect(x: 56, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
         textLabel?.numberOfLines = 2
         textLabel?.font = UIFont.systemFontOfSize(16)
         detailTextLabel?.textColor = UIColor(r: 230, g: 230, b: 230)

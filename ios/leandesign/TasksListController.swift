@@ -10,7 +10,7 @@ import UIKit
 import DigitsKit
 import Firebase
 import PullToRefresh
-
+import AVFoundation
 
 
 class TasksListController: UITableViewController {
@@ -19,7 +19,7 @@ class TasksListController: UITableViewController {
     var tasks = [Task]()
     var taskDictionary = [String: Task]()
     
-    
+    var beepSoundEffect: AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -37,42 +37,40 @@ class TasksListController: UITableViewController {
         navigationItem.titleView = titleLabel
         titleLabel.text = "Лин"
         titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.selectable = false
         
         tableView.allowsMultipleSelectionDuringEditing = true
         
-       
-            self.tableView.reloadData()
-        
         checkIfUserIsLoggedIn()
-        setupPullToRefresh()
+//        setupPullToRefresh()
     }
-    
-    deinit {
-        tableView.removePullToRefresh(tableView.bottomPullToRefresh!)
-        tableView.removePullToRefresh(tableView.topPullToRefresh!)
-    }
-    
-    private func startRefreshing() {
-        tableView.startRefreshing(at: .Top)
-    }
-    
-    func setupPullToRefresh () {
-        tableView.addPullToRefresh(PullToRefresh()) { [weak self] in
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                self!.fetchUserAndSetupNavBarTitle()
-                self?.tableView.endRefreshing(at: .Top)
-            }
-        }
-        
-        tableView.addPullToRefresh(PullToRefresh(position: .Bottom)) { [weak self] in
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                self?.tableView.reloadData()
-                self?.tableView.endRefreshing(at: .Bottom)
-            }
-        }
-    }
+//    
+//    deinit {
+//        tableView.removePullToRefresh(tableView.bottomPullToRefresh!)
+//        tableView.removePullToRefresh(tableView.topPullToRefresh!)
+//    }
+//    
+//    private func startRefreshing() {
+//        tableView.startRefreshing(at: .Top)
+//    }
+//    
+//    func setupPullToRefresh () {
+//        tableView.addPullToRefresh(PullToRefresh()) { [weak self] in
+//            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+//            dispatch_after(delayTime, dispatch_get_main_queue()) {
+//                self!.fetchUserAndSetupNavBarTitle()
+//                self?.tableView.endRefreshing(at: .Top)
+//            }
+//        }
+//        
+//        tableView.addPullToRefresh(PullToRefresh(position: .Bottom)) { [weak self] in
+//            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+//            dispatch_after(delayTime, dispatch_get_main_queue()) {
+////                self?.tableView.reloadData()
+//                self?.tableView.endRefreshing(at: .Bottom)
+//            }
+//        }
+//    }
     
     
     lazy var settingsLauncher: SettingsLauncher = {
@@ -88,9 +86,13 @@ class TasksListController: UITableViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-        self.tableView.reloadData()
+            self.tableView.reloadData()
     }
     
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Мои задачи"
+    }
     
     
     func showControllerForSetting(setting: Setting) {
@@ -276,25 +278,27 @@ class TasksListController: UITableViewController {
             if status == "toClient" {
                 cell.notificationsLabel.hidden = false
                 print("Есть новые сообщения")
+                
+                let path = NSBundle.mainBundle().pathForResource("beep.mp3", ofType:nil)!
+                let url = NSURL(fileURLWithPath: path)
+                print(url)
+                
+                do {
+                    let sound = try AVAudioPlayer(contentsOfURL: url)
+                    self.beepSoundEffect = sound
+                    sound.play()
+                } catch {
+                    // couldn't load file :(
+                }
+                
             }
             }, withCancelBlock: nil)
         
+        
        if let taskImageUrl = task.imageUrl {
          cell.taskImageView.loadImageUsingCashWithUrlString(taskImageUrl)
-        
-//        let url = NSURL(string: taskImageUrl)
-//          NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) in
-//            if error != nil {
-//                print(error)
-//                return
-//            }
-//            dispatch_async(dispatch_get_main_queue(), {
-//                = UIImage(data: data!)
-////                cell.imageView?.image = UIImage(data: data!)
-//            })
-//            
-//            
-//          }).resume()
+       } else {
+        cell.taskImageView.image = UIImage.gifWithName("spinner-duo")
         }
         
         
@@ -304,26 +308,6 @@ class TasksListController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let task = tasks[indexPath.row]
-      
-//        guard let fromId = task.fromId else {
-//            return
-//        }
-//        
-//        let ref = FIRDatabase.database().reference().child("tasks").child(fromId)
-//        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//            
-//            
-//            guard let dictionary = snapshot.value as? [String: AnyObject] else {
-//                return
-//            }
-//            
-//            let user = User()
-//            user.id = fromId
-//            user.setValuesForKeysWithDictionary(dictionary)
-//            self.showChatControllerForUser(task)
-//            
-//            
-//            }, withCancelBlock: nil)
         
         showChatControllerForUser(task)
         
@@ -373,10 +357,20 @@ class TasksListController: UITableViewController {
         let clientsReference = ref.child("clients")
         
         clientsReference.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            
+
             if snapshot.hasChild(userId) {
-                print("Есть такой юзер")
+                print("Знакомое лицо")
+                clientsReference.child(userId).observeEventType(.Value, withBlock: { (snapshot) in
+                 
+                    if let name = snapshot.value!["name"] as? String {
+                        NSUserDefaults.standardUserDefaults().setObject(name, forKey: "myString")
+                    }
+                    
+                    }, withCancelBlock: nil)
+                
                 self.fetchUserAndSetupNavBarTitle()
+               
+                
             } else {
                 print("Таких не знаем")
                 

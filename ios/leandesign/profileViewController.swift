@@ -5,9 +5,15 @@ import Swiftstraints
 import Haneke
 import DKImagePickerController
 
-var imageCache = [String: UIImage]()
+
+
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    
+    
+   
+ 
     
     let discriptionLabel: UILabel = {
         let tv = UILabel()
@@ -95,41 +101,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func loadUserInfo() {
+        if let myLoadedString = NSUserDefaults.standardUserDefaults().stringForKey("name") {
+            self.discriptionLabel.text = myLoadedString
+        }
+
         let userId = Digits.sharedInstance().session()?.userID
         let ref = FIRDatabase.database().reference().child("clients").child(userId!)
         ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             self.discriptionLabel.text = snapshot.value!["name"] as? String
             self.firstField.text = snapshot.value!["company"] as? String
-           if let profileImageUrl = snapshot.value!["imageUrl"] as? String {
-            
-            if let image = imageCache[profileImageUrl] {
-                self.profilePic.image = image
-            } else {
-                NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: profileImageUrl)!, completionHandler: { (data, response, error) -> Void in
-                    if error != nil {
-                        print(error)
-                        return
-                    }
-                    
-                    let image = UIImage(data: data!)
-                    
-                    imageCache[profileImageUrl] = image
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.profilePic.image = image
-                        
-                    })
-                }).resume()
+            guard let profileImageUrl = snapshot.value!["imageUrl"] as? String else {
+                return
             }
             
-            }
-//            let url = NSURL(string: profileImageUrl!)
-//            self.profilePic.hnk_setImageFromURL(url!)
-            
-            
-            
-            
+            let url = NSURL(string: profileImageUrl)
+            self.profilePic.hnk_setImageFromURL(url!)
             
             }, withCancelBlock: nil)
     }
