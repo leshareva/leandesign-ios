@@ -38,10 +38,10 @@ class UserCell: UITableViewCell {
 
     let taskImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "userpic")
+        iv.image = UIImage.gifWithName("spinner-duo")
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .ScaleAspectFill
-        iv.layer.cornerRadius = 20
+        iv.layer.cornerRadius = 25
         iv.clipsToBounds = true
         return iv
     }()
@@ -49,8 +49,8 @@ class UserCell: UITableViewCell {
     let timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFontOfSize(12)
-        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont.systemFontOfSize(14)
+        label.textColor = UIColor.blackColor()
         label.textAlignment = .Right
         return label
     }()
@@ -80,15 +80,10 @@ class UserCell: UITableViewCell {
         
         taskImageView.leftAnchor.constraintEqualToAnchor(self.leftAnchor, constant: 8).active = true
         taskImageView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-        taskImageView.widthAnchor.constraintEqualToConstant(40).active = true
-        taskImageView.heightAnchor.constraintEqualToConstant(40).active = true
+        taskImageView.widthAnchor.constraintEqualToConstant(50).active = true
+        taskImageView.heightAnchor.constraintEqualToConstant(50).active = true
         
-        
-        addSubview(timeLabel)
-        timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
-        timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 12).active = true
-        timeLabel.widthAnchor.constraintEqualToConstant(60).active = true
-        timeLabel.heightAnchor.constraintEqualToConstant(20).active = true
+       
         
         addSubview(notificationsLabel)
         notificationsLabel.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -16).active = true
@@ -100,11 +95,20 @@ class UserCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textLabel?.frame = CGRect(x: 56, y: textLabel!.frame.origin.y - 2, width: self.frame.width - 84, height: textLabel!.frame.height)
-        detailTextLabel?.frame = CGRect(x: 56, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
+        
+        textLabel?.frame = CGRect(x: 66, y: textLabel!.frame.origin.y - 2, width: self.frame.width - 84, height: textLabel!.frame.height)
+        detailTextLabel?.frame = CGRect(x: 66, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
         textLabel?.numberOfLines = 2
-        textLabel?.font = UIFont.systemFontOfSize(16)
+        textLabel?.font = UIFont.systemFontOfSize(14)
         detailTextLabel?.textColor = UIColor(r: 230, g: 230, b: 230)
+        detailTextLabel?.font = UIFont.systemFontOfSize(12)
+        
+        
+        addSubview(timeLabel)
+        timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -16).active = true
+        timeLabel.topAnchor.constraintEqualToAnchor(textLabel?.bottomAnchor, constant: 2).active = true
+       
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -22,11 +22,13 @@ enum SettingName: String {
     case Cancel = "Отмена"
     case Settings = "Настройки"
     case Exit = "Выход"
+    case Archive = "Архив"
 }
 
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var tasksListController: TasksListController?
+//    var tasksListController: TasksListController?
+    var taskViewController: TaskViewController?
     
     let blackView = UIView()
     let collectionView: UICollectionView = {
@@ -40,7 +42,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     let cellHeight: CGFloat = 50
     let settings: [Setting] = {
         let settingsSetting = Setting(name: .Settings, imageName: "settings")
-        let exitSetting = Setting(name: .Exit, imageName: "exit")
+        let exitSetting = Setting(name: .Archive, imageName: "exit")
         let cancelSetting = Setting(name: .Cancel, imageName: "close")
        return [settingsSetting, exitSetting, cancelSetting]
     }()
@@ -81,7 +83,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         }) { (completed: Bool) in
            
             if setting.name != .Cancel {
-                self.tasksListController?.showControllerForSetting(setting)
+                self.taskViewController?.showControllerForSetting(setting)
             } 
             
         }

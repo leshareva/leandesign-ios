@@ -14,7 +14,8 @@ import DigitsKit
 class NewTaskController: UIViewController {
     
     
-    var taskListController: TasksListController?
+//    var taskListController: TasksListController?
+    var taskViewController: TaskViewController?
     
     let textDescription: UITextView = {
        let td = UITextView()
@@ -115,11 +116,11 @@ class NewTaskController: UIViewController {
         taskTextField.rightAnchor.constraintEqualToAnchor(inputForOrder.rightAnchor, constant: -8).active = true
         taskTextField.heightAnchor.constraintEqualToAnchor(inputForOrder.heightAnchor, constant: 32).active = true
 
-        //        view.addSubview(attachImageView)
-//        attachImageView.rightAnchor.constraintEqualToAnchor(inputForOrder.rightAnchor, constant: -15).active = true
-//        attachImageView.bottomAnchor.constraintEqualToAnchor(inputForOrder.bottomAnchor, constant: -15).active = true
-//        attachImageView.widthAnchor.constraintEqualToConstant(25).active = true
-//        attachImageView.heightAnchor.constraintEqualToConstant(25).active = true
+               view.addSubview(attachImageView)
+        attachImageView.rightAnchor.constraintEqualToAnchor(inputForOrder.rightAnchor, constant: -15).active = true
+        attachImageView.bottomAnchor.constraintEqualToAnchor(inputForOrder.bottomAnchor, constant: -15).active = true
+        attachImageView.widthAnchor.constraintEqualToConstant(25).active = true
+        attachImageView.heightAnchor.constraintEqualToConstant(25).active = true
        
     }
     

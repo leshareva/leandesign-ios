@@ -9,43 +9,36 @@
 import UIKit
 import Firebase
 import DigitsKit
-
+import DKImagePickerController
 
 extension NewTaskController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     
     func handleSelectAttachImageView() {
-        let picker = UIImagePickerController()
+        let pickerController = DKImagePickerController()
         
-        picker.delegate = self
         
-        presentViewController(picker, animated: true, completion: nil)
-        
-    }
-    
-       
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        var selectedImageFromPicker: UIImage?
-        
-        if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            selectedImageFromPicker = originalImage
+        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+            print("didSelectAssets")
+            print(assets)
+            
+            
+            for each in assets {
+                each.fetchOriginalImage(false) {
+                    (image: UIImage?, info: [NSObject : AnyObject]?) in
+                    
+                    if let selectedImage = image {
+                        self.attachImageView.image = selectedImage
+                    }
+                }
+            }
+            
         }
         
-        if let selectedImage = selectedImageFromPicker {
-            attachImageView.image = selectedImage
-        }
+        self.presentViewController(pickerController, animated: true, completion: nil)
         
-        dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    
 
     
     func addNewTask() {
@@ -58,8 +51,7 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         guard let taskText = taskTextField.text where !taskText.isEmpty else {
             return
         }
-        
-        
+
         
         let ref = FIRDatabase.database().reference().child("tasks")
         let postRef = ref.childByAutoId()
@@ -71,18 +63,8 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         let company = "Вот такие пироги"
         let price = 0
         let timeState = 0
-        let image = attachImageView.image
-        let imageName = NSUUID().UUIDString
-        let imageref = FIRStorage.storage().reference().child("task_image").child(imageName)
         
-//        if let uploadData = UIImageJPEGRepresentation(image!, 0.2) {
-//            imageref.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-//                if error != nil {
-//                    print("Faild upload image:", error)
-//                    return
-//                }
         
-//                if let imageUrl = metadata?.downloadURL()?.absoluteString {
                     let values : [String : AnyObject] = ["awareness": "", "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": 0.5]
                     
                     postRef.setValue(values)
@@ -95,11 +77,10 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                         let taskId = postRef.key
                         userTaskRef.updateChildValues([taskId: 1])
                         
-//                        let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-tasks").child(toId)
-//                        recipientUserMessagesRef.updateChildValues([taskId: 1])
+
                     }
                     
-//                }
+
                 let messageRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
                 let messageРostRef = messageRef.childByAutoId()
                 let messageValues = ["text": taskText, "taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId]
@@ -108,29 +89,47 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
                         print(error)
                         return
                     }
-                
-//                }
-                
-                self.sendTaskImageToChat()
-//            })
-        }
-     
-        
-         dismissViewControllerAnimated(true, completion: nil) 
 
+        }
+        
+        self.sendTaskImageToChat(fromId, taskId: taskId)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func sendTaskImageToChat(fromId: String, taskId: String) {
+        let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
+        let image = attachImageView.image
+        let imageName = NSUUID().UUIDString
+        let imageref = FIRStorage.storage().reference().child("task_image").child(imageName)
+        
+        if image != UIImage(named: "attach") {
+            if let uploadData = UIImageJPEGRepresentation(image!, 0.8) {
+                imageref.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print("Faild upload image:", error)
+                        return
+                    }
+                    if let imageUrl = metadata?.downloadURL()?.absoluteString {
+                        let messageRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
+                        let messageРostRef = messageRef.childByAutoId()
+                        let messageValues = ["imageUrl": imageUrl, "taskId": taskId, "timestamp": timestamp, "fromId": fromId]
+                        messageРostRef.updateChildValues(messageValues) { (error, ref) in
+                            if error != nil {
+                                print(error)
+                                return
+                            }
+                            
+                        }
+                    }
+                })
+            }
+
+        }
   
+
     }
     
-    func sendTaskImageToChat() {
-        
-    }
-    
-    private func registerTaskInDatabaseWithUID(uid: String, values: [String: AnyObject]) {
-    
-        
-        
-    }
-    
+
     
     
     

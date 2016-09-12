@@ -10,11 +10,6 @@ import DKImagePickerController
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
-    
-   
- 
-    
     let discriptionLabel: UILabel = {
         let tv = UILabel()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +102,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         let userId = Digits.sharedInstance().session()?.userID
         let ref = FIRDatabase.database().reference().child("clients").child(userId!)
-        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.observeEventType(.Value, withBlock: { (snapshot) in
             
             self.discriptionLabel.text = snapshot.value!["name"] as? String
             self.firstField.text = snapshot.value!["company"] as? String
@@ -166,6 +161,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 for each in assets {
                     each.fetchOriginalImage(false) {
                         (image: UIImage?, info: [NSObject : AnyObject]?) in
+                        self.profilePic.image = image
                         let imageData: NSData = UIImagePNGRepresentation(image!)!
                         self.uploadToFirebaseStorageUsingImage(image!)
                     }

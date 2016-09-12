@@ -12,7 +12,8 @@ import Firebase
 
 class LoginController: UIViewController {
     
-    var tasksListController: TasksListController?
+//    var tasksListController: TasksListController?
+    var taskViewController: TaskViewController?
     var newClientViewController: NewClientViewController?
     
     
@@ -70,7 +71,7 @@ class LoginController: UIViewController {
                             return
                          }
                         
-                        self.tasksListController?.checkUserInBase()
+                        self.taskViewController?.checkUserInBase()
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
                        

@@ -12,6 +12,7 @@ import DigitsKit
 import DKImagePickerController
 
 class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+    
     let cashe = NSCache()
     
     var task: Task? {
@@ -99,10 +100,39 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.whiteColor()
         collectionView?.registerClass(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
-       collectionView?.keyboardDismissMode = .Interactive
+        collectionView?.keyboardDismissMode = .Interactive
+        
+        setupNavbarWithUser()
         
 //        setupKeyboardObservers()
     }
+    
+    
+    func setupNavbarWithUser() {
+        let titleView = UIImageView()
+        titleView.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        
+        
+        titleView.layer.cornerRadius = 18
+        titleView.layer.masksToBounds = true
+        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openDesignerProfile)))
+        titleView.userInteractionEnabled = true
+        
+        if let imageUrl = task!.imageUrl {
+            titleView.loadImageUsingCashWithUrlString(imageUrl)
+        }
+        
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: titleView)
+    }
+    
+    func openDesignerProfile() {
+        let userProfileViewController = UserProfileViewController()
+        userProfileViewController.task = task
+        userProfileViewController.view.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+        navigationController?.pushViewController(userProfileViewController, animated: true)
+    }
+    
     
     lazy var inputContainerView: UIView = {
         let containerView = UIView()
@@ -328,6 +358,10 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             cell.bubbleWidthAnchor?.constant = 200
             cell.textView.hidden = true
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+        }
+        
+        if let imageUrl = message.photoUrl {
+            cell.profileImageView.loadImageUsingCashWithUrlString(imageUrl)
         }
         
         return cell

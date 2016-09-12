@@ -6,7 +6,7 @@ import DKImagePickerController
 
 class NewClientViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var tasksListController: TasksListController?
+    var taskViewController: TaskViewController?
     
     let discriptionLabel: UILabel = {
        let tv = UILabel()
@@ -100,23 +100,33 @@ class NewClientViewController: UIViewController, UIImagePickerControllerDelegate
             }
         
         let ref = FIRDatabase.database().reference()
-        ref.child("promocodes").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        let promoRef = ref.child("promocodes")
+        promoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             if snapshot.hasChild(promoCode) {
                 print("есть код")
                 
                 let phone = Digits.sharedInstance().session()?.phoneNumber
                 let uid = Digits.sharedInstance().session()?.userID
-                let values : [String: AnyObject] = ["phone": phone!, "promo": promoCode]
                 
-                ref.child("requests").child("clients").child(uid!).updateChildValues(values, withCompletionBlock: { (error, ref) in
-                    if error != nil {
-                        print(error)
-                        return
-                    }
-                })
+               
+                promoRef.child(promoCode).observeEventType(.Value, withBlock: { (snapshot) in
+                    let company = snapshot.value!["company"] as? String
+                    let rate = snapshot.value!["rate"] as? NSNumber
+                    
+                    let values : [String: AnyObject] = ["phone": phone!, "company": company!, "rate": rate!]
+                    
+                    ref.child("clients").child(uid!).updateChildValues(values, withCompletionBlock: { (error, ref) in
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                    })
+                    
+                    }, withCancelBlock: nil)
+                
                 
 //                ref.child("promocodes").child(promoCode).removeValue()
-                self.tasksListController?.fetchUserAndSetupNavBarTitle()
+                self.taskViewController?.fetchUser()
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
             } else {
@@ -127,8 +137,6 @@ class NewClientViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-//    var secondLabelHeightAnchor: NSLayoutConstraint?
-//    var secondTextFieldHeightAnchor: NSLayoutConstraint?
     
     func setupInputsForLogin() {
         

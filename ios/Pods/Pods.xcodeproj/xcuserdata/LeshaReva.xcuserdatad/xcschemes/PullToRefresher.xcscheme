@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BE9E0D23E168A974A9FA6392350E3E4"
-               BuildableName = "Pods_leandesign.framework"
-               BlueprintName = "Pods-leandesign"
+               BlueprintIdentifier = "7793EE9BA576E5481A07B8649B91A4C0"
+               BuildableName = "PullToRefresh.framework"
+               BlueprintName = "PullToRefresher"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BE9E0D23E168A974A9FA6392350E3E4"
-            BuildableName = "Pods_leandesign.framework"
-            BlueprintName = "Pods-leandesign"
+            BlueprintIdentifier = "7793EE9BA576E5481A07B8649B91A4C0"
+            BuildableName = "PullToRefresh.framework"
+            BlueprintName = "PullToRefresher"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
