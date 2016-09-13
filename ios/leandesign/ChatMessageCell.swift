@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swiftstraints
 
 class ChatMessageCell: UICollectionViewCell {
     
@@ -55,6 +56,23 @@ class ChatMessageCell: UICollectionViewCell {
         return image
     }()
     
+    
+    let awarenessView: UITextView = {
+        let view = UITextView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.editable = false
+        view.font = UIFont.systemFontOfSize(16)
+        return view
+    }()
+    
+    let iconOfEvent: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "psd")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    
     func handleZoomTap(tapGesture: UITapGestureRecognizer) {
   
         //Pro Tip: don't perform a lot of custom logic inside of a view class
@@ -75,6 +93,8 @@ class ChatMessageCell: UICollectionViewCell {
         addSubview(textView)
         addSubview(profileImageView)
         bubbleView.addSubview(messageImageView)
+        bubbleView.addSubview(awarenessView)
+        bubbleView.addSubview(iconOfEvent)
         
         messageImageView.leftAnchor.constraintEqualToAnchor(bubbleView.leftAnchor).active = true
         messageImageView.rightAnchor.constraintEqualToAnchor(bubbleView.rightAnchor).active = true
@@ -100,8 +120,19 @@ class ChatMessageCell: UICollectionViewCell {
         textView.topAnchor.constraintEqualToAnchor(self.topAnchor).active = true
         textView.rightAnchor.constraintEqualToAnchor(bubbleView.rightAnchor).active = true
         textView.heightAnchor.constraintEqualToAnchor(self.heightAnchor).active = true
+       
         
         
+        bubbleView.addConstraints(
+                        iconOfEvent.widthAnchor == 30,
+                        iconOfEvent.heightAnchor == 30,
+                        iconOfEvent.topAnchor == bubbleView.topAnchor + 8,
+                        iconOfEvent.leftAnchor == bubbleView.leftAnchor + 8,
+                        awarenessView.leftAnchor == iconOfEvent.rightAnchor,
+                        awarenessView.topAnchor == bubbleView.topAnchor,
+                        awarenessView.rightAnchor == bubbleView.rightAnchor,
+                        awarenessView.heightAnchor == bubbleView.heightAnchor
+        )
         
         
         
@@ -111,6 +142,9 @@ class ChatMessageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+
+   
     
 }
 

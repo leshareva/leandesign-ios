@@ -90,8 +90,7 @@ class UserProfileViewController: UIViewController {
                 self.emailLabel.text = email
             }
             
-            
-            
+
             
             }, withCancelBlock: nil)
     }

@@ -68,7 +68,6 @@ class UserCell: UITableViewCell {
        let tv = UITextView()
         tv.text = "Очень много текста должно быть в одном поле. И желательно бы все это видеть"
         tv.translatesAutoresizingMaskIntoConstraints = false
-        
         return tv
     }()
     

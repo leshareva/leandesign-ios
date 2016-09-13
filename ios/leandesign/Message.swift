@@ -22,6 +22,10 @@ class Message: NSObject {
     var imageUrl: String?
     var imageWidth: NSNumber?
     var imageHeight: NSNumber?
+    var awareness: String?
+    var concept: String?    
+    var design: String?
+    var source: String?
     func chatPartnerId() -> String? {
         return fromId == Digits.sharedInstance().session()?.userID ? toId : fromId
     }
@@ -39,6 +43,7 @@ class Message: NSObject {
         imageUrl = dictionary["imageUrl"] as? String
         imageWidth = dictionary["imageWidth"] as? NSNumber
         imageHeight = dictionary["imageHeight"] as? NSNumber
+        awareness = dictionary["awareness"] as? String
     }
     
     

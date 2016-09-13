@@ -10,12 +10,16 @@ import UIKit
 import DigitsKit
 
 class Task: NSObject {
-    var awareness: String?
+    var awareness: AnyObject?
+    var concept: AnyObject?
+    var design: AnyObject?
     var company: String?
     var fromId: String?
     var imageUrl: String?
     var phone: String?
     var price: NSNumber?
+    var maxPrice: NSNumber?
+    var minPrice: NSNumber?
     var messages: AnyObject?
     var rate: NSNumber?
     var status: String?

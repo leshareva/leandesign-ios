@@ -73,15 +73,8 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         
         
     }
-    
-    let taskDisctriptionView: UITextView = {
-       let tv = UITextView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.backgroundColor = UIColor(r: 240, g: 240, b: 240)
-        return tv
-    }()
-    
-    
+
+
     lazy var messageField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Type message..."
@@ -264,6 +257,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
                 return
             }
             
+            
             self.messageField.text = nil
             
 //            let userMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
@@ -338,6 +332,12 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     }
     
     
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let message = messages[indexPath.row]
+        handleAwareness(message)
+    }
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ChatMessageCell
         
@@ -345,18 +345,37 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
  
         let message = messages[indexPath.item]
         cell.textView.text = message.text
+        
 
         setupCell(cell, message: message)
+        let awareness = message.awareness
+        let concept = message.concept
         
         // lets modify the bubble width somehow??
         if let text = message.text {
             cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 32
             cell.textView.hidden = false
+            cell.awarenessView.hidden = true
+            cell.iconOfEvent.hidden = true
+        } else if awareness != nil {
+            cell.awarenessView.text = awareness
+            cell.textView.hidden = true
+            cell.awarenessView.hidden = false
+            cell.iconOfEvent.hidden = false
+            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+        } else if concept != nil {
+           cell.awarenessView.text = concept
+            cell.textView.hidden = true
+            cell.awarenessView.hidden = false
+            cell.iconOfEvent.hidden = false
+            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
         } else if message.imageUrl != nil {
             
             //fall in here if its an image message
             cell.bubbleWidthAnchor?.constant = 200
             cell.textView.hidden = true
+            cell.awarenessView.hidden = true
+            cell.iconOfEvent.hidden = true
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
         }
         
@@ -364,9 +383,20 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             cell.profileImageView.loadImageUsingCashWithUrlString(imageUrl)
         }
         
+        
         return cell
     }
 
+    var message: Message?
+
+    func handleAwareness(message: Message) {
+        let awarenessViewController = AwarenessViewController()
+        awarenessViewController.view.backgroundColor = UIColor.whiteColor()
+        awarenessViewController.task = task
+        awarenessViewController.messageStatus = message.toId
+        navigationController?.pushViewController(awarenessViewController, animated: true)
+    }
+    
     
     private func setupCell(cell: ChatMessageCell, message: Message) {
         
@@ -375,9 +405,12 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             cell.messageImageView.loadImageUsingCashWithUrlString(messageImageUrl)
             cell.messageImageView.hidden = false
             cell.bubbleView.backgroundColor = UIColor.clearColor()
+        } else if let awareness = message.awareness {
+            cell.awarenessView.text = awareness
+        } else if let concept = message.concept {
+            cell.awarenessView.text = concept
         } else {
             cell.messageImageView.hidden = true
-            
         }
 
         if message.fromId == Digits.sharedInstance().session()?.userID {
@@ -409,13 +442,15 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
 
         let message = messages[indexPath.item]
         if let text = message.text {
-           
             height = estimateFrameForText(text).height + 14
+        } else if let awareness = message.awareness {
+             height = estimateFrameForText(awareness).height + 14
+        } else if let concept = message.concept {
+            height = estimateFrameForText(concept).height + 14
         } else if let imageWidth = message.imageWidth?.floatValue, imageHeight = message.imageHeight?.floatValue {
             //h1 / w1 = h2 / w2
             //solve for h1
             //h1 = h2 / w2 * w1
-           
             height = CGFloat(imageHeight / imageWidth * 200)
         }
         let width = UIScreen.mainScreen().bounds.width
@@ -439,12 +474,6 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(containerView)
-        view.addSubview(taskDisctriptionView)
-        
-        taskDisctriptionView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-        taskDisctriptionView.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
-        taskDisctriptionView.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
-        taskDisctriptionView.heightAnchor.constraintEqualToConstant(40).active = true
 
         
         containerView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true

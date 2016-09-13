@@ -122,9 +122,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let clientsRef = FIRDatabase.database().reference().child("clients")
         clientsRef.child(digitsUid!).observeEventType(.Value, withBlock: { (snapshot) in
-            if let company = snapshot.value!["company"] as? String {
-                companyView.companyNameLabel.text = company
-            }
+           
+            if let companyNameFromCash = NSUserDefaults.standardUserDefaults().stringForKey("company") {
+                companyView.companyNameLabel.text = companyNameFromCash
+            } 
             
             if let sum = snapshot.value!["sum"] as? NSNumber {
                 companyView.priceLabel.text = String(sum) + " ₽"
@@ -170,10 +171,16 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.taskImageView.image = UIImage.gifWithName("spinner-duo")
             }
             
-            let price = snapshot.value!["price"] as! Int
-           
-            cell.timeLabel.text = String(price) + "₽"
-            print(price)
+           guard let minPrice = snapshot.value!["minPrice"] as? NSNumber else {
+               return
+            }
+            
+            guard let maxPrice = snapshot.value!["maxPrice"] as? NSNumber else {
+               return
+            }
+            
+             cell.timeLabel.text = String(minPrice) + " — " + String(maxPrice) + "₽"
+       
             }, withCancelBlock: nil)
         
         let ref = FIRDatabase.database().reference().child("tasks").child(task.taskId!).child("messages")
@@ -276,7 +283,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 clientsReference.child(userId).observeEventType(.Value, withBlock: { (snapshot) in
                     
                     if let name = snapshot.value!["name"] as? String {
-                        NSUserDefaults.standardUserDefaults().setObject(name, forKey: "myString")
+                        NSUserDefaults.standardUserDefaults().setObject(name, forKey: "name")
+                    }
+                    
+                    if let company = snapshot.value!["company"] as? String {
+                        NSUserDefaults.standardUserDefaults().setObject(company, forKey: "company")
                     }
                     
                     }, withCancelBlock: nil)
@@ -288,7 +299,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Таких не знаем")
                 
                 let usersReference = ref.child("requests").child("clients").child(userId)
-                let values: [String : String] = ["id": userId, "phone": phone]
+                let values: [String : String] = ["id": userId, "phone": phone, "state": "none", "id": userId]
                 
                 usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil {
@@ -327,15 +338,21 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let taskId = snapshot.key
             let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
-            taskRef.queryOrderedByChild("timestamp").observeEventType(.Value, withBlock: { (snapshot) in
+            taskRef.queryOrderedByChild("timestamp").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let task = Task()
-                    task.setValuesForKeysWithDictionary(dictionary)
-                    self.tasks.append(task)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
+                     let status = snapshot.value!["status"] as? String
+                    if status == "Сдано" {
+                        print("Задача сдана")
+                    } else {
+                        let task = Task()
+                        task.setValuesForKeysWithDictionary(dictionary)
+                        self.tasks.append(task)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.reloadData()
+                        })
+
+                    }
                     
                 }
                 
@@ -353,7 +370,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     func showChatControllerForUser(task: Task) {
         let chatController = ChatViewController(collectionViewLayout: UICollectionViewFlowLayout())
         chatController.task = task
-        
         navigationController?.pushViewController(chatController, animated: true)
     }
     
