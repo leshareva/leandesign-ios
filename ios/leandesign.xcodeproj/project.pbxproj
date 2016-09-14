@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7D74EBBBC6D0234AFB32A52E /* Pods_leandesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA129F651D5ADAF6CEE032B4 /* Pods_leandesign.framework */; };
 		CB17F46A1D87D579006B448E /* AwarenessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17F4691D87D579006B448E /* AwarenessViewController.swift */; };
-		CB1BCB2F1D5B99B000DBA44C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB1BCB2E1D5B99B000DBA44C /* GoogleService-Info.plist */; };
 		CB1C0F231D5B851300031C06 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C0F221D5B851300031C06 /* LoginController.swift */; };
 		CB21C3D61D5A36A7006EE0DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21C3D51D5A36A7006EE0DF /* AppDelegate.swift */; };
 		CB21C3DB1D5A36A7006EE0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB21C3D91D5A36A7006EE0DF /* Main.storyboard */; };
@@ -22,6 +21,7 @@
 		CB2BE17C1D847AAB009D2D5F /* spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB2BE17B1D847AAB009D2D5F /* spinner.gif */; };
 		CB2BE1801D847BA8009D2D5F /* spinner-duo.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB2BE17F1D847BA7009D2D5F /* spinner-duo.gif */; };
 		CB40A8751D62DF9100AFF90F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40A8741D62DF9100AFF90F /* User.swift */; };
+		CB42A3091D898A1A0096C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB42A3081D898A1A0096C07B /* GoogleService-Info.plist */; };
 		CB6EB6EF1D5C567100FCC905 /* NewTaskController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EB6EE1D5C567100FCC905 /* NewTaskController+handlers.swift */; };
 		CB76A6B31D5C8D82007DAFD8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB76A6B21D5C8D82007DAFD8 /* Task.swift */; };
 		CB79407F1D85991D00430B11 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB79407E1D85991D00430B11 /* TaskViewController.swift */; };
@@ -43,7 +43,6 @@
 		1F0532F1343FFE09F086A321 /* Pods-leandesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leandesign.debug.xcconfig"; path = "Pods/Target Support Files/Pods-leandesign/Pods-leandesign.debug.xcconfig"; sourceTree = "<group>"; };
 		9BBC290AE63DCCB28EB32F66 /* Pods-leandesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leandesign.release.xcconfig"; path = "Pods/Target Support Files/Pods-leandesign/Pods-leandesign.release.xcconfig"; sourceTree = "<group>"; };
 		CB17F4691D87D579006B448E /* AwarenessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwarenessViewController.swift; sourceTree = "<group>"; };
-		CB1BCB2E1D5B99B000DBA44C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB1C0F221D5B851300031C06 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CB21C3D21D5A36A7006EE0DF /* leandesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leandesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB21C3D51D5A36A7006EE0DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		CB2BE17B1D847AAB009D2D5F /* spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinner.gif; sourceTree = "<group>"; };
 		CB2BE17F1D847BA7009D2D5F /* spinner-duo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "spinner-duo.gif"; sourceTree = "<group>"; };
 		CB40A8741D62DF9100AFF90F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB42A3081D898A1A0096C07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB6EB6EE1D5C567100FCC905 /* NewTaskController+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewTaskController+handlers.swift"; sourceTree = "<group>"; };
 		CB76A6B21D5C8D82007DAFD8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		CB79407E1D85991D00430B11 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				CB21C3DC1D5A36A7006EE0DF /* Assets.xcassets */,
 				CB21C3DE1D5A36A7006EE0DF /* LaunchScreen.storyboard */,
 				CB21C3E11D5A36A7006EE0DF /* Info.plist */,
-				CB1BCB2E1D5B99B000DBA44C /* GoogleService-Info.plist */,
+				CB42A3081D898A1A0096C07B /* GoogleService-Info.plist */,
 			);
 			path = leandesign;
 			sourceTree = "<group>";
@@ -235,7 +235,15 @@
 				TargetAttributes = {
 					CB21C3D11D5A36A7006EE0DF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = K95L3X99VW;
+						DevelopmentTeam = 74DED593Z8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -262,8 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1BCB2F1D5B99B000DBA44C /* GoogleService-Info.plist in Resources */,
 				CBD5DFF41D845C36009F678D /* beep.mp3 in Resources */,
+				CB42A3091D898A1A0096C07B /* GoogleService-Info.plist in Resources */,
 				CB21C3E01D5A36A7006EE0DF /* LaunchScreen.storyboard in Resources */,
 				CB21C3DD1D5A36A7006EE0DF /* Assets.xcassets in Resources */,
 				CB2BE17C1D847AAB009D2D5F /* spinner.gif in Resources */,
@@ -405,7 +413,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mikhail Ozernoy (8L75CGXET8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mikhail Ozernoy (8L75CGXET8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -477,11 +486,14 @@
 			baseConfigurationReference = 1F0532F1343FFE09F086A321 /* Pods-leandesign.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = leandesign/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.leshareva.leandesign;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.leshareva.leandesign.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -490,11 +502,14 @@
 			baseConfigurationReference = 9BBC290AE63DCCB28EB32F66 /* Pods-leandesign.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = leandesign/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.leshareva.leandesign;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.leshareva.leandesign.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

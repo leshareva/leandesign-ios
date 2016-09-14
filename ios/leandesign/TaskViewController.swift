@@ -99,7 +99,44 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
         self.tableView.reloadData()
+        
+        
+        guard let uid = Digits.sharedInstance().session()!.userID else {
+            return
+        }
+        
+        let ref = FIRDatabase.database().reference().child("user-tasks").child(uid)
+        ref.queryLimitedToLast(20).observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            
+            let taskId = snapshot.key
+            let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
+            taskRef.queryOrderedByChild("timestamp").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let status = snapshot.value!["status"] as? String
+                    if status == "Сдано" {
+                        print("Задача сдана")
+                    } else {
+                        let task = Task()
+                        task.setValuesForKeysWithDictionary(dictionary)
+                        self.tasks.append(task)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.reloadData()
+                        })
+                        
+                    }
+                    
+                }
+                
+                }, withCancelBlock: nil)
+            
+            
+            }, withCancelBlock: nil)
+
         self.addTaskButtonView.alpha = 0
     }
     
@@ -117,23 +154,23 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         let companyView = CompanyView(frame: CGRectMake(0, 0, tableView.frame.size.width, 60))
         companyView.backgroundColor = UIColor.whiteColor()
         
-        let digits = Digits.sharedInstance()
-        let digitsUid = digits.session()?.userID
         
-        let clientsRef = FIRDatabase.database().reference().child("clients")
-        clientsRef.child(digitsUid!).observeEventType(.Value, withBlock: { (snapshot) in
-           
-            if let companyNameFromCash = NSUserDefaults.standardUserDefaults().stringForKey("company") {
-                companyView.companyNameLabel.text = companyNameFromCash
-            } 
-            
-            if let sum = snapshot.value!["sum"] as? NSNumber {
-                companyView.priceLabel.text = String(sum) + " ₽"
-            }
-            
-            }, withCancelBlock: nil)
-        
-        
+        if let uid = Digits.sharedInstance().session()?.userID {
+            let clientsRef = FIRDatabase.database().reference().child("clients")
+            clientsRef.child(uid).observeEventType(.Value, withBlock: { (snapshot) in
+                
+                if let companyNameFromCash = NSUserDefaults.standardUserDefaults().stringForKey("company") {
+                    companyView.companyNameLabel.text = companyNameFromCash
+                }
+                
+                if let sum = snapshot.value!["sum"] as? NSNumber {
+                    companyView.priceLabel.text = String(sum) + " ₽"
+                }
+                
+                }, withCancelBlock: nil)
+        } else {
+            print("No DigitsID")
+        }
         
         return companyView
     }
@@ -297,7 +334,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             } else {
                 print("Таких не знаем")
-                
+                print(userId)
                 let usersReference = ref.child("requests").child("clients").child(userId)
                 let values: [String : String] = ["id": userId, "phone": phone, "state": "none", "id": userId]
                 
@@ -329,38 +366,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func observeUserTasks() {
-        guard let uid = Digits.sharedInstance().session()!.userID else {
-            return
-        }
-        
-        let ref = FIRDatabase.database().reference().child("user-tasks").child(uid)
-        ref.queryLimitedToLast(20).observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            
-            let taskId = snapshot.key
-            let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
-            taskRef.queryOrderedByChild("timestamp").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                     let status = snapshot.value!["status"] as? String
-                    if status == "Сдано" {
-                        print("Задача сдана")
-                    } else {
-                        let task = Task()
-                        task.setValuesForKeysWithDictionary(dictionary)
-                        self.tasks.append(task)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.tableView.reloadData()
-                        })
-
-                    }
-                    
-                }
-                
-                }, withCancelBlock: nil)
-
-            
-            }, withCancelBlock: nil)
-
+    
     }
     
     

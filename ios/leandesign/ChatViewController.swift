@@ -331,12 +331,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         }
     }
     
-    
-    
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let message = messages[indexPath.row]
-        handleAwareness(message)
-    }
+
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ChatMessageCell
@@ -346,7 +341,10 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
-
+        
+        let tappy = MyTapGesture(target: self, action: #selector(self.handleAwareness(_:)))
+        
+        
         setupCell(cell, message: message)
         let awareness = message.awareness
         let concept = message.concept
@@ -362,7 +360,10 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             cell.textView.hidden = true
             cell.awarenessView.hidden = false
             cell.iconOfEvent.hidden = false
+            cell.bubbleView.userInteractionEnabled = true
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+            cell.bubbleView.addGestureRecognizer(tappy)
+            tappy.message = message
         } else if concept != nil {
            cell.awarenessView.text = concept
             cell.textView.hidden = true
@@ -382,18 +383,20 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         if let imageUrl = message.photoUrl {
             cell.profileImageView.loadImageUsingCashWithUrlString(imageUrl)
         }
-        
-        
         return cell
     }
+    
+  
+    
 
-    var message: Message?
-
-    func handleAwareness(message: Message) {
+    func handleAwareness(sender : MyTapGesture) {
         let awarenessViewController = AwarenessViewController()
         awarenessViewController.view.backgroundColor = UIColor.whiteColor()
         awarenessViewController.task = task
-        awarenessViewController.messageStatus = message.toId
+        let message = sender.message
+        let status = message?.toId
+        print(status)
+//        awarenessViewController.message = sender.message
         navigationController?.pushViewController(awarenessViewController, animated: true)
     }
     
@@ -580,4 +583,8 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     }
 
 
+}
+
+class MyTapGesture: UITapGestureRecognizer {
+    var message = Message?()
 }

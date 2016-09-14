@@ -15,10 +15,11 @@ class AwarenessViewController: UIViewController {
 
     static let blueColor = UIColor(r: 48, g: 140, b: 229)
     var task: Task?
-    var messageStatus: String?
+    var message: Message?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         setupView()
         // Do any additional setup after loading the view.
@@ -118,8 +119,7 @@ class AwarenessViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        print(messageStatus)
-        print(task?.toId)
+        print(message?.fromId)
         if let taskId = task?.taskId {
             let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
         
