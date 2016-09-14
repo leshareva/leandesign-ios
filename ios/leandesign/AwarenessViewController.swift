@@ -19,9 +19,7 @@ class AwarenessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        setupView()
+
         // Do any additional setup after loading the view.
     }
     
@@ -77,39 +75,44 @@ class AwarenessViewController: UIViewController {
     }()
     
     
-    func setupView() {
-        self.view.addSubview(awarenessView)
-        self.view.addSubview(acceptTaskButtonView)
-        self.view.addSubview(priceLabel)
-        self.view.addSubview(acceptedLabel)
+    func setupView(message: Message) {
+        let awareness = message.awareness
         
-        self.view.addConstraints("H:|-8-[\(awarenessView)]-8-|", "H:|-8-[\(priceLabel)]-8-|")
-        self.view.addConstraints("V:|[\(awarenessView)][\(priceLabel)]")
+        if awareness != nil {
+            self.view.addSubview(awarenessView)
+            self.view.addSubview(acceptTaskButtonView)
+            self.view.addSubview(priceLabel)
+            self.view.addSubview(acceptedLabel)
+            
+            self.view.addConstraints("H:|-8-[\(awarenessView)]-8-|", "H:|-8-[\(priceLabel)]-8-|")
+            self.view.addConstraints("V:|[\(awarenessView)][\(priceLabel)]")
+            
+            self.view.addConstraints(awarenessView.heightAnchor == self.view.heightAnchor - 90)
+            
+            acceptTaskButtonView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
+            acceptTaskButtonView.heightAnchor.constraintEqualToConstant(50).active = true
+            acceptTaskButtonView.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
+            acceptTaskButtonView.rightAnchor.constraintEqualToAnchor(self.view.rightAnchor).active = true
+            
+            acceptTaskButtonView.addSubview(acceptButton)
+            
+            acceptButton.centerYAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerYAnchor).active = true
+            acceptButton.centerXAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerXAnchor).active = true
+            acceptButton.widthAnchor.constraintEqualToAnchor(acceptTaskButtonView.widthAnchor, constant: -26).active = true
+            acceptButton.heightAnchor.constraintEqualToAnchor(acceptTaskButtonView.heightAnchor, constant: -16).active = true
+            
+            acceptButton.addSubview(acceptButtonLabel)
+            acceptButton.addConstraints("V:|[\(acceptButtonLabel)]|")
+            acceptButton.addConstraints(
+                acceptButtonLabel.heightAnchor == acceptButton.heightAnchor,
+                acceptButtonLabel.centerXAnchor == acceptButton.centerXAnchor)
+
+            self.view.addConstraints(acceptedLabel.centerXAnchor == acceptTaskButtonView.centerXAnchor,
+                                     acceptedLabel.centerYAnchor == acceptTaskButtonView.centerYAnchor)
+        } else {
+            print("Это не понимание задачи")
+        }
         
-        self.view.addConstraints(awarenessView.heightAnchor == self.view.heightAnchor - 90)
-        
-        acceptTaskButtonView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
-        acceptTaskButtonView.heightAnchor.constraintEqualToConstant(50).active = true
-        acceptTaskButtonView.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
-        acceptTaskButtonView.rightAnchor.constraintEqualToAnchor(self.view.rightAnchor).active = true
-        
-        acceptTaskButtonView.addSubview(acceptButton)
-        
-        acceptButton.centerYAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerYAnchor).active = true
-        acceptButton.centerXAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerXAnchor).active = true
-        acceptButton.widthAnchor.constraintEqualToAnchor(acceptTaskButtonView.widthAnchor, constant: -26).active = true
-        acceptButton.heightAnchor.constraintEqualToAnchor(acceptTaskButtonView.heightAnchor, constant: -16).active = true
-        
-        acceptButton.addSubview(acceptButtonLabel)
-        acceptButton.addConstraints("V:|[\(acceptButtonLabel)]|")
-        acceptButton.addConstraints(
-            acceptButtonLabel.heightAnchor == acceptButton.heightAnchor,
-            acceptButtonLabel.centerXAnchor == acceptButton.centerXAnchor)
-        
-        
-        
-        self.view.addConstraints(acceptedLabel.centerXAnchor == acceptTaskButtonView.centerXAnchor,
-                                 acceptedLabel.centerYAnchor == acceptTaskButtonView.centerYAnchor)
     }
     
     
@@ -119,7 +122,7 @@ class AwarenessViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        print(message?.fromId)
+        
         if let taskId = task?.taskId {
             let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
         
@@ -155,6 +158,8 @@ class AwarenessViewController: UIViewController {
                 }, withCancelBlock: nil)
         
         }
+        
+      
         
         
     }

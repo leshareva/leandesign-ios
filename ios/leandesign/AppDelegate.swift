@@ -81,20 +81,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func takeActionWithNotification(localNotification: UILocalNotification) {
-        let notificationMessage = localNotification.userInfo!["message"] as! String
-        let username = "Duc"
-        
-        let alertController = UIAlertController(title: "Hey ", message: notificationMessage, preferredStyle: .Alert)
-        
-        let remindMeLaterAction = UIAlertAction(title: "Remind Me Later", style: .Default, handler: nil)
-        let sureAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
-            print("Hallo")
-        }
-        
-        alertController.addAction(remindMeLaterAction)
-        alertController.addAction(sureAction)
-        
-        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+//        let notificationMessage = localNotification.userInfo!["message"] as! String
+//        let username = "Duc"
+//        
+//        let alertController = UIAlertController(title: "Hey ", message: notificationMessage, preferredStyle: .Alert)
+//        
+//        let remindMeLaterAction = UIAlertAction(title: "Remind Me Later", style: .Default, handler: nil)
+//        let sureAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
+//            print("Hallo")
+//        }
+//        
+//        alertController.addAction(remindMeLaterAction)
+//        alertController.addAction(sureAction)
+//        
+//        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -26,6 +26,7 @@
 		CB76A6B31D5C8D82007DAFD8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB76A6B21D5C8D82007DAFD8 /* Task.swift */; };
 		CB79407F1D85991D00430B11 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB79407E1D85991D00430B11 /* TaskViewController.swift */; };
 		CB7940831D866EEB00430B11 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7940821D866EEB00430B11 /* ArchiveViewController.swift */; };
+		CBA50C2D1D89C06600372036 /* Awareness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA50C2C1D89C06600372036 /* Awareness.swift */; };
 		CBBABC2D1D61C2070032CA90 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBABC2C1D61C2070032CA90 /* UserCell.swift */; };
 		CBD33B521D6406140091A391 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD33B511D6406140091A391 /* ChatViewController.swift */; };
 		CBD33B541D6407EE0091A391 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD33B531D6407EE0091A391 /* ChatMessageCell.swift */; };
@@ -62,6 +63,7 @@
 		CB76A6B21D5C8D82007DAFD8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		CB79407E1D85991D00430B11 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		CB7940821D866EEB00430B11 /* ArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
+		CBA50C2C1D89C06600372036 /* Awareness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awareness.swift; sourceTree = "<group>"; };
 		CBBABC2C1D61C2070032CA90 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		CBD33B511D6406140091A391 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		CBD33B531D6407EE0091A391 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				CB76A6B21D5C8D82007DAFD8 /* Task.swift */,
 				CB40A8741D62DF9100AFF90F /* User.swift */,
 				CBD33B571D6411400091A391 /* Message.swift */,
+				CBA50C2C1D89C06600372036 /* Awareness.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				CBDCC7071D6949820020181F /* SettingsLauncher.swift in Sources */,
 				CBDCC7091D6952E10020181F /* SettingCell.swift in Sources */,
 				CB21C3D61D5A36A7006EE0DF /* AppDelegate.swift in Sources */,
+				CBA50C2D1D89C06600372036 /* Awareness.swift in Sources */,
 				CB29A96F1D82D4FF0044C87A /* ProfileViewController.swift in Sources */,
 				CB21C3E91D5A376B006EE0DF /* _TasksListController.swift in Sources */,
 				CBF94DC81D86DB7000DD1413 /* UserProfileViewController.swift in Sources */,

@@ -99,44 +99,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        
         self.tableView.reloadData()
-        
-        
-        guard let uid = Digits.sharedInstance().session()!.userID else {
-            return
-        }
-        
-        let ref = FIRDatabase.database().reference().child("user-tasks").child(uid)
-        ref.queryLimitedToLast(20).observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            
-            let taskId = snapshot.key
-            let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
-            taskRef.queryOrderedByChild("timestamp").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let status = snapshot.value!["status"] as? String
-                    if status == "Сдано" {
-                        print("Задача сдана")
-                    } else {
-                        let task = Task()
-                        task.setValuesForKeysWithDictionary(dictionary)
-                        self.tasks.append(task)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.tableView.reloadData()
-                        })
-                        
-                    }
-                    
-                }
-                
-                }, withCancelBlock: nil)
-            
-            
-            }, withCancelBlock: nil)
-
         self.addTaskButtonView.alpha = 0
     }
     
@@ -366,7 +329,38 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func observeUserTasks() {
-    
+        guard let uid = Digits.sharedInstance().session()!.userID else {
+            return
+        }
+        
+        let ref = FIRDatabase.database().reference().child("user-tasks").child(uid)
+        ref.queryLimitedToLast(20).observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            
+            let taskId = snapshot.key
+            let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
+            taskRef.queryOrderedByChild("timestamp").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                     let status = snapshot.value!["status"] as? String
+                    if status == "Сдано" {
+                        print("Задача сдана")
+                    } else {
+                        let task = Task()
+                        task.setValuesForKeysWithDictionary(dictionary)
+                        self.tasks.append(task)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.reloadData()
+                        })
+
+                    }
+                    
+                }
+                
+                }, withCancelBlock: nil)
+
+            
+            }, withCancelBlock: nil)
+
     }
     
     

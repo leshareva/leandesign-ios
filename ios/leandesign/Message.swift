@@ -44,6 +44,7 @@ class Message: NSObject {
         imageWidth = dictionary["imageWidth"] as? NSNumber
         imageHeight = dictionary["imageHeight"] as? NSNumber
         awareness = dictionary["awareness"] as? String
+        concept = dictionary["concept"] as? String
     }
     
     
