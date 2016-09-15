@@ -190,7 +190,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 
                 cell.notificationsLabel.hidden = false
-                
+                self.createLocalNotification()
                 let path = NSBundle.mainBundle().pathForResource("beep.mp3", ofType:nil)!
                 let url = NSURL(fileURLWithPath: path)
                 
@@ -213,6 +213,19 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         return cell
+    }
+    
+    func createLocalNotification() {
+        let localNotofication = UILocalNotification()
+        localNotofication.fireDate = NSDate(timeIntervalSinceNow: 1)
+        localNotofication.applicationIconBadgeNumber = 1
+        localNotofication.soundName = UILocalNotificationDefaultSoundName
+        
+        localNotofication.userInfo = [
+            "message" : "Check out our new iOS tutorials!"
+        ]
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotofication)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

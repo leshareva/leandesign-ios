@@ -12,6 +12,7 @@ import DigitsKit
 import Firebase
 import FirebaseMessaging
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FIRApp.configure()
         Fabric.with([Digits.self])
-      
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: "62ca7833-6da8-4915-b8c2-db62081324da")
+        
+        
         let notificationTypes : UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
@@ -59,16 +63,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
    
     func createLocalNotification() {
-        let localNotofication = UILocalNotification()
-        localNotofication.fireDate = NSDate(timeIntervalSinceNow: 10)
-        localNotofication.applicationIconBadgeNumber = 1
-        localNotofication.soundName = UILocalNotificationDefaultSoundName
-        
-        localNotofication.userInfo = [
-            "message" : "Check out our new iOS tutorials!"
-        ]
-        
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotofication)
+//        let localNotofication = UILocalNotification()
+//        localNotofication.fireDate = NSDate(timeIntervalSinceNow: 10)
+//        localNotofication.applicationIconBadgeNumber = 1
+//        localNotofication.soundName = UILocalNotificationDefaultSoundName
+//        
+//        localNotofication.userInfo = [
+//            "message" : "Check out our new iOS tutorials!"
+//        ]
+//        
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotofication)
     }
     
     
@@ -81,20 +85,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func takeActionWithNotification(localNotification: UILocalNotification) {
-//        let notificationMessage = localNotification.userInfo!["message"] as! String
-//        let username = "Duc"
-//        
-//        let alertController = UIAlertController(title: "Hey ", message: notificationMessage, preferredStyle: .Alert)
-//        
-//        let remindMeLaterAction = UIAlertAction(title: "Remind Me Later", style: .Default, handler: nil)
-//        let sureAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
-//            print("Hallo")
-//        }
-//        
-//        alertController.addAction(remindMeLaterAction)
-//        alertController.addAction(sureAction)
-//        
-//        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+        let notificationMessage = localNotification.userInfo!["message"] as! String
+        let username = "Duc"
+        
+        let alertController = UIAlertController(title: "Hey ", message: notificationMessage, preferredStyle: .Alert)
+        
+        let remindMeLaterAction = UIAlertAction(title: "Remind Me Later", style: .Default, handler: nil)
+        let sureAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
+            print("Hallo")
+        }
+        
+        alertController.addAction(remindMeLaterAction)
+        alertController.addAction(sureAction)
+        
+        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import Firebase
-import DigitsKit
 
-class Awareness: NSObject {
+class Concept: NSObject {
    
     var imgUrl: String?
-    
+    var text: String?
+    var status: String?
+    var deadline: NSNumber?
     
     init(dictionary: [String: AnyObject]) {
         super.init()
-       
         imgUrl = dictionary["imgUrl"] as? String
-        
+        text = dictionary["text"] as? String
     }
     
     

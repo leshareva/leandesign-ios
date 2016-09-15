@@ -17,14 +17,17 @@ class AwarenessViewController: UIViewController {
     var task: Task?
     var message: Message?
     
+    let ref = FIRDatabase.database().reference()
+    let acceptView = AcceptView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    
     let awarenessView: UITextView = {
-       let tv = UITextView()
+        let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.font = UIFont.systemFontOfSize(16)
         tv.backgroundColor = UIColor.clearColor()
@@ -39,128 +42,83 @@ class AwarenessViewController: UIViewController {
         return tv
     }()
     
-    lazy var acceptTaskButtonView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(r: 172, g: 223, b: 61)
-        return view
-    }()
-    
-    lazy var acceptButton: UIView = {
-        let view = UIView()
-        view.backgroundColor = blueColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(acceptAwareness)))
-        view.userInteractionEnabled = true
-        view.layer.cornerRadius = 4
-        view.layer.masksToBounds = true
-        view.backgroundColor = UIColor(r: 172, g: 223, b: 61)
-        return view
-    }()
-    
-    
-    let acceptButtonLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.whiteColor()
-        return label
-    }()
-    
-    let acceptedLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Согласовано"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.whiteColor()
-        return label
-    }()
-    
     
     func setupView(message: Message) {
-        let awareness = message.awareness
+        self.view.addSubview(acceptView)
+        self.view.addSubview(awarenessView)
+        self.view.addSubview(priceLabel)
+        self.view.addConstraints("H:|-8-[\(awarenessView)]-8-|", "H:|-8-[\(priceLabel)]-8-|")
+        self.view.addConstraints("V:|[\(awarenessView)][\(priceLabel)]")
+        self.view.addConstraints(awarenessView.heightAnchor == self.view.heightAnchor - 90)
         
-        if awareness != nil {
-            self.view.addSubview(awarenessView)
-            self.view.addSubview(acceptTaskButtonView)
-            self.view.addSubview(priceLabel)
-            self.view.addSubview(acceptedLabel)
-            
-            self.view.addConstraints("H:|-8-[\(awarenessView)]-8-|", "H:|-8-[\(priceLabel)]-8-|")
-            self.view.addConstraints("V:|[\(awarenessView)][\(priceLabel)]")
-            
-            self.view.addConstraints(awarenessView.heightAnchor == self.view.heightAnchor - 90)
-            
-            acceptTaskButtonView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
-            acceptTaskButtonView.heightAnchor.constraintEqualToConstant(50).active = true
-            acceptTaskButtonView.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
-            acceptTaskButtonView.rightAnchor.constraintEqualToAnchor(self.view.rightAnchor).active = true
-            
-            acceptTaskButtonView.addSubview(acceptButton)
-            
-            acceptButton.centerYAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerYAnchor).active = true
-            acceptButton.centerXAnchor.constraintEqualToAnchor(acceptTaskButtonView.centerXAnchor).active = true
-            acceptButton.widthAnchor.constraintEqualToAnchor(acceptTaskButtonView.widthAnchor, constant: -26).active = true
-            acceptButton.heightAnchor.constraintEqualToAnchor(acceptTaskButtonView.heightAnchor, constant: -16).active = true
-            
-            acceptButton.addSubview(acceptButtonLabel)
-            acceptButton.addConstraints("V:|[\(acceptButtonLabel)]|")
-            acceptButton.addConstraints(
-                acceptButtonLabel.heightAnchor == acceptButton.heightAnchor,
-                acceptButtonLabel.centerXAnchor == acceptButton.centerXAnchor)
-
-            self.view.addConstraints(acceptedLabel.centerXAnchor == acceptTaskButtonView.centerXAnchor,
-                                     acceptedLabel.centerYAnchor == acceptTaskButtonView.centerYAnchor)
-        } else {
-            print("Это не понимание задачи")
-        }
+        acceptView.translatesAutoresizingMaskIntoConstraints = false
         
+        self.view.addConstraints(acceptView.widthAnchor == self.view.widthAnchor,
+                                 acceptView.bottomAnchor == self.view.bottomAnchor,
+                                 acceptView.heightAnchor == 50)
     }
     
     
     func acceptAwareness() {
         
+        let values : [String: AnyObject] = ["status": "accept"]
+        if let taskId = task!.taskId {
+            ref.child("tasks").child(taskId).child("awareness").updateChildValues(values) { (error, ref) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                self.acceptView.acceptedLabel.text = "Согласовано"
+                self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+             
+            }
+        }
+        
         
     }
     
+   
+    
     override func viewWillAppear(animated: Bool) {
+        let acceptView = AcceptView(frame: CGRectMake(0, 0, view.frame.size.width, 60))
         
         if let taskId = task?.taskId {
-            let taskRef = FIRDatabase.database().reference().child("tasks").child(taskId)
-        
-            taskRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+           let taskRef = ref.child("tasks").child(taskId)
+            
+            taskRef.child("awareness").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                
                 guard let status = snapshot.value!["status"] as? String else {
                     return
                 }
                 
-                if status == "awareness" {
-                    self.acceptedLabel.hidden = true
-                } else {
-                   self.acceptButton.hidden = true
-                    self.acceptButtonLabel.hidden = true
-                    self.acceptedLabel.hidden = false
-                    self.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
-                }
+                    if status != "accept" {
+                        self.acceptView.acceptedLabel.hidden = false
+                        self.acceptView.acceptedLabel.text = "Согласовать"
+                        self.acceptView.acceptTaskButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.acceptAwareness)))
+                    } else {
+                        self.acceptView.acceptedLabel.hidden = false
+                        self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+                    }
+  
+                        if let text = snapshot.value!["text"] as? String {
+                            self.awarenessView.text = text
+                        }
                 
-                guard let minPrice = snapshot.value!["minPrice"] as? NSNumber else {
-                    return
-                }
-                guard let maxPrice = snapshot.value!["maxPrice"] as? NSNumber else {
-                    return
-                }
-                
-                self.priceLabel.text = String(minPrice) + " — " + String(maxPrice) + "₽"
-                
+
                 }, withCancelBlock: nil)
             
-            taskRef.child("awareness").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                if let text = snapshot.value!["text"] as? String {
-                    self.awarenessView.text = text
-                }
-                }, withCancelBlock: nil)
-        
+            taskRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            guard let minPrice = snapshot.value!["minPrice"] as? NSNumber else {
+                return
+            }
+            guard let maxPrice = snapshot.value!["maxPrice"] as? NSNumber else {
+                return
+            }
+            
+            self.priceLabel.text = String(minPrice) + " — " + String(maxPrice) + "₽"
+            }, withCancelBlock: nil)
         }
-        
-      
-        
         
     }
 

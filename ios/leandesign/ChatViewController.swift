@@ -37,6 +37,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
 
         let taskMessagesRef = FIRDatabase.database().reference().child("tasks").child(taskId).child("messages")
         taskMessagesRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+           
             let status = snapshot.value!["status"] as? String
                 if status == "toClient" {
                     let key = snapshot.key
@@ -337,7 +338,8 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! ChatMessageCell
         
         cell.chatLogController = self
- 
+        
+        print(self.messages)
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
@@ -393,11 +395,22 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
 
     func handleAwareness(sender : MyTapGesture) {
-        let awarenessViewController = AwarenessViewController()
-        awarenessViewController.view.backgroundColor = UIColor.whiteColor()
-        awarenessViewController.task = task
-        awarenessViewController.setupView(sender.message!)
-        navigationController?.pushViewController(awarenessViewController, animated: true)
+        if sender.message?.awareness != nil {
+            let awarenessViewController = AwarenessViewController()
+            awarenessViewController.view.backgroundColor = UIColor.whiteColor()
+            awarenessViewController.task = task
+            awarenessViewController.message = sender.message!
+            awarenessViewController.setupView(sender.message!)
+            navigationController?.pushViewController(awarenessViewController, animated: true)
+        } else if sender.message?.concept != nil {
+            
+            let flowLayout = UICollectionViewFlowLayout()
+            let conceptViewController = ConceptViewController(collectionViewLayout: flowLayout)
+            conceptViewController.view.backgroundColor = UIColor.whiteColor()
+            conceptViewController.task = task
+            navigationController?.pushViewController(conceptViewController, animated: true)
+        }
+        
     }
     
     
