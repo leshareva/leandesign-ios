@@ -75,14 +75,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }()
     
-    
+    lazy var logoutButton: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleLogout)))
+        view.userInteractionEnabled = true
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().statusBarStyle = .Default
         
-        setupInputsForLogin()
+        setupView()
         loadUserInfo()
     }
     
@@ -96,9 +103,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func loadUserInfo() {
-        if let myLoadedString = NSUserDefaults.standardUserDefaults().stringForKey("name") {
-            self.discriptionLabel.text = myLoadedString
+        if let userName = NSUserDefaults.standardUserDefaults().stringForKey("name") {
+            self.discriptionLabel.text = userName
         }
+        
+        if let userPhoto = NSUserDefaults.standardUserDefaults().stringForKey("photoUrl") {
+            self.discriptionLabel.text = userPhoto
+        }
+        
 
         let userId = Digits.sharedInstance().session()?.userID
         let ref = FIRDatabase.database().reference().child("clients").child(userId!)
@@ -106,37 +118,54 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             self.discriptionLabel.text = snapshot.value!["name"] as? String
             self.firstField.text = snapshot.value!["company"] as? String
-            guard let profileImageUrl = snapshot.value!["imageUrl"] as? String else {
+            guard let profileImageUrl = snapshot.value!["photoUrl"] as? String else {
                 return
             }
             
             let url = NSURL(string: profileImageUrl)
             self.profilePic.hnk_setImageFromURL(url!)
+            NSUserDefaults.standardUserDefaults().setObject(profileImageUrl, forKey: "photoUrl")
+            
             
             }, withCancelBlock: nil)
     }
     
-    
+    func handleLogout() {
+        do {
+            try Digits.sharedInstance().logOut()
+            try FIRAuth.auth()?.signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        
+        let loginController = LoginController()
+        loginController.profileViewController = self
+        presentViewController(loginController, animated: true, completion: nil)
+    }
     
     func handelCancel() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     
-    func setupInputsForLogin() {
+    func setupView() {
         
         view.addSubview(discriptionLabel)
         view.addSubview(profilePic)
         view.addSubview(inputForName)
         view.addSubview(closeButton)
+        view.addSubview(logoutButton)
+        
         
         view.addConstraints("V:|-20-[\(closeButton)]")
         view.addConstraints("H:|-8-[\(closeButton)]")
         
         view.addConstraints("V:|-60-[\(profilePic)][\(discriptionLabel)]-20-[\(inputForName)]")
-        view.addConstraints("H:|-8-[\(inputForName)]-8-|")
+        view.addConstraints("V:[\(logoutButton)]|")
+        view.addConstraints("H:|-8-[\(inputForName)]-8-|", "H:|-8-[\(logoutButton)]-8-|")
         view.addConstraints(discriptionLabel.widthAnchor == view.widthAnchor, discriptionLabel.heightAnchor == 40,
-                            inputForName.heightAnchor == 40, profilePic.centerXAnchor == view.centerXAnchor, profilePic.heightAnchor == 76, profilePic.widthAnchor == 76, closeButton.widthAnchor == 30, closeButton.heightAnchor == 30)
+                            inputForName.heightAnchor == 40, profilePic.centerXAnchor == view.centerXAnchor, profilePic.heightAnchor == 76, profilePic.widthAnchor == 76, closeButton.widthAnchor == 30, closeButton.heightAnchor == 30,
+                            logoutButton.heightAnchor == 40)
         
         inputForName.addSubview(firstLabel)
         inputForName.addSubview(firstField)
@@ -196,7 +225,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func sendMessageWithImageUrl(imageUrl: String, image: UIImage) {
         let userId = Digits.sharedInstance().session()?.userID
         let ref = FIRDatabase.database().reference().child("clients").child(userId!)
-        var values: [String: AnyObject] = ["imageUrl": imageUrl]
+        var values: [String: AnyObject] = ["photoUrl": imageUrl]
 
         ref.updateChildValues(values) { (error, ref) in
             if error != nil {

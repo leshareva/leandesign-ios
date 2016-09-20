@@ -208,7 +208,6 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
     
     private func uploadToFirebaseStorageUsingImage(image: UIImage) {
         let imageName = NSUUID().UUIDString
-        print(imageName)
         let ref = FIRStorage.storage().reference().child("message_image").child(imageName)
         
         if let uploadData = UIImageJPEGRepresentation(image, 0.2) {
@@ -219,9 +218,9 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
                 }
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString {
+                    print(imageUrl)
                     self.sendMessageWithImageUrl(imageUrl, image: image)
                 }
-                
                 
             })
         }
@@ -248,7 +247,10 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let childRef = ref.childByAutoId()
         let toId = "dmq43RNjAfNSbw7J0zR6JEU2sSO2"
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
-        var values: [String: AnyObject] = ["taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId, "status": "toDesigner"]
+        guard let userPhoto = NSUserDefaults.standardUserDefaults().stringForKey("photoUrl") else {
+           return
+        }
+        var values: [String: AnyObject] = ["taskId": taskId, "timestamp": timestamp, "fromId": fromId, "toId": toId, "status": "toDesigner", "photoUrl": userPhoto]
         
         properties.forEach({values[$0] = $1})
         
@@ -385,8 +387,8 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
         }
         
-        if let imageUrl = message.photoUrl {
-            cell.profileImageView.loadImageUsingCashWithUrlString(imageUrl)
+        if let photoUrl = message.photoUrl {
+            cell.profileImageView.loadImageUsingCashWithUrlString(photoUrl)
         }
         return cell
     }

@@ -57,15 +57,10 @@ extension NewTaskController: UIImagePickerControllerDelegate, UINavigationContro
         let postRef = ref.childByAutoId()
         let timestamp: NSNumber = Int(NSDate().timeIntervalSince1970)
         let taskId = postRef.key
-        let status = "На оценке"
         let toId = "designStudio"
         let phone = Digits.sharedInstance().session()?.phoneNumber
-        let company = "Вот такие пироги"
-        let price = 0
-        let timeState = 0
         
-        
-                    let values : [String : AnyObject] = ["awareness": "", "fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": status, "toId": toId, "price": price, "timeState": timeState, "phone": phone!, "company": company, "rate": 0.5]
+                    let values : [String : AnyObject] = ["fromId": fromId, "text": taskText, "taskId": taskId, "timestamp": timestamp, "status": "none", "toId": toId, "price": 0, "timeState": 0, "phone": phone!, "rate": 0.5]
                     
                     postRef.setValue(values)
                     postRef.updateChildValues(values) { (error, ref) in

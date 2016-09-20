@@ -161,9 +161,26 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let taskRef = FIRDatabase.database().reference().child("tasks").child(task.taskId!)
         taskRef.observeEventType(.Value, withBlock: { (snapshot) in
-            if let status = snapshot.value!["status"] as? String {
-                cell.detailTextLabel?.text = status
+            guard let status = snapshot.value!["status"] as? String else {
+                return
             }
+            
+            if status == "none" {
+                cell.detailTextLabel?.text = "Ищем дизайнера"
+            } else if status == "awareness" {
+                cell.detailTextLabel?.text = "Дизайнер разбирается в задаче"
+            } else if status == "awarenessApprove" {
+                cell.detailTextLabel?.text = "Согласуйте понимание задачи"
+            } else if status == "concept" {
+                cell.detailTextLabel?.text = "Дизайнер работает над черновиком"
+            } else if status == "conceptApprove" {
+                cell.detailTextLabel?.text = "Согласуйте черновик"
+            } else if status == "design" {
+                cell.detailTextLabel?.text = "Дизайнер работает над чистовиком"
+            } else if status == "design" {
+                cell.detailTextLabel?.text = "Примите работу"
+            }
+            
             
             if let taskImageUrl = snapshot.value!["imageUrl"] as? String {
                 cell.taskImageView.loadImageUsingCashWithUrlString(taskImageUrl)
@@ -286,6 +303,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
+        
+        
         let ref = FIRDatabase.database().reference()
         let clientsReference = ref.child("clients")
         
@@ -293,6 +312,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if snapshot.hasChild(userId) {
                 print("Знакомое лицо")
+               
                 clientsReference.child(userId).observeEventType(.Value, withBlock: { (snapshot) in
                     
                     if let name = snapshot.value!["name"] as? String {
@@ -310,9 +330,12 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             } else {
                 print("Таких не знаем")
-                print(userId)
+                guard let refreshedToken = FIRInstanceID.instanceID().token() else {
+                    return
+                }
+                print(refreshedToken)
                 let usersReference = ref.child("requests").child("clients").child(userId)
-                let values: [String : String] = ["id": userId, "phone": phone, "state": "none", "id": userId]
+                let values: [String : String] = ["id": userId, "phone": phone, "state": "none", "id": userId, "token": refreshedToken]
                 
                 usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil {
@@ -355,7 +378,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                      let status = snapshot.value!["status"] as? String
-                    if status == "Сдано" {
+                    if status == "done" {
                         print("Задача сдана")
                     } else {
                         let task = Task()

@@ -40,18 +40,33 @@ class ConceptViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func setupView() {
-        
         if let taskId = self.task?.taskId {
-        ref.child("tasks").child(taskId).child("concept").observeEventType(.Value, withBlock: { (snapshot) in
-            let status = snapshot.value!["status"] as? String
-            if status != "accept" {
-                self.acceptView.acceptedLabel.text = "Согласовать"
-                self.acceptView.acceptTaskButtonView.userInteractionEnabled = true
-            } else {
-                self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
-            }
             
+            ref.child("tasks").child(taskId).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                var status = snapshot.value!["status"] as! String
+               var statusLength = status.characters.count
+                if statusLength <= 6 {
+                    
+                } else {
+                    var index1 = status.endIndex.advancedBy(-7)
+                    var child = status.substringToIndex(index1)
+                    
+                    self.ref.child("tasks").child(taskId).child(child).observeEventType(.Value, withBlock: { (snapshot) in
+                        let status = snapshot.value!["status"] as? String
+                        if status != "accept" {
+                            self.acceptView.acceptedLabel.text = "Согласовать"
+                            self.acceptView.acceptTaskButtonView.userInteractionEnabled = true
+                        } else {
+                            self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+                        }
+                        
+                        }, withCancelBlock: nil)
+
+                }
+                
             }, withCancelBlock: nil)
+            
+            
         }
         self.view.addSubview(acceptView)
         acceptView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,35 +78,89 @@ class ConceptViewController: UICollectionViewController, UICollectionViewDelegat
     
     func observeConcept() {
         if let taskId = self.task?.taskId {
-            ref.child("tasks").child(taskId).child("concept").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-                guard let dictionary = snapshot.value as? [String : AnyObject] else {
-                    return
+            
+            ref.child("tasks").child(taskId).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                var status = snapshot.value!["status"] as! String
+                var statusLength = status.characters.count
+                var child = ""
+                if statusLength <= 6 {
+                    child = snapshot.value!["status"] as! String
+                } else {
+                    var index1 = status.endIndex.advancedBy(-7)
+                    child = status.substringToIndex(index1)
                 }
-                self.concepts.append(Concept(dictionary: dictionary))
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.collectionView?.reloadData()
-                })
+                
+                self.ref.child("tasks").child(taskId).child(child).observeEventType(.ChildAdded, withBlock: { (snapshot) in
+                    guard let dictionary = snapshot.value as? [String : AnyObject] else {
+                        return
+                    }
+                    self.concepts.append(Concept(dictionary: dictionary))
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.collectionView?.reloadData()
+                    })
+                    
+                    }, withCancelBlock: nil)
+                
+                
+
                 
                 }, withCancelBlock: nil)
+            
+         
+            
         }
     }
     
     
     func acceptConcept() {
-    
-        let values : [String: AnyObject] = ["status": "accept"]
+
         if let taskId = task!.taskId {
-            ref.child("tasks").child(taskId).child("concept").updateChildValues(values) { (error, ref) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                self.acceptView.acceptedLabel.text = "Согласовано"
-                self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
-                
-            }
-        }
         
+             ref.child("tasks").child(taskId).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                var status = snapshot.value!["status"] as! String
+                
+                var newstatus = ""
+                if status == "conceptApprove" {
+                    newstatus = "design"
+                } else if status == "designApprove" {
+                    newstatus = "sources"
+                }
+                
+                var statusLength = status.characters.count
+                if statusLength <= 6 {
+                    return
+                } else {
+
+                 var index1 = status.endIndex.advancedBy(-7)
+                 var child = status.substringToIndex(index1)
+                
+                 let values : [String: AnyObject] = ["status": newstatus]
+                 self.ref.child("tasks").child(taskId).updateChildValues(values) { (error, ref) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    self.acceptView.acceptedLabel.text = "Согласовано"
+                    self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+                    
+                 }
+                
+                 let awStatus : [String: AnyObject] = ["status": "accept"]
+                 self.ref.child("tasks").child(taskId).child(child).updateChildValues(awStatus, withCompletionBlock: { (err, ref) in
+                     if err != nil {
+                        print(err)
+                        return
+                    }
+                 })
+                }
+                
+                 }, withCancelBlock: nil)
+            
+            
+            
+            
+        }
+
     }
     
     
@@ -106,9 +175,6 @@ class ConceptViewController: UICollectionViewController, UICollectionViewDelegat
         if let imageUrl = concept.imgUrl {
             cell.imageView.loadImageUsingCashWithUrlString(imageUrl)
         }
-        
-        
-        
         return cell
     }
     
@@ -137,11 +203,11 @@ class CustomCell: UICollectionViewCell {
     let imageView: UIImageView = {
        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .ScaleAspectFit
         return iv
     }()
     
     func setupView() {
-        
         backgroundColor = UIColor.whiteColor()
         addSubview(imageView)
         addConstraints(imageView.leftAnchor == self.leftAnchor,

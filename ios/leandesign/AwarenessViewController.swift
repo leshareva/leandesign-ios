@@ -32,6 +32,7 @@ class AwarenessViewController: UIViewController {
         tv.font = UIFont.systemFontOfSize(16)
         tv.backgroundColor = UIColor.clearColor()
         tv.textColor = UIColor.blackColor()
+        tv.editable = false
         return tv
     }()
     
@@ -61,9 +62,9 @@ class AwarenessViewController: UIViewController {
     
     func acceptAwareness() {
         
-        let values : [String: AnyObject] = ["status": "accept"]
+        let values : [String: AnyObject] = ["status": "concept"]
         if let taskId = task!.taskId {
-            ref.child("tasks").child(taskId).child("awareness").updateChildValues(values) { (error, ref) in
+            ref.child("tasks").child(taskId).updateChildValues(values) { (error, ref) in
                 if error != nil {
                     print(error)
                     return
@@ -72,6 +73,15 @@ class AwarenessViewController: UIViewController {
                 self.acceptView.acceptTaskButtonView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
              
             }
+            
+        let awStatus : [String: AnyObject] = ["status": "accept"]
+           ref.child("tasks").child(taskId).child("awareness").updateChildValues(awStatus, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+           })
+            
         }
         
         
@@ -103,21 +113,15 @@ class AwarenessViewController: UIViewController {
                         if let text = snapshot.value!["text"] as? String {
                             self.awarenessView.text = text
                         }
+                guard let price = snapshot.value!["price"] as? NSNumber else {
+                    return
+                }
                 
+                self.priceLabel.text = String(price) + "₽"
 
                 }, withCancelBlock: nil)
             
-            taskRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            
-            guard let minPrice = snapshot.value!["minPrice"] as? NSNumber else {
-                return
-            }
-            guard let maxPrice = snapshot.value!["maxPrice"] as? NSNumber else {
-                return
-            }
-            
-            self.priceLabel.text = String(minPrice) + " — " + String(maxPrice) + "₽"
-            }, withCancelBlock: nil)
+           
         }
         
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class User: NSObject {
     var bills: AnyObject?
+    var userToken: String?
     var BIK: String?
     var KPP: String?
     var OGRN: String?
@@ -24,6 +25,7 @@ class User: NSObject {
     var email: String?
     var phone: String?
     var rate: NSNumber?
-    var profileImageUrl: String?
+    var photoUrl: String?
+    var token: String?
 }
 

@@ -15,7 +15,7 @@ class LoginController: UIViewController {
 //    var tasksListController: TasksListController?
     var taskViewController: TaskViewController?
     var newClientViewController: NewClientViewController?
-    
+    var profileViewController: ProfileViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

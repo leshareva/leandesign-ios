@@ -10,32 +10,26 @@ import UIKit
 import Fabric
 import DigitsKit
 import Firebase
-import FirebaseMessaging
+import FirebaseMessaging 
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
     var window: UIWindow?
- 
-    let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 64))
     
     
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+    // Application started
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+    {
+        let pushNotificationSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(pushNotificationSettings)
+        application.registerForRemoteNotifications()
+        
         FIRApp.configure()
         Fabric.with([Digits.self])
         
-        OneSignal.initWithLaunchOptions(launchOptions, appId: "62ca7833-6da8-4915-b8c2-db62081324da")
-        
-        
-        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
-        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
-        application.registerUserNotificationSettings(notificationSettings)
-        application.registerForRemoteNotifications()
-        
-        self.createLocalNotification()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "tokenRefreshNotification:", name: kFIRInstanceIDTokenRefreshNotification, object: nil)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
@@ -49,92 +43,117 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
-        
-        
         return true
     }
     
-    private var digitsAppearance: DGTAppearance {
-        let appearance = DGTAppearance()
-        appearance.backgroundColor = UIColor.redColor()
+    
+    
+    
+    // Handle refresh notification token
+    func tokenRefreshNotification(notification: NSNotification) {
+        let refreshedToken = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(refreshedToken)")
         
-        return appearance
-    }
-    
-   
-    func createLocalNotification() {
-//        let localNotofication = UILocalNotification()
-//        localNotofication.fireDate = NSDate(timeIntervalSinceNow: 10)
-//        localNotofication.applicationIconBadgeNumber = 1
-//        localNotofication.soundName = UILocalNotificationDefaultSoundName
-//        
-//        localNotofication.userInfo = [
-//            "message" : "Check out our new iOS tutorials!"
-//        ]
-//        
-//        UIApplication.sharedApplication().scheduleLocalNotification(localNotofication)
-    }
-    
-    
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        if application.applicationState == .Active {
-            // we are inside the app, do sth
+        guard let userId = Digits.sharedInstance().session()?.userID as String! else {
+            return
+        }
+        let ref = FIRDatabase.database().reference().child("clients")
+        let values : [String : AnyObject] = ["userToken" : refreshedToken!]
+        ref.updateChildValues(values) { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+        }
+       
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        if (refreshedToken != nil)
+        {
+            connectToFcm()
+            
+            FIRMessaging.messaging().subscribeToTopic("/topics/topic")
         }
         
-        self.takeActionWithNotification(notification)
     }
     
-    func takeActionWithNotification(localNotification: UILocalNotification) {
-        let notificationMessage = localNotification.userInfo!["message"] as! String
-        let username = "Duc"
-        
-        let alertController = UIAlertController(title: "Hey ", message: notificationMessage, preferredStyle: .Alert)
-        
-        let remindMeLaterAction = UIAlertAction(title: "Remind Me Later", style: .Default, handler: nil)
-        let sureAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
-            print("Hallo")
+    
+    // Connect to FCM
+    func connectToFcm() {
+        FIRMessaging.messaging().connectWithCompletion { (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
         }
-        
-        alertController.addAction(remindMeLaterAction)
-        alertController.addAction(sureAction)
-        
-        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    
+    // Handle notification when the application is in foreground
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // Print message ID.
+        print("Message ID: \(userInfo["gcm.message_id"])")
+       
+        // Print full message.
+        print("%@", userInfo)
+    }
+    
+    
+    // Application will enter in background
+    func applicationWillResignActive(application: UIApplication)
+    {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
+    
+    
+    
+        // Application entered in background
+        func applicationDidEnterBackground(application: UIApplication)
+        {
+//            FIRMessaging.messaging().disconnect()
+//            print("Disconnected from FCM.")
+            
+            let refreshedToken = FIRInstanceID.instanceID().token()
+            if (refreshedToken != nil)
+            {
+                connectToFcm()
+                
+                FIRMessaging.messaging().subscribeToTopic("/topics/topic")
+            }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
+        }
+    
+    
+    
+    // Application will enter in foreground
+    func applicationWillEnterForeground(application: UIApplication)
+    {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    
+    
+    // Application entered in foreground
+    func applicationDidBecomeActive(application: UIApplication)
+    {
+        connectToFcm()
+        
+        application.applicationIconBadgeNumber = 0;
     }
-
-    func applicationWillTerminate(application: UIApplication) {
+    
+    
+    
+    // Application will terminate
+    func applicationWillTerminate(application: UIApplication)
+    {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("DEVICE TOKEN = \(deviceToken)")
-    }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print(error)
-    }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-//        print("MessageID : \(userInfo["gcm_message_id"]!)")
-        print(userInfo)
-    }
-
 }
 

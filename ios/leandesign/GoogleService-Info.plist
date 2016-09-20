@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>902354984906-o62g1jojtk1627b5ij7i2n7dhf1a8msi.apps.googleusercontent.com</string>
+	<string>902354984906-ae8lhf97h6hp4thsls3an70fc9eho84v.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.902354984906-o62g1jojtk1627b5ij7i2n7dhf1a8msi</string>
+	<string>com.googleusercontent.apps.902354984906-ae8lhf97h6hp4thsls3an70fc9eho84v</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDzBuVuFT5bzuOzD-Y3KOQKAuvBne1uQ20</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ru.leshareva.leandesign.iOS</string>
+	<string>com.leshareva.leandesign.iOS</string>
 	<key>PROJECT_ID</key>
 	<string>leandesign-4e7ec</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:902354984906:ios:9a77484839c5323a</string>
+	<string>1:902354984906:ios:287007595332fc20</string>
 	<key>DATABASE_URL</key>
 	<string>https://leandesign-4e7ec.firebaseio.com</string>
 </dict>
